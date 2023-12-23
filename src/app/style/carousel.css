@@ -1,0 +1,52 @@
+.carousel {
+    perspective: 500px;
+    transform-style: preserve-3d;
+}
+
+.card-container {
+    transform: rotateX(calc(var(--offset) * 50deg)) 
+        scaleX(calc(1 + var(--abs-offset) * -0.4)) 
+        translateZ(calc(var(--abs-offset) * -30rem)) 
+        translateY(calc(var(--direction) * -30rem));
+    filter: blur(calc(var(--abs-offset) * 1rem));
+    transition: all 0.3s ease-out;
+}
+
+.card {
+    /* background-color: hsl(280deg, 40%, calc(100% - var(--abs-offset) * 50%)); */
+    transition: all 0.3s ease-out;
+    filter: drop-shadow(0 0 0.75rem white);
+}
+
+.card p,
+.card h2 {
+    transition: all 0.3s ease-out;
+    opacity: var(--active);
+}
+
+.nav {
+    color: white;
+    font-size: 5rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    z-index: 2;
+    cursor: pointer;
+    user-select: none;
+    background: unset;
+    border: unset;
+}
+
+.nav.top {
+    position: relative;
+    margin: auto;
+    filter: drop-shadow(0 0 0.75rem white);
+}
+
+.nav.bottom {
+    position: relative;
+    margin: auto;
+    filter: drop-shadow(0 0 0.75rem white);
+}
