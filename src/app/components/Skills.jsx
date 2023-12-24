@@ -1,8 +1,7 @@
-'use client'
 import React from 'react'
 import { SiTailwindcss, SiNextdotjs, SiReact, SiBootstrap, SiHtml5, 
     SiCss3, SiJavascript, SiNodedotjs, SiExpress, SiMongodb, SiMysql, 
-    SiPostgresql, SiPython, SiR } from "react-icons/si";
+    SiPostgresql, SiPython } from "react-icons/si";
 
 import { DiJava } from "react-icons/di";
 
@@ -91,7 +90,7 @@ const skills = [
     }
 ]
 
-export const Skills = () => {
+const Skills = () => {
     return (
         <div className='container flex flex-col justify-center relative z-[1] items-center' id="skills">
             <div className='wrapper flex relative justify-between items-center flex-col w-full gap-3'>
@@ -120,3 +119,5 @@ export const Skills = () => {
         </div>
     )
 }
+
+export default Skills
