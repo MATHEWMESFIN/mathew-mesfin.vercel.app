@@ -36,7 +36,7 @@ export default function page() {
     ]
 
   return (
-    <main className="w-[100vw] h-[100vh] flex items-center justify-center overflow-hidden bg-black">
+    <main className="min-h-screen flex items-center justify-center overflow-hidden bg-black">
         <App />
     </main>
   )

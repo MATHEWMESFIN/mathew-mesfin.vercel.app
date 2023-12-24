@@ -19,24 +19,9 @@
   }
 }
 
-div::-webkit-scrollbar {
-  /* Customize the scrollbar width */
-  width: 0rem;
-}
-
+/* hide scrollbar */
 ::-webkit-scrollbar {
-  width: 0.5rem;
-  background-color: #333;
-}
-
-::-webkit-scrollbar-track {
-  background: #333;
-  border-radius: 0.5rem;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 0.5rem;
+  display: none;
 }
 
 /* Book */

@@ -87,29 +87,72 @@ const skills = [
                 image: [<DiJava className='text-4xl' />]
             }
         ]
+    },
+    {
+        id: 3,
+        title: "Other",
+        skills: [
+            {
+                id: 1,
+                name: "Git",
+                image: [<SiReact className='text-4xl' />]
+            },
+            {
+                id: 2,
+                name: "GitHub",
+                image: [<SiNextdotjs className='text-4xl' />]
+            },
+            {
+                id: 3,
+                name: "VS Code",
+                image: [<SiTailwindcss className='text-4xl' />]
+            },
+            {
+                id: 4,
+                name: "Figma",
+                image: [<SiBootstrap className='text-4xl' />]
+            },
+            {
+                id: 5,
+                name: "Adobe XD",
+                image: [<SiHtml5 className='text-4xl' />]
+            },
+            {
+                id: 6,
+                name: "Adobe Photoshop",
+                image: [<SiCss3 className='text-4xl' />]
+            },
+            {
+                id: 7,
+                name: "Adobe Illustrator",
+                image: [<SiJavascript className='text-4xl' />]
+            }
+        ]
     }
 ]
 
 const Skills = () => {
     return (
-        <div className='container flex flex-col justify-center relative z-[1] items-center' id="skills">
-            <div className='wrapper flex relative justify-between items-center flex-col w-full gap-3'>
-                <div className='title text-3xl text-center font-semibold mt-5'>
+        <div>
+            <div>
+                <div className='title text-3xl text-center font-semibold mb-8'>
                     Skills
                 </div>
-                <div className='skills-container w-full h-80 flex flex-wrap mt-8 gap-7 justify-center overflow-auto'>
+                <div className='skills-container flex w-full h-full gap-7 overflow-auto'>
                     {skills.map((skill) => (
-                        <div key={skill.id} className='skill w-full max-w-md border rounded-2xl px-7 py-5 '>
-                            <div className='skill-title text-xl font-medium mb-5 text-center'>
-                                {skill.title}
-                            </div>
-                            <div className='skill-list flex justify-center flex-wrap gap-3 mb-5'>
-                                {skill.skills.map((item) => (
-                                    <div key={item.id} className='skill-item flex items-center justify-center gap-2 text-base font-normal border rounded-xl px-5 py-3'>
-                                        {item.image}
-                                        {item.name}
-                                    </div>
-                                ))}
+                        <div className='flex w-full h-full'>
+                            <div key={skill.id} className='skill flex flex-col w-[40rem] h-80 border rounded-2xl px-7 py-5 '>
+                                <div className='skill-title text-xl font-medium mb-5 text-center'>
+                                    {skill.title}
+                                </div>
+                                <div className='skill-list flex justify-center flex-wrap gap-3 mb-5'>
+                                    {skill.skills.map((item) => (
+                                        <div key={item.id} className='skill-item flex items-center justify-center gap-2 text-base font-normal border rounded-xl px-5 py-3'>
+                                            {item.image}
+                                            {item.name}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     ))}

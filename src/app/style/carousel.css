@@ -18,12 +18,6 @@
     filter: drop-shadow(0 0 0.75rem white);
 }
 
-.card p,
-.card h2 {
-    transition: all 0.3s ease-out;
-    opacity: var(--active);
-}
-
 .nav {
     color: white;
     font-size: 5rem;

@@ -4,9 +4,9 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import Skills from './Skills';
 import Hero from './Hero';
 import Experience from './Experience';
+import Projects from './Projects';
 import '../style/carousel.css';
 
-const CARDS = 10;
 const MAX_VISIBLE = 3;
 
 const Card = ({ content }) => (
@@ -68,10 +68,10 @@ export const App = () => {
         content={<Experience />}
       />
       <Card
-        content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptatum.'
+        content={<Projects />}
       />
       <Card
-        content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptatum.'
+        content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptatu.'
       />
       <Card
         content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptatum.'
