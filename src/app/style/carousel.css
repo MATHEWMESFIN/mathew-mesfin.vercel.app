@@ -5,7 +5,7 @@
 
 .card-container {
     transform: rotateX(calc(var(--offset) * 50deg)) 
-        scaleX(calc(1 + var(--abs-offset) * -0.4)) 
+        scaleX(calc(1 + var(--abs-offset) * -0.1)) 
         translateZ(calc(var(--abs-offset) * -30rem)) 
         translateY(calc(var(--direction) * -30rem));
     filter: blur(calc(var(--abs-offset) * 1rem));

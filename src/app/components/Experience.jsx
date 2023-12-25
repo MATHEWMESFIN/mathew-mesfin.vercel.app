@@ -85,10 +85,7 @@ const ExperienceCard = ({ experience }) => {
 const Experience = () => {
     return (
         <div className='container flex flex-col justify-center relative w-full items-center'>
-            <div className='wrapper flex flex-col relative justify-between items-center w-full'>
-                <div className='title text-3xl text-center font-semibold mb-8'>
-                    Experience
-                </div>
+            <div className='wrapper flex flex-col relative justify-between w-full'>
                 <div className='timeline-section flex flex-col items-center w-full h-80 gap-12 overflow-auto'>
                     <Timeline>
                         {experiences.map((experience,index) => (

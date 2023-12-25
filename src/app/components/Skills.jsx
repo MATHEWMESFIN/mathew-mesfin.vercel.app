@@ -135,9 +135,6 @@ const Skills = () => {
     return (
         <div>
             <div>
-                <div className='title text-3xl text-center font-semibold mb-8'>
-                    Skills
-                </div>
                 <div className='skills-container flex w-full h-full gap-7 overflow-auto'>
                     {skills.map((skill) => (
                         <div className='flex w-full h-full'>

@@ -1,7 +1,8 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useTransition } from 'react'
 import Image from 'next/image';
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import TabButton from './TabButton';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../style/projects.css';
@@ -111,13 +112,13 @@ const projects = [
 
 const ProjectCard = ({ project }) => {
     return (
-        <div className='project-card flex flex-col justify-center items-center border rounded-xl w-80 h-80'>
+        <div className='project-card flex flex-row justify-center items-center border rounded-xl ml-8'>
             <Image 
                 src={project.img}
                 width={1000}
                 height={1000}
-                className='rounded-t-xl w-36 h-36'/>
-            <div className='flex flex-col justify-center items-center'>
+                className='rounded-l-xl w-72 h-72'/>
+            <div className='flex flex-col justify-center items-center p-8'>
                 <div className='project-title text-lg font-medium'>
                     {project.title}
                 </div>
@@ -137,20 +138,39 @@ const ProjectCard = ({ project }) => {
 }
 
 const Projects = () => {
+    const [tab, setTab] = useState(1)
+    const [isPending, startTransition] = useTransition();
+
+    const handleTabChange = (id) => {
+        startTransition(() => {
+            setTab(id)
+        })
+    }
 
     return (
-        <div>
-            <div className='title text-3xl text-center font-semibold mb-8'>
-                Projects
-            </div>
-            <div className='projects-container flex gap-5 w-full h-full overflow-auto'>
-                {projects.map((project, id) => (
-                    <div 
-                        key={id} 
-                        className='flex w-full h-full'>
-                            <ProjectCard key={id} project={project} />
-                    </div>
-                ))}
+        <div className='projects'>
+            <div className='flex'>
+                <div className='grid grid-flow-row items-end w-80'>
+                        <TabButton 
+                            active={tab === 1}
+                            selectTab={() => handleTabChange(1)}
+                            title='Project 1' />
+                        <TabButton 
+                            active={tab === 2}
+                            selectTab={() => handleTabChange(2)}
+                            title='Project 2' />
+                        <TabButton 
+                            active={tab === 3}
+                            selectTab={() => handleTabChange(3)}
+                            title='Project 3' />
+                </div>
+                <div className='projects-container flex items-center justify-center w-full h-full'>
+                    {projects.find((project) => project.id === tab) && (
+                        <div className='flex items-center justify-center w-full h-full'>
+                            <ProjectCard project={projects.find((project) => project.id === tab)} />
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     )

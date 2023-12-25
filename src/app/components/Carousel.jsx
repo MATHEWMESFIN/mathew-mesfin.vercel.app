@@ -9,8 +9,15 @@ import '../style/carousel.css';
 
 const MAX_VISIBLE = 3;
 
-const Card = ({ content }) => (
-  <div className='card w-full h-full p-8 border rounded-2xl text-[#ffffff] text-justify bg-black'>
+const Card = ({ title, content }) => (
+  <div className='card w-full h-full p-10 border rounded-2xl text-[#ffffff] text-justify bg-black'>
+      {title !== '' && (
+        <div className='title text-3xl text-center font-semibold mb-8 border-b-2 border-b-violet-500'>
+          <span className='text-transparent bg-clip-text bg-gradient-to-t from-violet-500 via-violet-300 to-violet-100'>
+            {title}
+          </span>
+        </div>
+      )}
       {content}
   </div>
 )
@@ -59,15 +66,19 @@ export const App = () => {
     <div className='app'>
     <Carousel>
       <Card
+        title=''
         content={<Hero />}
       />
       <Card
+        title='Skills'
         content={<Skills />}
       />
       <Card
+        title='Experience'
         content={<Experience />}
       />
       <Card
+        title='Projects'
         content={<Projects />}
       />
       <Card
