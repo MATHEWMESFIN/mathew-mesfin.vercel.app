@@ -19,70 +19,87 @@
   }
 }
 
+.hero-img {
+  filter: drop-shadow(0 0 0.75rem white);
+}
+
 /* hide scrollbar */
 ::-webkit-scrollbar {
   display: none;
 }
 
-/* Book */
-.book {
-  transition: transform 0.5s;
+.nav-main {
+  filter: drop-shadow(0 0 0.75rem white);
 }
 
-.paper {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  perspective: 1500px;
+.nav-dots {
+  transform: scaleX(calc(1 + var(--offset) * -1))
+    scaleY(calc(1 + var(--offset) * -1));
+  filter: drop-shadow(0 0 0.5rem white);
+  transition: all 0.3s;
 }
 
-.front {
-  backface-visibility: hidden;
-  border-left: 3px solid #dac400;
+.nav-dots:hover {
+  color: rgb(139 92 246 / var(--tw-bg-opacity));
+  filter: drop-shadow(0 0 0.75rem rgb(139 92 246 / var(--tw-bg-opacity)));
 }
 
-.front, 
-.back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  transform-origin: left;
-  transition: transform 0.5s;
+/* stars originating from the top */
+@keyframes star-t {
+  0%   {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  50%  {
+    opacity: 0.4;
+  }
+  70%  {
+    opacity: 0.4;
+  }
+  100%  {
+    transform: translate(100vh, 100vh);
+    opacity: 0;
+  }
 }
 
-.front {
-  z-index: 1;
+.star-t img {
+  animation: star-t 20s linear reverse infinite,
+    pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  opacity: 0;
+  filter: drop-shadow(0rem 0rem 0.2rem white);
 }
 
-.back {
-  z-index: 0;
+.star-t img:nth-child(1) {
+  animation-delay: var(--delay);
+  width: var(--size);
 }
 
-.front-content,
-.back-content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* stars originating from the bottom */
+@keyframes star-b {
+  0%   {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  50%  {
+    opacity: 0.4;
+  }
+  70%  {
+    opacity: 0.4;
+  }
+  100%  {
+    transform: translate(-100vh, -100vh);
+    opacity: 0;
+  }
 }
 
-.back-content {
-  transform: rotateY(180deg)
+.star-b img {
+  animation: star-b 20s linear infinite,
+    pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  opacity: 0;
+  filter: drop-shadow(0rem 0rem 0.2rem white);
 }
 
-/* Paper Flipped */
-.flipped .front,
-.flipped .back {
-  transform: rotateY(-180deg)
+.star-b img:nth-child(1) {
+  animation-delay: var(--delay);
+  width: var(--size);
 }
-

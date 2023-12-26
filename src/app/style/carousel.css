@@ -13,7 +13,6 @@
 }
 
 .card {
-    /* background-color: hsl(280deg, 40%, calc(100% - var(--abs-offset) * 50%)); */
     transition: all 0.3s ease-out;
     filter: drop-shadow(0 0 0.75rem white);
 }
@@ -31,6 +30,7 @@
     user-select: none;
     background: unset;
     border: unset;
+    transition: all 0.3s;
 }
 
 .nav.top {
@@ -43,4 +43,9 @@
     position: relative;
     margin: auto;
     filter: drop-shadow(0 0 0.75rem white);
+}
+
+.nav:hover {
+    color: rgb(139 92 246 / var(--tw-bg-opacity));
+    filter: drop-shadow(0 0 0.75rem rgb(139 92 246 / var(--tw-bg-opacity)));
 }

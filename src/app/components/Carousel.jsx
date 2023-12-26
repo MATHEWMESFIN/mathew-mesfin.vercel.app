@@ -6,11 +6,12 @@ import Hero from './Hero';
 import Experience from './Experience';
 import Projects from './Projects';
 import '../style/carousel.css';
+import { Navbar } from './Navbar';
 
 const MAX_VISIBLE = 3;
 
 const Card = ({ title, content }) => (
-  <div className='card w-full h-full p-10 border rounded-2xl text-[#ffffff] text-justify bg-black'>
+  <div className='card w-full h-full p-10 border rounded-2xl text-white text-justify bg-black'>
       {title !== '' && (
         <div className='title text-3xl text-center font-semibold mb-8 border-b-2 border-b-violet-500'>
           <span className='text-transparent bg-clip-text bg-gradient-to-t from-violet-500 via-violet-300 to-violet-100'>
@@ -22,8 +23,8 @@ const Card = ({ title, content }) => (
   </div>
 )
 
-export const Carousel = ({ children }) => {
-  const [active, setActive] = useState(0);
+export const Carousel = ({ setActive, active, children }) => {
+  
   const count = React.Children.count(children);
 
   return (
@@ -33,7 +34,8 @@ export const Carousel = ({ children }) => {
           <FaChevronUp />
         </button>
       )}
-      <div className='carousel relative lg:w-[70rem] h-[30rem] w-[40rem]'>
+      {/* carousel relative lg:w-[70rem] md:w-[55rem] h-[30rem] w-[40rem] */}
+      <div className='carousel relative h-[30rem] w-[40rem] md:w-[50rem] lg:w-[60rem]'>
         {React.Children.map(children, (child, i) => (
           <div
             key={i}
@@ -62,38 +64,32 @@ export const Carousel = ({ children }) => {
 };
 
 export const App = () => {
+  const [active, setActive] = useState(0);
   return(
     <div className='app'>
-    <Carousel>
-      <Card
-        title=''
-        content={<Hero />}
-      />
-      <Card
-        title='Skills'
-        content={<Skills />}
-      />
-      <Card
-        title='Experience'
-        content={<Experience />}
-      />
-      <Card
-        title='Projects'
-        content={<Projects />}
-      />
-      <Card
-        content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptatu.'
-      />
-      <Card
-        content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptatum.'
-      />
-      <Card
-        content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptatum.'
-      />
-      <Card
-        content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptatum.'
-      />
-    </Carousel>
-  </div>
+      <Navbar active={active} setActive={setActive}/>
+      <Carousel setActive={setActive} active={active}>
+        <Card
+          title=''
+          content={<Hero />}
+        />
+        <Card
+          title='Skills'
+          content={<Skills />}
+        />
+        <Card
+          title='Experience'
+          content={<Experience />}
+        />
+        <Card
+          title='Projects'
+          content={<Projects />}
+        />
+        <Card
+          title=''
+          content={<div className='contact' />}
+        />
+      </Carousel>
+    </div>
   )
 };

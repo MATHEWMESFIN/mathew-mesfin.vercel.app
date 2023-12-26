@@ -5,11 +5,11 @@ import { TypeAnimation } from 'react-type-animation';
 
 const Hero = () => {
   return (
-    <section>
-        <div className='grid grid-cols-1 lg:grid-cols-12'>
-            <div className='col-span-7 place-self-center'>
+    <section className='flex w-full h-full justify-center items-center'>
+        <div className='grid grid-cols-1 w-full h-full items-center justify-center lg:grid-cols-12'>
+            <div className='col-span-7'>
                 <h1 className='text-white mb-4 text-4xl lg:text-6xl font-extrabold'>
-                    <span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500'>
+                    <span className='text-transparent bg-clip-text bg-violet-500'>
                         Mathew {" "}
                     </span>
                     Mesfin
@@ -33,28 +33,23 @@ const Hero = () => {
                         repeat={Infinity}
                         />
                 </h2>
-                <p className='text-[#ADB7BE] text-lg lg:text-xl mb-6'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                <p className=' text-slate-300 text-lg lg:text-xl my-6'>
+                    A man who finds happiness in solving problems and creating solutions.
                 </p>
-                <div>
-                    <button className='hover:bg-slate-50 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full mt-4 mr-4 transition text-white'>
-                        <span className='block bg-black bg-opacity-0 hover:bg-opacity-30 rounded-full px-6 py-3'>
-                            Contact Me
-                        </span>
+                <div className='buttons flex gap-5'>
+                    <button className='bg-transparent px-10 py-3 rounded-full hover:bg-violet-500 hover:text-black transition text-white font-semibold border-solid border-violet-500 border mt-4'>
+                        Contact
                     </button>
-                    <button className='bg-transparent px-6 py-3 rounded-full hover:bg-slate-100 hover:text-black transition text-white border-solid border-white border mt-4'>
+                    <button className='bg-transparent px-10 py-3 rounded-full hover:bg-slate-100 hover:text-black transition text-white font-semibold border-solid border-white border mt-4'>
                         Resume
                     </button>
                 </div>
             </div>
-            <div className='col-span-5 place-self-center mt-5 lg:mt-0 lg:ml-5'>
-                <div className='relative rounded-full bg-[#181818] w-[300px] h-[300px] lg:w-[400px] lg:h-[400px]'>
-                    <Image 
-                        src='/images/laptop-space.png' 
-                        alt='hero' 
-                        width={500} 
-                        height={500}
-                        className='rounded-full absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2' />
+            <div className='col-span-5 p-6'>
+                <div className='hero-img relative rounded-full'>
+                    <img
+                        src='/images/laptop-space.png'
+                        className='rounded-full absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'/>
                 </div>
             </div>
         </div>

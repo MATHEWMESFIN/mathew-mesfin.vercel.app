@@ -137,7 +137,7 @@ const Skills = () => {
             <div>
                 <div className='skills-container flex w-full h-full gap-7 overflow-auto'>
                     {skills.map((skill) => (
-                        <div className='flex w-full h-full'>
+                        <div key={skill.id} className='flex w-full h-full'>
                             <div key={skill.id} className='skill flex flex-col w-[40rem] h-80 border rounded-2xl px-7 py-5 '>
                                 <div className='skill-title text-xl font-medium mb-5 text-center'>
                                     {skill.title}

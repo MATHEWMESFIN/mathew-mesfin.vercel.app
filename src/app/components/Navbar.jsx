@@ -1,70 +1,61 @@
 'use client'
-import Link from 'next/link'
 import React, { useState } from 'react'
-import NavLink from './NavLink'
-import { CiMenuBurger } from "react-icons/ci";
-import { FiX, FiMenu } from "react-icons/fi";
+import { FaHome, FaChartBar, FaBriefcase, FaUser } from "react-icons/fa";
+import { BsChatSquareFill } from "react-icons/bs";
+import { GoDotFill } from "react-icons/go";
+
 
 const navLinks = [
     {
-        to: '/',
-        title: 'Home'
+        to: 0,
+        title: 'Home',
+        image: <FaHome />
     },
     {
-        to: '/about',
-        title: 'About'
+        to: 1,
+        title: 'Skills',
+        image: <FaUser />
     },
     {
-        to: '/projects',
-        title: 'Projects'
+        to: 2,
+        title: 'Experience',
+        image: <FaBriefcase />
     },
     {
-        to: '/contact',
-        title: 'Contact'
+        to: 3,
+        title: 'Projects',
+        image: <FaChartBar />
+    },
+    {
+        to: 4,
+        title: 'Contact',
+        image: <BsChatSquareFill />
     }
 ]
 
-export const Navbar = () => {
-    const [showMenu, setShowMenu] = useState(false);
+export const Navbar = ({active, setActive}) => {
+    
+    const MAX_VISIBLE = 3;
+
   return (
-    <nav className='fixed top-0 left-0 right-0 z-10 bg-black bg-opacity-90'>
-        <div className='flex flex-wrap items-center justify-between mx-auto p-6'>
-            <Link href='/' className='text-5xl text-white font-semibold'>LOGO</Link>
-            <div className='mobile-menu block md:hidden'>
-                {!showMenu && (
-                    <button onClick={() => setShowMenu(!showMenu)}>
-                        <FiMenu className='text-white text-3xl' />
+    <nav className='absolute hidden md:flex right-10 bottom-0 top-0 z-10 items-center justify-center'>
+        <ul className='nav-main flex flex-col gap-5 items-center justify-center px-2 py-3 '>
+            {navLinks.map((link, index) => (
+                <li key={index}>
+                    <button 
+                        onClick={() => setActive(link.to)}
+                        style={{
+                            '--active': link.to,
+                            '--offset': Math.abs(active - index) / 3,
+                            display: Math.abs(active - index) >= MAX_VISIBLE ? 'none' : 'block',
+                            color: active === link.to ? 'rgb(139 92 246 / var(--tw-bg-opacity))' : 'white',
+                        }}
+                        className='nav-dots block text-white sm:text-xl rounded'>
+                        {active === link.to ? link.image : <GoDotFill className=' text-xs'/>}
                     </button>
-                )}
-                {showMenu && (
-                    <div className=''>
-                        <button onClick={() => setShowMenu(!showMenu)}>
-                            <FiX className='text-white text-3xl' />
-                        </button>
-                        <ul className='absolute top-0 left-0 w-full h-screen my-24 bg-black bg-opacity-90 flex flex-col items-center justify-center text-xl text-white font-semibold'>
-                            {navLinks.map((link, index) => (
-                                <li key={index}>
-                                    <NavLink 
-                                        to={link.to}
-                                        title={link.title} />
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-            </div>
-            <div className='menu hidden md:block md:w-auto' id="navbar">
-                <ul className='flex flex-wrap items-center justify-between text-xl text-white font-semibold'>
-                    {navLinks.map((link, index) => (
-                        <li key={index}>
-                            <NavLink 
-                                to={link.to}
-                                title={link.title} />
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </div>
+                </li>
+            ))}
+        </ul>
     </nav>
   )
 }
