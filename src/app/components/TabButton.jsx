@@ -1,15 +1,33 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+
+const TabButtonStyle = styled.button`
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: white;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+
+    .tab {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+`
 
 const TabButton = ({active, selectTab, title}) => {
-    const buttonClasses = active ? 'text-white border-r-2 border-violet-500 bg-white bg-opacity-10' : 'text-[#ADB7BE]'
 
-  return (
-    <button onClick={selectTab}>
-        <p className={`mr-3 p-8 rounded-l-xl font-semibold hover:text-white hover:bg-white hover:bg-opacity-10 text[#ADB7BE] ${buttonClasses}`}>
-            {title}
-        </p>
-    </button>
-  )
+    return (
+        <TabButtonStyle onClick={selectTab}>
+            <div className={'tab'}>
+                {title}
+            </div>
+        </TabButtonStyle>
+    )
 }
 
 export default TabButton

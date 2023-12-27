@@ -1,20 +1,127 @@
 'use client'
 import React from 'react';
-import Image from 'next/image';
 import { TypeAnimation } from 'react-type-animation';
+import styled from 'styled-components';
+
+const HeroSection = styled.section`
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+`
+
+const HeroContainer = styled.div`
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+`
+
+const HeroLeft = styled.div`
+    grid-column: span 7 / span 7;
+    align-items: center;
+    justify-content: center;
+
+    .type-animation-container {
+        color: white;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .description {
+        color: rgb(203 213 225);
+        font-size: 1.25rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+`
+
+const HeroName = styled.h1`
+    font-size: 4rem;
+    font-weight: 800;
+    color: white;
+
+    transition: all 0.3s;
+
+    .colored {
+        color: rgb(139 92 246);
+        filter: drop-shadow(0 0 0.75rem rgb(139 92 246));
+    }
+`
+
+const HeroButtons = styled.div`
+    display: flex;
+    gap: 1rem;
+
+    .resume-btn {
+        background-color: transparent;
+        padding: 1rem 2rem;
+        border-radius: 9999px;
+        border: 2px solid rgb(139 92 246);
+        color: rgb(139 92 246);
+        font-weight: 600;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: rgb(139 92 246);
+            color: white;
+        }
+    
+    }
+
+    .contact-btn {
+        background-color: black;
+        padding: 1rem 2rem;
+        border-radius: 9999px;
+        border: 2px solid white;
+        color: white;
+        font-weight: 600;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: white;
+            color: black;
+        }
+    }
+`
+
+const HeroRight = styled.div`
+    grid-column: span 5 / span 5;
+    align-items: center;
+    justify-content: center;
+
+    .hero-img-container {
+        position: relative;
+        border-radius: 9999px;
+        filter: drop-shadow(0 0 0.75rem white);
+        margin-left: 2rem;
+
+        .hero-img {
+            border-radius: 9999px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+`
 
 const Hero = () => {
   return (
-    <section className='flex w-full h-full justify-center items-center'>
-        <div className='grid grid-cols-1 w-full h-full items-center justify-center lg:grid-cols-12'>
-            <div className='col-span-7'>
-                <h1 className='text-white mb-4 text-4xl lg:text-6xl font-extrabold'>
-                    <span className='text-transparent bg-clip-text bg-violet-500'>
+    <HeroSection>
+        <HeroContainer>
+            <HeroLeft>
+                <HeroName>
+                    <span className='colored'>
                         Mathew {" "}
                     </span>
                     Mesfin
-                </h1>
-                <h2 className='text-white text-2xl lg:text-4xl font-bold mb-4'>
+                </HeroName>
+                <h2 className='type-animation-container'>
                     <TypeAnimation
                         sequence={[
                             // Same substring at the start will only be typed out once, initially
@@ -29,31 +136,31 @@ const Hero = () => {
                         ]}
                         wrapper="span"
                         speed={50}
-                        style={{ fontSize: '1.5em', display: 'inline-block' }}
+                        style={{ display: 'inline-block' }}
                         repeat={Infinity}
                         />
                 </h2>
-                <p className=' text-slate-300 text-lg lg:text-xl my-6'>
-                    A man who finds happiness in solving problems and creating solutions.
+                <p className='description'>
+                    A man who finds happiness on the path to success.
                 </p>
-                <div className='buttons flex gap-5'>
-                    <button className='bg-transparent px-10 py-3 rounded-full hover:bg-violet-500 hover:text-black transition text-white font-semibold border-solid border-violet-500 border mt-4'>
+                <HeroButtons>
+                    <button className='contact-btn'>
                         Contact
                     </button>
-                    <button className='bg-transparent px-10 py-3 rounded-full hover:bg-slate-100 hover:text-black transition text-white font-semibold border-solid border-white border mt-4'>
+                    <button className='resume-btn'>
                         Resume
                     </button>
-                </div>
-            </div>
-            <div className='col-span-5 p-6'>
-                <div className='hero-img relative rounded-full'>
+                </HeroButtons>
+            </HeroLeft>
+            <HeroRight>
+                <div className='hero-img-container'>
                     <img
                         src='/images/laptop-space.png'
-                        className='rounded-full absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'/>
+                        className='hero-img'/>
                 </div>
-            </div>
-        </div>
-    </section>
+            </HeroRight>
+        </HeroContainer>
+    </HeroSection>
   )
 }
 
