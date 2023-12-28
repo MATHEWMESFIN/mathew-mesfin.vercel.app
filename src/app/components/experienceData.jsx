@@ -1,3 +1,5 @@
+import { SiPhp, SiHtml5, SiMysql, SiSass, SiJavascript } from "react-icons/si"
+
 const experiences = [
     {
         id: 1,
@@ -8,7 +10,31 @@ const experiences = [
         duration: "June 2023 - August 2023",
         about: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae.",
         skills: [
-            "PHP", "HTML", "MySQL", "SCSS", "JavaScript"
+            {
+                id: 1,
+                name: "PHP",
+                image: [<SiPhp />]
+            },
+            {
+                id: 2,
+                name: "HTML",
+                image: [<SiHtml5 />]
+            },
+            {
+                id: 3,
+                name: "MySQL",
+                image: [<SiMysql />]
+            },
+            {
+                id: 4,
+                name: "SCSS",
+                image: [<SiSass />]
+            },
+            {
+                id: 5,
+                name: "JavaScript",
+                image: [<SiJavascript />]
+            }
         ]
     },
     {

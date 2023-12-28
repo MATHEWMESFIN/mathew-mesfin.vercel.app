@@ -20,14 +20,15 @@ const SkillPanel = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    align-items: center;
 
     .active-tab {
         position: absolute;
-        width: 100%;
+        width: 90%;
         height: var(--skill-height);
-        border-top-left-radius: 1rem;
-        border-bottom-left-radius: 1rem;
-        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+        background-color: rgba(139, 92, 246, 0.2);
+        filter: drop-shadow(0 0 0.75rem rgb(139, 92, 246));
         transform: translateY(var(--distance));
         transition: transform 0.3s ease-out;
     }
@@ -35,6 +36,8 @@ const SkillPanel = styled.div`
 
 const SkillTypeContainer = styled.div`
     position: relative;
+    background-color: rgba(139, 92, 246, 0.2);
+    border-radius: 1rem;
     width: 100rem;
     height: 20rem;
 `
@@ -42,23 +45,18 @@ const SkillTypeContainer = styled.div`
 const Skill = styled.div`
     position: absolute;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2rem;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.1);
+    filter: drop-shadow(0 0 0.75rem rgb(139, 92, 246));
     border: none;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 2rem;
     transform: translateY(var(--skill-offset));
     transition: all 0.3s ease-in;
-
-    .skill-title {
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        text-align: center;
-    }
 
     .skill-list {
         display: flex;
@@ -80,10 +78,13 @@ const SkillItem = styled.div`
     font-weight: 500;
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
-    gap: 0.5rem;
-    background-color: black;
+    gap: 1rem;
+    background-color: rgba(139, 92, 246);
     color: white;
-    filter: drop-shadow(0 0 0.25rem white);
+
+    .skill-item-img {
+        font-size: 2rem;
+    }
 
 `
 
@@ -138,13 +139,9 @@ const SkillCard = ({ skill, tab }) => {
     return (
         <Skill
             style={{
-                "--skill-offset": `${(tab - skill.id) * 5}%`,
+                "--skill-offset": `${(tab - skill.id)}0%`,
                 opacity: tab === skill.id ? '1' : '0'
             }}>
-            {/* <div className='skill-title'>
-                {skill.title}
-            </div> */}
-            <div className='skill-list'>
                 {skill.skills.map((item) => (
                     <SkillItem key={item.id}>
                         <div className='skill-item-img'>
@@ -152,9 +149,7 @@ const SkillCard = ({ skill, tab }) => {
                         </div>
                         {item.name}
                     </SkillItem>
-                    
                 ))}
-            </div>
         </Skill>
     )
 }

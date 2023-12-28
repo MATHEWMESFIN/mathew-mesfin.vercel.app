@@ -1,7 +1,6 @@
 'use client'
 import React, { useState, useTransition } from 'react';
 import experiences from './experienceData';
-import { skillsv2 } from './skillsData';
 import styled from 'styled-components';
 import TimelineButton from './TimelineButton';
 import { GoDot } from "react-icons/go";
@@ -236,9 +235,9 @@ const ExperienceCard = ({ experience }) => {
                         {experience?.skills?.map((skill, index) => (
                             <SkillItem key={index}>
                                 <div className='skill-item-img'>
-                                    {skillsv2.find((item) => item.name === skill)?.image}
+                                    {skill.image}
                                 </div>
-                                {skillsv2.find((item) => item.name === skill)?.name}
+                                {skill.name}
                             </SkillItem>
                         ))}
                     </ExperienceCardSkillsWrapper>
