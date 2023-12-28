@@ -27,7 +27,9 @@ const SkillPanel = styled.div`
         height: var(--skill-height);
         border-top-left-radius: 1rem;
         border-bottom-left-radius: 1rem;
-        background-color: rgb(128, 128, 128, 0.2);
+        border-right: 1px solid rgb(139, 92, 246);
+        background-color: rgb(139, 92, 246, 0.1);
+        filter: drop-shadow(0 0 0.75rem rgb(139, 92, 246));
         transform: translateY(var(--distance));
         transition: transform 0.3s ease-out;
     }
@@ -45,7 +47,8 @@ const Skill = styled.div`
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: rgba(128, 128, 128, 0.2);
+    background-color: rgba(139, 92, 246, 0.1);
+    filter: drop-shadow(0 0 0.75rem rgb(139, 92, 246));
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding: 0.5rem 1rem;
@@ -62,6 +65,8 @@ const Skill = styled.div`
     .skill-list {
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
         justify-content: center;
         align-items: center;
         gap: 0.75rem;
@@ -78,7 +83,7 @@ const SkillItem = styled.div`
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
     gap: 0.5rem;
-    background-color: rgb(139, 92, 246);
+    background-color: black;
     filter: drop-shadow(0 0 0.75rem rgb(139, 92, 246));
     color: white;
 
@@ -131,16 +136,6 @@ const Skills = () => {
 }
 
 const SkillCard = ({ skill, tab }) => {
-    const settings = {
-        dots: true,
-        infinite: true,
-        slidesToShow: 7,
-        slidesToScroll: 1,
-        autoplay: true,
-        speed: 2000,
-        autoplaySpeed: 2000,
-        cssEase: "linear"
-    }
 
     return (
         <Skill
@@ -148,9 +143,9 @@ const SkillCard = ({ skill, tab }) => {
                 "--skill-offset": (tab - skill.id),
                 display: tab === skill.id ? 'flex' : 'none'
             }}>
-            <div className='skill-title'>
+            {/* <div className='skill-title'>
                 {skill.title}
-            </div>
+            </div> */}
             <div className='skill-list'>
                 {skill.skills.map((item) => (
                     <SkillItem key={item.id}>
