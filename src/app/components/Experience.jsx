@@ -149,7 +149,7 @@ const ExperienceCard = ({ experience }) => {
     return (
         <ExperienceCardContainer>
             <ExperienceCardTop>
-                <ExperieneCardImg src={experience.img} />
+                <ExperieneCardImg src={experience.img} width={300} height={300} />
                 <ExperienceCardTopBody>
                     <div className='role'>
                         {experience.role}

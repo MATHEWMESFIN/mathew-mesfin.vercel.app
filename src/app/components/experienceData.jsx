@@ -1,7 +1,7 @@
 const experiences = [
     {
         id: 1,
-        img: "https://via.placeholder.com/150",
+        img: "/images/coursestorm.png",
         role: "Software Engineer Intern",
         company: "CourseStorm",
         location: "Remote",
@@ -13,7 +13,7 @@ const experiences = [
     },
     {
         id: 2,
-        img: "https://via.placeholder.com/150",
+        img: "/images/towson.jpeg",
         role: "Lab Admin",
         company: "Towson University",
         location: "Towson, MD",
@@ -22,7 +22,7 @@ const experiences = [
     },
     {
         id: 3,
-        img: "https://via.placeholder.com/150",
+        img: "/images/towson.jpeg",
         role: "Student Researcher",
         company: "Towson University",
         location: "Towson, MD",

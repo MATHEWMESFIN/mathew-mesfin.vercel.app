@@ -27,9 +27,7 @@ const SkillPanel = styled.div`
         height: var(--skill-height);
         border-top-left-radius: 1rem;
         border-bottom-left-radius: 1rem;
-        border-right: 1px solid rgb(139, 92, 246);
-        background-color: rgb(139, 92, 246, 0.1);
-        filter: drop-shadow(0 0 0.75rem rgb(139, 92, 246));
+        background-color: rgba(255, 255, 255, 0.1);
         transform: translateY(var(--distance));
         transition: transform 0.3s ease-out;
     }
@@ -47,8 +45,8 @@ const Skill = styled.div`
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: rgba(139, 92, 246, 0.1);
-    filter: drop-shadow(0 0 0.75rem rgb(139, 92, 246));
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding: 0.5rem 1rem;
@@ -84,8 +82,8 @@ const SkillItem = styled.div`
     padding: 0.5rem 1rem;
     gap: 0.5rem;
     background-color: black;
-    filter: drop-shadow(0 0 0.75rem rgb(139, 92, 246));
     color: white;
+    filter: drop-shadow(0 0 0.25rem white);
 
 `
 
