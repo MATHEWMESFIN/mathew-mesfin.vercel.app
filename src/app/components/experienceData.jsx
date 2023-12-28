@@ -8,12 +8,12 @@ const experiences = [
         duration: "June 2023 - August 2023",
         about: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae.",
         skills: [
-            "PHP", "HTML", "MySQL", "JavaScript", "SCSS"
+            "PHP", "HTML", "MySQL", "SCSS", "JavaScript"
         ]
     },
     {
         id: 2,
-        img: "/images/towson.jpeg",
+        img: "/images/towson.png",
         role: "Lab Admin",
         company: "Towson University",
         location: "Towson, MD",
@@ -22,7 +22,7 @@ const experiences = [
     },
     {
         id: 3,
-        img: "/images/towson.jpeg",
+        img: "/images/towson.png",
         role: "Student Researcher",
         company: "Towson University",
         location: "Towson, MD",

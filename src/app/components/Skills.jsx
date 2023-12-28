@@ -50,8 +50,8 @@ const Skill = styled.div`
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding: 0.5rem 1rem;
-    transform: translateY(calc(var(--skill-offset) * -22rem));
-    transition: transform 0.3s ease-in;
+    transform: translateY(var(--skill-offset));
+    transition: all 0.3s ease-in;
 
     .skill-title {
         font-size: 1.5rem;
@@ -88,7 +88,7 @@ const SkillItem = styled.div`
 `
 
 const Skills = () => {
-    const [tab, setTab] = useState(1)
+    const [tab, setTab] = useState(1);
     const [isPending, startTransition] = useTransition();
 
     const handleTabChange = (id) => {
@@ -138,8 +138,8 @@ const SkillCard = ({ skill, tab }) => {
     return (
         <Skill
             style={{
-                "--skill-offset": (tab - skill.id),
-                display: tab === skill.id ? 'flex' : 'none'
+                "--skill-offset": `${(tab - skill.id) * 5}%`,
+                opacity: tab === skill.id ? '1' : '0'
             }}>
             {/* <div className='skill-title'>
                 {skill.title}
