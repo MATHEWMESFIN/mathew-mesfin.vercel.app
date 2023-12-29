@@ -127,15 +127,6 @@ const ProjectCardLeftBody = styled.div`
 
 `
 
-const ProjectCardSkills = styled.div`
-    display: flex;
-    padding: 1rem;
-    width: 100%;
-    height: 100%;
-    display: block;
-    filter: drop-shadow(0 0 0.75rem rgb(139 92 246));
-`
-
 const ProjectCardSkillsWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -236,10 +227,6 @@ const ProjectsCard = ({ project }) => {
                     }
                 </ProjectCardLeftBody>
             </ProjectCardLeft>
-
-            {/* <ProjectCardSkills>
-                
-            </ProjectCardSkills> */}
 
         </ProjectCardContainer>
     )

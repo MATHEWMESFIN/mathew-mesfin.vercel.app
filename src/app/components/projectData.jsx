@@ -1,3 +1,7 @@
+import { SiTailwindcss, SiNextdotjs, SiReact, SiBootstrap, SiHtml5, 
+    SiCss3, SiJavascript, SiNodedotjs, SiExpress, SiMongodb, SiMysql, 
+    SiPostgresql, SiPython, SiPhp, SiSass } from "react-icons/si";
+
 const projects = [
     {
         id: 1,
@@ -6,15 +10,18 @@ const projects = [
         skills: [
             {
                 id: 1,
-                name: "React"
+                name: "React",
+                image: [<SiReact />]
             },
             {
                 id: 2,
-                name: "Next.js"
+                name: "Next.js",
+                image: [<SiNextdotjs />]
             },
             {
                 id: 3,
-                name: "Tailwind"
+                name: "Tailwind",
+                image: [<SiTailwindcss />]
             }
         ],
         img: '/images/laptop-space.png'
@@ -26,15 +33,18 @@ const projects = [
         skills: [
             {
                 id: 1,
-                name: "React"
+                name: "React",
+                image: [<SiReact />]
             },
             {
                 id: 2,
-                name: "Next.js"
+                name: "Next.js",
+                image: [<SiNextdotjs />]
             },
             {
                 id: 3,
-                name: "Tailwind"
+                name: "Tailwind",
+                image: [<SiTailwindcss />]
             }
         ],
         img: '/images/laptop-space.png'
@@ -46,15 +56,18 @@ const projects = [
         skills: [
             {
                 id: 1,
-                name: "React"
+                name: "React",
+                image: [<SiReact />]
             },
             {
                 id: 2,
-                name: "Next.js"
+                name: "Next.js",
+                image: [<SiNextdotjs />]
             },
             {
                 id: 3,
-                name: "Tailwind"
+                name: "Tailwind",
+                image: [<SiTailwindcss />]
             }
         ],
         img: '/images/laptop-space.png'
@@ -66,15 +79,18 @@ const projects = [
         skills: [
             {
                 id: 1,
-                name: "React"
+                name: "React",
+                image: [<SiReact />]
             },
             {
                 id: 2,
-                name: "Next.js"
+                name: "Next.js",
+                image: [<SiNextdotjs />]
             },
             {
                 id: 3,
-                name: "Tailwind"
+                name: "Tailwind",
+                image: [<SiTailwindcss />]
             }
         ],
         img: '/images/laptop-space.png'
@@ -86,15 +102,18 @@ const projects = [
         skills: [
             {
                 id: 1,
-                name: "React"
+                name: "React",
+                image: [<SiReact />]
             },
             {
                 id: 2,
-                name: "Next.js"
+                name: "Next.js",
+                image: [<SiNextdotjs />]
             },
             {
                 id: 3,
-                name: "Tailwind"
+                name: "Tailwind",
+                image: [<SiTailwindcss />]
             }
         ],
         img: '/images/laptop-space.png'

@@ -22,29 +22,25 @@ const ExperiencesWrapper = styled.div`
     width: 100%;
     height: 100%;
 
-    .experience {
-        position: absolute;
-        top: 0;
+    .experience-container {
         width: 100%;
         height: 15rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform: translateX(var(--distance));
-        transition: all 0.3s ease-out;
-    
+        position: absolute;
+        top: 0;
+        background-color: rgba(139, 92, 246, 0.2);
+        border-radius: 1rem;
+
+        .experience {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(var(--distance));
+            transition: all 0.4s ease-out;
+        }
     }
-`
-
-const TimelineRow = styled.div`
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
-    justify-content: space-around;
-    align-items: end;
-
 `
 
 const TimeLineWrapper = styled.div`
@@ -72,11 +68,12 @@ const TimeLineLine = styled.div`
 
 const ExperienceCardContainer = styled.div`
     display: grid;
-    grid-template-columns: 15rem 20rem 15rem;
+    grid-template-columns: 15rem 35rem;
+    justify-content: center;
+    align-items: center;
     width: 50rem;
     height: 100%;
     border-radius: 1rem;
-    background-color: rgba(139, 92, 246, 0.2);
 `
 
 const ExperienceCardLeft = styled.div`
@@ -91,10 +88,9 @@ const ExperieneCardImg = styled.img.attrs(props => ({
     src: props.src,
 }))
 `
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    width: 15rem;
-    height: 15rem;
+    border-radius: 9999px;
+    width: 10rem;
+    height: 10rem;
 `
 
 const ExperienceCardLeftBody = styled.div`
@@ -129,18 +125,12 @@ const ExperienceCardLeftBody = styled.div`
 
 `
 
-const ExperienceCardSkills = styled.div`
-    display: flex;
-    padding: 1rem;
-    width: 100%;
-    height: 100%;
-    display: block;
-    filter: drop-shadow(0 0 0.75rem rgb(139 92 246));
-`
-
 const ExperienceCardSkillsWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    align-items: center;
     gap: 0.75rem;
 
 `
@@ -168,19 +158,20 @@ const Experience = () => {
     return (
         <ExperiencesSection>
             <ExperiencesWrapper>
-
-                {experiences.map((experience) => (
-                    <div key={experience.id} 
-                        className='experience'
-                        style={{
-                            "--distance": `${(experience.id - timeTab) * 5}%`,
-                            opacity: timeTab === experience.id ? 1 : 0,
-                            
-                        }}>
-                        <ExperienceCard experience={experience} />
-                    </div>
-                )
-                )}
+                <div className='experience-container'>
+                    {experiences.map((experience) => (
+                        <div key={experience.id} 
+                            className='experience'
+                            style={{
+                                "--distance": timeTab === experience.id ? '0' : timeTab > experience.id ? '-40%' : '40%',
+                                opacity: timeTab === experience.id ? 1 : 0,
+                                
+                            }}>
+                            <ExperienceCard experience={experience} />
+                        </div>
+                    )
+                    )}
+                </div>
 
                 <TimeLineWrapper>
                     {experiences.map((experience) => (
@@ -226,22 +217,21 @@ const ExperienceCard = ({ experience }) => {
                             </div>
                         }
                     </div>
+                    {experience?.skills &&
+                        <ExperienceCardSkillsWrapper>
+                            {experience?.skills?.map((skill, index) => (
+                                <SkillItem key={index}>
+                                    <div className='skill-item-img'>
+                                        {skill.image}
+                                    </div>
+                                    {skill.name}
+                                </SkillItem>
+                            ))}
+                        </ExperienceCardSkillsWrapper>
+                    }
                 </ExperienceCardLeftBody>
             </ExperienceCardLeft>
-            <ExperienceCardSkills>
-                {experience?.skills &&
-                    <ExperienceCardSkillsWrapper>
-                        {experience?.skills?.map((skill, index) => (
-                            <SkillItem key={index}>
-                                <div className='skill-item-img'>
-                                    {skill.image}
-                                </div>
-                                {skill.name}
-                            </SkillItem>
-                        ))}
-                    </ExperienceCardSkillsWrapper>
-                }
-            </ExperienceCardSkills>
+
         </ExperienceCardContainer>
     )
 }
