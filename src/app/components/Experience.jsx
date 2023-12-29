@@ -3,7 +3,6 @@ import React, { useState, useTransition } from 'react';
 import experiences from './experienceData';
 import styled from 'styled-components';
 import TimelineButton from './TimelineButton';
-import { GoDot } from "react-icons/go";
 
 const ExperiencesSection = styled.div`
     display: flex;

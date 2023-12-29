@@ -1,147 +1,247 @@
 'use client'
-import React, { useState, useTransition } from 'react'
-import TabButton from './TabButton';
+import React, { useState, useTransition } from 'react';
 import styled from 'styled-components';
+import TimelineButton from './TimelineButton';
 import projects from './projectData';
 
 const ProjectsSection = styled.div`
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 20rem;
 `
 
 const ProjectsWrapper = styled.div`
     display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    .projects-container {
+        width: 100%;
+        height: 15rem;
+        position: absolute;
+        top: 0;
+        background-color: rgba(139, 92, 246, 0.2);
+        border-radius: 1rem;
+
+        .project {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(var(--distance));
+            transition: all 0.4s ease-out;
+        }
+    }
 `
 
-const ProjectsPanel = styled.div`
-    display: grid;
-    grid-auto-rows: 1fr;
-    width: 20rem;
+const TimeLineWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    filter: drop-shadow(0 0 0.75rem rgb(139 92 246));
+`
+
+const TimeLineLine = styled.div`
+    position: absolute;
+    bottom: 1.75rem;
+    background-color: rgb(139, 92, 246, 0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 9999px;
+    width: 100%;
+    height: 0.1rem;
+    z-index: -1;
 `
 
 const ProjectCardContainer = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: 15rem 35rem;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 50rem;
     height: 100%;
-`
-
-const CardContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid white;
     border-radius: 1rem;
-    margin-left: 2rem;
+    
 `
 
-const CardImage = styled.img.attrs(props => ({
+const ProjectCardLeft = styled.div`
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+    gap: 1rem;
+    filter: drop-shadow(0 0 0.75rem rgb(139 92 246));
+`
+
+const ProjectCardImg = styled.img.attrs(props => ({
     src: props.src,
 }))
 `
-    display: flex;
-    flex-direction: column;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    width: 20rem;
-    height: 20rem;
+    border-radius: 9999px;
+    width: 10rem;
+    height: 10rem;
 `
 
-const CardWrapper = styled.div`
+const ProjectCardLeftBody = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+
+    .role {
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
+
+    .company {
+        font-size: 1rem;
+        font-weight: 400;
+        opacity: 0.75;
+    }
+
+    .duration {
+        font-size: 0.75rem;
+        font-weight: 400;
+        opacity: 0.5;
+    }
+
+    .description {
+        font-size: 1rem;
+        font-weight: 400;
+        opacity: 1;
+    }
+
+`
+
+const ProjectCardSkills = styled.div`
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: drop-shadow(0 0 0.75rem rgb(139 92 246));
+`
+
+const ProjectCardSkillsWrapper = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
     align-items: center;
-    padding: 2rem;
+    gap: 0.75rem;
+
 `
 
-const Title = styled.div`
-    font-size: 1.5rem;
+const SkillItem = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
     font-weight: 500;
-`
-
-const Description = styled.div`
-    font-size: 1rem;
-    font-weight: 400;
-`
-
-const Technologies = styled.div`
-    display: flex;
-`
-
-const Technology = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid white;
-    border-radius: 1rem;
+    border-radius: 9999px;
     padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: 400;
+    gap: 0.5rem;
+    background-color: rgb(139, 92, 246);
+    color: white;
+
+    .skill-item-img {
+        font-size: 1rem;
+    }
 `
 
 const Projects = () => {
-    const [tab, setTab] = useState(1)
+    const [timeTab, setTimeTab] = useState(1);
     const [isPending, startTransition] = useTransition();
-
-    const handleTabChange = (id) => {
-        startTransition(() => {
-            setTab(id)
-        })
-    }
-
     return (
         <ProjectsSection>
             <ProjectsWrapper>
-                <ProjectsPanel>
-                        <TabButton 
-                            active={tab === 1}
-                            selectTab={() => handleTabChange(1)}
-                            title='Project 1' />
-                        <TabButton 
-                            active={tab === 2}
-                            selectTab={() => handleTabChange(2)}
-                            title='Project 2' />
-                        <TabButton 
-                            active={tab === 3}
-                            selectTab={() => handleTabChange(3)}
-                            title='Project 3' />
-                </ProjectsPanel>
-                <ProjectCardContainer>
-                    <ProjectCard project={projects.find((project) => project.id === tab)} />
-                </ProjectCardContainer>
+                <div className='projects-container'>
+                    {projects.map((project) => (
+                        <div key={project.id} 
+                            className='project'
+                            style={{
+                                "--distance": timeTab === project.id ? '0' : timeTab > project.id ? '-40%' : '40%',
+                                opacity: timeTab === project.id ? 1 : 0,
+                                
+                            }}>
+                            <ProjectsCard project={project} />
+                        </div>
+                    )
+                    )}
+                </div>
+
+                <TimeLineWrapper>
+                    {projects.map((project) => (
+                        <TimelineButton
+                            key={project.id}
+                            active={timeTab === project.id}
+                            selectTab={() => {
+                                startTransition(() => {
+                                    setTimeTab(project.id)
+                                })
+                            }}
+                            title={project.title}
+                        />
+                    ))}
+                </TimeLineWrapper>
+
+                <TimeLineLine />
+
             </ProjectsWrapper>
         </ProjectsSection>
     )
 }
 
-const ProjectCard = ({ project }) => {
+const ProjectsCard = ({ project }) => {
     return (
-        <CardContainer>
-            <CardImage src={project.img} />
+        <ProjectCardContainer>
+            <ProjectCardImg src={project.img} />
+            <ProjectCardLeft>
+                <ProjectCardLeftBody>
+                    <div className='title'>
+                        {project.title}
+                    </div>
+                    <div className='description'>
+                        {project?.description &&
+                            <div>
+                                {project.description}
+                            </div>
+                        }
+                    </div>
+                    {project?.skills &&
+                        <ProjectCardSkillsWrapper>
+                            {project?.skills?.map((skill, index) => (
+                                <SkillItem key={index}>
+                                    <div className='skill-item-img'>
+                                        {skill.image}
+                                    </div>
+                                    {skill.name}
+                                </SkillItem>
+                            ))}
+                        </ProjectCardSkillsWrapper>
+                    }
+                </ProjectCardLeftBody>
+            </ProjectCardLeft>
 
-            <CardWrapper>
-                <Title>
-                    {project.title}
-                </Title>
+            {/* <ProjectCardSkills>
+                
+            </ProjectCardSkills> */}
 
-                <Description>
-                {project.description}
-                </Description>
-
-                <Technologies>
-                    {project.technologies.map((technology) => (
-                        <Technology key={technology.id}>
-                            {technology.name}
-                        </Technology>
-                    ))}
-                </Technologies>
-
-            </CardWrapper>
-
-        </CardContainer>
+        </ProjectCardContainer>
     )
 }
 

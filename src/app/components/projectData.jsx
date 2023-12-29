@@ -3,7 +3,7 @@ const projects = [
         id: 1,
         title: "Project 1",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae.",
-        technologies: [
+        skills: [
             {
                 id: 1,
                 name: "React"
@@ -23,7 +23,7 @@ const projects = [
         id: 2,
         title: "Project 2",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae.",
-        technologies: [
+        skills: [
             {
                 id: 1,
                 name: "React"
@@ -43,7 +43,7 @@ const projects = [
         id: 3,
         title: "Project 3",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae.",
-        technologies: [
+        skills: [
             {
                 id: 1,
                 name: "React"
@@ -63,7 +63,7 @@ const projects = [
         id: 4,
         title: "Project 4",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae.",
-        technologies: [
+        skills: [
             {
                 id: 1,
                 name: "React"
@@ -83,7 +83,7 @@ const projects = [
         id: 5,
         title: "Project 5",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae.",
-        technologies: [
+        skills: [
             {
                 id: 1,
                 name: "React"
