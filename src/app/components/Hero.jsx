@@ -2,6 +2,7 @@
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const HeroSection = styled.section`
     display: flex;
@@ -111,7 +112,7 @@ const HeroRight = styled.div`
     }
 `
 
-const Hero = () => {
+const Hero = ({ setActive }) => {
   return (
     <HeroSection>
         <HeroContainer>
@@ -145,11 +146,13 @@ const Hero = () => {
                     A man who finds happiness on the path to success.
                 </p>
                 <HeroButtons>
-                    <button className='contact-btn'>
+                    <button className='contact-btn' onClick={() => setActive(4)}>
                         Contact
                     </button>
                     <button className='resume-btn'>
-                        Resume
+                        <Link href='/Resume - Mathew Mesfin_2023.pdf'>
+                            Resume
+                        </Link>
                     </button>
                 </HeroButtons>
             </HeroLeft>

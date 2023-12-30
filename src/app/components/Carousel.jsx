@@ -140,7 +140,7 @@ export const App = () => {
         <Carousel setActive={setActive} active={active}>
             <Card
                 title=''
-                content={<Hero />}
+                content={<Hero setActive={setActive} />}
             />
             <Card
                 title='Skills'
