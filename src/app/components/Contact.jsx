@@ -1,8 +1,11 @@
+'use client'
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { AiOutlineLoading } from "react-icons/ai";
+
 
 
 const ContactSection = styled.div`
@@ -84,6 +87,9 @@ const FormWrapper = styled.form`
     }
 
     .contact-submit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 1rem;
         font-weight: 600;
         color: white;
@@ -99,12 +105,47 @@ const FormWrapper = styled.form`
             transform: scale(1.05);
             background-color: rgb(139, 92, 246, 0.7);
         }
-    
+
+        &:disabled {
+            background-color: rgba(139, 92, 246, 0.5);
+            cursor: default;
+        }
     }
     
 `
 
 const Contact = () => {
+    const [email, setEmail] = useState('');
+    const [subject, setSubject] = useState('');
+    const [message, setMessage] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleChange = (e) => {
+        const {id, value} = e.target;
+        if (id === 'email') {
+            setEmail(value);
+        } else if (id === 'subject') {
+            setSubject(value);
+        } else if (id === 'message') {
+            setMessage(value);
+        }
+    }
+
+    const handleSubmit = async (e) => {
+        setLoading(true);
+        e.preventDefault();
+        const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify({email, subject, message})
+        });
+        console.log(res);
+        setLoading(false);
+    }
+
   return (
     <ContactSection>
         <InfoWrapper>
@@ -131,18 +172,42 @@ const Contact = () => {
             <div className='email-subject-wrapper'>
                 <div className='email-wrapper'>
                     <label className='contact-label' htmlFor='email'>Your Email</label>
-                    <input className='contact-input' id='email' type='email' required placeholder='example@email.com' />
+                    <input className='contact-input' 
+                        id='email' 
+                        type='email' 
+                        required 
+                        placeholder='example@email.com'
+                        value={email}
+                        onChange={handleChange}/>
                 </div>
                 <div className='subject-wrapper'>
                     <label className='contact-label' htmlFor='subject'>Subject</label>
-                    <input className='contact-input' id='subject' type='subject' required placeholder='Hello there' />
+                    <input className='contact-input' 
+                        id='subject' 
+                        type='subject' 
+                        required 
+                        placeholder='Hello there'
+                        value={subject}
+                        onChange={handleChange} />
                 </div>
             </div>
 
             <label className='contact-label' htmlFor='message'>Message</label>
-            <textarea className='contact-input' id='message' type='message' required placeholder='Lets talk about...' />
+            <textarea 
+                className='contact-input' 
+                id='message' type='message' 
+                required 
+                placeholder='Lets talk about...'
+                value={message}
+                onChange={handleChange} />
 
-            <button className='contact-submit' type='submit'>Send</button>
+            <button className='contact-submit' 
+                type='submit'
+                disabled={!email || !subject || !message}
+                loading={loading}
+                onClick={handleSubmit}>
+                    {loading ? <AiOutlineLoading className=' animate-spin'/> : 'Send'}
+            </button>
         </FormWrapper>
 
     </ContactSection>
