@@ -41,7 +41,7 @@ const experiences = [
     },
     {
         id: 2,
-        img: "/images/towson.png",
+        img: "/images/Towson.png",
         role: "Lab Admin",
         company: "Towson University",
         location: "Towson, MD",
@@ -51,7 +51,7 @@ const experiences = [
     },
     {
         id: 3,
-        img: "/images/towson.png",
+        img: "/images/Towson.png",
         role: "Student Researcher",
         company: "Towson University",
         location: "Towson, MD",
