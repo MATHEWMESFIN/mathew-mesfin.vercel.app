@@ -57,6 +57,10 @@ const HeroButtons = styled.div`
     display: flex;
     gap: 1rem;
 
+    .resume-link {
+        border-radius: 9999px;
+    }
+
     .resume-btn {
         background-color: transparent;
         padding: 1rem 2rem;
@@ -70,6 +74,12 @@ const HeroButtons = styled.div`
             background-color: rgb(139 92 246);
             transform: scale(1.1);
             color: white;
+        }
+
+        .resume-link {
+            display: flex;
+            width: 100%;
+            height: 100%;
         }
     
     }
@@ -149,11 +159,11 @@ const Hero = ({ setActive }) => {
                     <button className='contact-btn' onClick={() => setActive(4)}>
                         Contact
                     </button>
-                    <button className='resume-btn'>
-                        <Link href='/Resume - Mathew Mesfin_2023.pdf'>
+                    <Link className='resume-link' href='/Resume - Mathew Mesfin_2023.pdf' target='_blank'>
+                        <button className='resume-btn'>
                             Resume
-                        </Link>
-                    </button>
+                        </button>
+                    </Link>
                 </HeroButtons>
             </HeroLeft>
             <HeroRight>

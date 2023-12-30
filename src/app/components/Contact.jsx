@@ -118,10 +118,10 @@ const Contact = () => {
                 If you would like to get in touch with me, please fill out the form and I will get back to you as soon as possible.
             </p>
             <div className='socials'>
-                <Link href='github.com'>
+                <Link href='https://github.com/MATHEWMESFIN' target='_blank'>
                     <FaGithub />
                 </Link>
-                <Link href='linkedin.com'>
+                <Link href='https://www.linkedin.com/in/mathew-mesfin-9b1610234/' target='_blank'>
                     <FaLinkedin />
                 </Link>
             </div>

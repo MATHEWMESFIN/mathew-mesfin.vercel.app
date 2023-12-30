@@ -202,12 +202,12 @@ const ProjectsCard = ({ project }) => {
                     <div className='heading'>
                         {project.title}
                         {project?.github && (
-                            <Link className="link" href={project.github}>
+                            <Link className="link" href={project.github} target='_blank'>
                                 <FaGithub />
                             </Link>
                         )}
                         {project?.link && (
-                            <Link className='link' href={project.link}>
+                            <Link className='link' href={project.link} target='_blank'>
                                 <FaLink />
                             </Link>
                         )}
