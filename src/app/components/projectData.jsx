@@ -9,6 +9,7 @@ const projects = [
         description: "My personal portfolio website to showcase my skills, experience, and projects.",
         img: '/images/projects/portfolio-project.png',
         github: "https://github.com/MATHEWMESFIN/mathew-mesfin",
+        link: "https://mathewmesfin.vercel.app/",
         skills: [
             {
                 id: 1,
