@@ -8,7 +8,9 @@ const experiences = [
         company: "CourseStorm",
         location: "Remote",
         duration: "June 2023 - August 2023",
-        about: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae.",
+        about: "Worked in an agile team to update and streamline the waiting list entry into the registration application process.\n\
+            Gathered information through user interviews to determine how to update the application to meet their needs.\n\
+            Made project plan documents, integrations, pulls, pushes, merges, and tests.",
         skills: [
             {
                 id: 1,
@@ -44,7 +46,8 @@ const experiences = [
         company: "Towson University",
         location: "Towson, MD",
         duration: "August 2023 - Present",
-        about: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae."
+        about: "Provided technical assistance to students and faculty with technical questions, troubleshooting problems, network service access requests, and software installation.\n\
+         Oversee laboratory cleanliness and organization while maintaining an inventory of lab supplies and equipment."
     },
     {
         id: 3,
@@ -53,7 +56,8 @@ const experiences = [
         company: "Towson University",
         location: "Towson, MD",
         duration: "August 2023 - Present",
-        about: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae."
+        about: "Researched, analyzed, and organized Baltimore crime data to highlight and bring awareness to criminal activity problems.\n\
+          Used Streamlit and Pandas with Python to clean the data and visualize the cleaned data."
     }
 ]
 

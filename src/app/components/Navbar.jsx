@@ -31,14 +31,14 @@ const NavContainer = styled.nav`
 
 const NavDotButton = styled.button`
     border-radius: 9999px;
-    font-size: 1.5rem;
+    font-size: 3rem;
+    filter: drop-shadow(0 0 0.75rem var(--filter-color));
 
-    transform: scaleX(calc(1 + var(--offset) * -2))
-        scaleY(calc(1 + var(--offset) * -2));
+    transform: scale(calc(1 + var(--offset) * -3));
     transition: all 0.3s;
 
     &:hover {
-        transform: scaleX(1.5) scaleY(1.5);
+        transform: scaleX(1.2) scaleY(1.2);
     }
 `
 
@@ -57,6 +57,7 @@ export const Navbar = ({active, setActive}) => {
                                 '--active': card.to,
                                 '--offset': Math.abs(active - index) / 5,
                                 display: Math.abs(active - index) >= MAX_VISIBLE ? 'none' : 'block',
+                                '--filter-color': active === card.to ? 'rgb(139 92 246)' : 'white',
                                 color: active === card.to ? 'rgb(139 92 246)' : 'white',
                             }}
                         >

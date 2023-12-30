@@ -49,7 +49,6 @@ const HeroName = styled.h1`
 
     .colored {
         color: rgb(139 92 246);
-        filter: drop-shadow(0 0 0.75rem rgb(139 92 246));
     }
 `
 
@@ -64,10 +63,11 @@ const HeroButtons = styled.div`
         border: 2px solid rgb(139 92 246);
         color: rgb(139 92 246);
         font-weight: 600;
-        transition: all 0.2s ease-in-out;
+        transition: all 0.3s ease-in-out;
 
         &:hover {
             background-color: rgb(139 92 246);
+            transform: scale(1.1);
             color: white;
         }
     
@@ -80,10 +80,11 @@ const HeroButtons = styled.div`
         border: 2px solid white;
         color: white;
         font-weight: 600;
-        transition: all 0.2s ease-in-out;
+        transition: all 0.3s ease-in-out;
 
         &:hover {
             background-color: white;
+            transform: scale(1.1);
             color: black;
         }
     }
@@ -129,7 +130,7 @@ const Hero = () => {
                             1000, // wait 1s before replacing "Mice" with "Hamsters"
                             'Web Developer',
                             1000,
-                            'Mobile Developer',
+                            'Full Stack Developer',
                             1000,
                             'Problem Solver',
                             1000
@@ -155,7 +156,7 @@ const Hero = () => {
             <HeroRight>
                 <div className='hero-img-container'>
                     <img
-                        src='/images/laptop-space.png'
+                        src='/images/profile-pic.png'
                         className='hero-img'/>
                 </div>
             </HeroRight>

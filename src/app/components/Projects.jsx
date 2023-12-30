@@ -1,8 +1,10 @@
 'use client'
 import React, { useState, useTransition } from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
 import TimelineButton from './TimelineButton';
 import projects from './projectData';
+import { FaGithub, FaLink } from "react-icons/fa";
 
 const ProjectsSection = styled.div`
     display: flex;
@@ -24,7 +26,7 @@ const ProjectsWrapper = styled.div`
 
     .projects-container {
         width: 100%;
-        height: 15rem;
+        height: 17rem;
         position: absolute;
         top: 0;
         background-color: rgba(139, 92, 246, 0.2);
@@ -50,7 +52,6 @@ const TimeLineWrapper = styled.div`
     position: absolute;
     bottom: 1rem;
     width: 100%;
-    filter: drop-shadow(0 0 0.75rem rgb(139 92 246));
 `
 
 const TimeLineLine = styled.div`
@@ -68,7 +69,7 @@ const TimeLineLine = styled.div`
 
 const ProjectCardContainer = styled.div`
     display: grid;
-    grid-template-columns: 15rem 35rem;
+    grid-template-columns: 10rem 40rem;
     justify-content: center;
     align-items: center;
     width: 50rem;
@@ -82,7 +83,6 @@ const ProjectCardLeft = styled.div`
     padding: 1rem;
     width: 100%;
     gap: 1rem;
-    filter: drop-shadow(0 0 0.75rem rgb(139 92 246));
 `
 
 const ProjectCardImg = styled.img.attrs(props => ({
@@ -101,28 +101,24 @@ const ProjectCardLeftBody = styled.div`
     width: 100%;
     height: 100%;
     gap: 1rem;
+    color: rgb(139, 92, 246);
 
-    .role {
+    .heading {
         font-size: 1.25rem;
         font-weight: 500;
-    }
-
-    .company {
-        font-size: 1rem;
-        font-weight: 400;
-        opacity: 0.75;
-    }
-
-    .duration {
-        font-size: 0.75rem;
-        font-weight: 400;
-        opacity: 0.5;
+        display: flex;
+        gap: 1rem;
+        
+        .link {
+            font-size: 2rem;
+        }
     }
 
     .description {
         font-size: 1rem;
         font-weight: 400;
         opacity: 1;
+        color: white;
     }
 
 `
@@ -203,8 +199,18 @@ const ProjectsCard = ({ project }) => {
             <ProjectCardImg src={project.img} />
             <ProjectCardLeft>
                 <ProjectCardLeftBody>
-                    <div className='title'>
+                    <div className='heading'>
                         {project.title}
+                        {project?.github && (
+                            <Link className="link" href={project.github}>
+                                <FaGithub />
+                            </Link>
+                        )}
+                        {project?.link && (
+                            <Link className='link' href={project.link}>
+                                <FaLink />
+                            </Link>
+                        )}
                     </div>
                     <div className='description'>
                         {project?.description &&

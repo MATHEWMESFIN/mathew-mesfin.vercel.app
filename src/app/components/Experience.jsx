@@ -24,7 +24,7 @@ const ExperiencesWrapper = styled.div`
 
     .experience-container {
         width: 100%;
-        height: 15rem;
+        height: 17rem;
         position: absolute;
         top: 0;
         background-color: rgba(139, 92, 246, 0.2);
@@ -50,7 +50,6 @@ const TimeLineWrapper = styled.div`
     position: absolute;
     bottom: 1rem;
     width: 100%;
-    filter: drop-shadow(0 0 0.75rem rgb(139 92 246));
 `
 
 const TimeLineLine = styled.div`
@@ -68,7 +67,7 @@ const TimeLineLine = styled.div`
 
 const ExperienceCardContainer = styled.div`
     display: grid;
-    grid-template-columns: 15rem 35rem;
+    grid-template-columns: 10rem 40rem;
     justify-content: center;
     align-items: center;
     width: 50rem;
@@ -81,7 +80,6 @@ const ExperienceCardLeft = styled.div`
     padding: 1rem;
     width: 100%;
     gap: 1rem;
-    filter: drop-shadow(0 0 0.75rem rgb(139 92 246));
 `
 
 const ExperieneCardImg = styled.img.attrs(props => ({
@@ -103,6 +101,7 @@ const ExperienceCardLeftBody = styled.div`
     .role {
         font-size: 1.25rem;
         font-weight: 500;
+        color: rgb(139, 92, 246);
     }
 
     .company {
@@ -132,6 +131,7 @@ const ExperienceCardSkillsWrapper = styled.div`
     height: 100%;
     align-items: center;
     gap: 0.75rem;
+    margin-top: 0.5rem;
 
 `
 

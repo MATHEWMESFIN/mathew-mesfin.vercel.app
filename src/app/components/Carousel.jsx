@@ -5,6 +5,7 @@ import Skills from './Skills';
 import Hero from './Hero';
 import Experience from './Experience';
 import Projects from './Projects';
+import Contact from './Contact';
 import { Navbar } from './Navbar';
 import styled from 'styled-components';
 
@@ -104,7 +105,6 @@ export const Carousel = ({ setActive, active, children }) => {
                 <FaChevronUp />
             </NavigateCardBtn>
         )}
-        {/* carousel relative lg:w-[70rem] md:w-[55rem] h-[30rem] w-[40rem] */}
         <CarouselContainer>
             {React.Children.map(children, (child, i) => (
                 <CarouselCardContainer
@@ -155,8 +155,8 @@ export const App = () => {
                 content={<Projects />}
             />
             <Card
-                title=''
-                content={<div className='contact' />}
+                title='Contact'
+                content={<Contact />}
             />
         </Carousel>
         </div>

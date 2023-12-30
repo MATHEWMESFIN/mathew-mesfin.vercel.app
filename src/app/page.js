@@ -6,12 +6,12 @@ import styled, { keyframes } from 'styled-components';
 
 const HomeContainer = styled.div`
     background-color: black;
-    min-height: 100vh;
+    height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: auto;
+    overflow: hidden;
 `
 
 const glideTop = keyframes`

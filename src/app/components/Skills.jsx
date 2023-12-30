@@ -28,7 +28,6 @@ const SkillPanel = styled.div`
         height: var(--skill-height);
         border-radius: 1rem;
         background-color: rgba(139, 92, 246, 0.2);
-        filter: drop-shadow(0 0 0.75rem rgb(139, 92, 246));
         transform: translateY(var(--distance));
         transition: transform 0.3s ease-out;
     }
@@ -38,7 +37,7 @@ const SkillTypeContainer = styled.div`
     position: relative;
     background-color: rgba(139, 92, 246, 0.2);
     border-radius: 1rem;
-    width: 100rem;
+    width: 130rem;
     height: 20rem;
 `
 
@@ -46,28 +45,16 @@ const Skill = styled.div`
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 1rem;
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 0 0.75rem rgb(139, 92, 246));
     border: none;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    padding: 2rem;
+    padding: 1rem;
     transform: translateY(var(--skill-offset));
     transition: all 0.3s ease-in;
-
-    .skill-list {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        gap: 0.75rem;
-        margin-bottom: 1rem;
-    }
 `
 
 const SkillItem = styled.div`
@@ -139,7 +126,7 @@ const SkillCard = ({ skill, tab }) => {
     return (
         <Skill
             style={{
-                "--skill-offset": `${(tab - skill.id)}0%`,
+                "--skill-offset": tab === skill.id ? '0' : tab > skill.id ? '-30%' : '30%',
                 opacity: tab === skill.id ? '1' : '0'
             }}>
                 {skill.skills.map((item) => (

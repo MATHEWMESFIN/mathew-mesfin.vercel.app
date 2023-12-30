@@ -12,12 +12,20 @@ const TimelineStyle = styled.button`
         color: rgb(139, 92, 246);
         background-color: black;
         border-radius: 9999px;
-        transition: all 0.3s ease-in;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            transform: scale(1.3);
+        }
     }
 
     .active {
-        cursor: pointer;
+        cursor: default;
         background-color: rgb(139, 92, 246);
+
+        &:hover {
+            transform: scale(1);
+        }
     }
 `
 

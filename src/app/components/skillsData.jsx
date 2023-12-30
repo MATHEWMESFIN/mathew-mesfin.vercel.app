@@ -1,6 +1,9 @@
 import { SiTailwindcss, SiNextdotjs, SiReact, SiBootstrap, SiHtml5, 
     SiCss3, SiJavascript, SiNodedotjs, SiExpress, SiMongodb, SiMysql, 
-    SiPostgresql, SiPython, SiPhp, SiSass } from "react-icons/si";
+    SiPostgresql, SiPython, SiPhp, SiSass, SiStyledcomponents, SiGit, SiGithub,
+    SiFigma } from "react-icons/si";
+import { TbBrandVscode } from "react-icons/tb";
+
 
 import { DiJava } from "react-icons/di";
 
@@ -43,6 +46,16 @@ const skills = [
                 id: 7,
                 name: "JavaScript",
                 image: [<SiJavascript />]
+            },
+            {
+                id: 8,
+                name: "Sass",
+                image: [<SiSass />]
+            },
+            {
+                id: 10,
+                name: "styled-components",
+                image: [<SiStyledcomponents />]
             }
         ]
     },
@@ -84,6 +97,11 @@ const skills = [
                 id: 7,
                 name: "Java",
                 image: [<DiJava />]
+            },
+            {
+                id: 8,
+                name: "PHP",
+                image: [<SiPhp />]
             }
         ]
     },
@@ -94,37 +112,22 @@ const skills = [
             {
                 id: 1,
                 name: "Git",
-                image: [<SiReact />]
+                image: [<SiGit />]
             },
             {
                 id: 2,
                 name: "GitHub",
-                image: [<SiNextdotjs />]
+                image: [<SiGithub />]
             },
             {
                 id: 3,
                 name: "VS Code",
-                image: [<SiTailwindcss />]
+                image: [<TbBrandVscode />]
             },
             {
                 id: 4,
                 name: "Figma",
-                image: [<SiBootstrap />]
-            },
-            {
-                id: 5,
-                name: "Adobe XD",
-                image: [<SiHtml5 />]
-            },
-            {
-                id: 6,
-                name: "Adobe Photoshop",
-                image: [<SiCss3 />]
-            },
-            {
-                id: 7,
-                name: "Adobe Illustrator",
-                image: [<SiJavascript />]
+                image: [<SiFigma />]
             }
         ]
     }
