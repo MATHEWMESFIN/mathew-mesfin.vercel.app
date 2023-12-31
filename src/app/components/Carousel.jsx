@@ -130,6 +130,7 @@ export const Carousel = ({ setActive, active, children }) => {
 
     return (
         <CarouselContainer>
+            <Navbar active={active} setActive={setActive}/>
             {React.Children.map(children, (child, i) => (
                 <CarouselCardContainer
                     key={i}
@@ -156,7 +157,7 @@ export const App = () => {
 
     return(
         <div className='app'>
-            <Navbar active={active} setActive={setActive}/>
+            
             {active >= 1 && (
                 <NavigateCardBtnTop onClick={() => setActive((i) => i - 1)}>
                     <FaChevronUp />
