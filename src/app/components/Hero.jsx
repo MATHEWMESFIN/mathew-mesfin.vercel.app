@@ -145,7 +145,7 @@ const HeroRight = styled.div`
         
         .hero-img-container {
             margin-left: 0;
-            margin-bottom: 5rem;
+            margin-bottom: 3rem;
 
             .hero-img {
                 width: 13rem;

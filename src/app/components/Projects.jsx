@@ -16,7 +16,7 @@ const ProjectsSection = styled.div`
     height: 20rem;
 
     @media (max-width: 640px) {
-        height: 35rem;
+        height: 30rem;
     }
 `
 
@@ -50,7 +50,7 @@ const ProjectsWrapper = styled.div`
 
     @media (max-width: 640px) {
         .projects-container {
-            height: 32rem;
+            height: 27rem;
         }
     }
 `
@@ -113,6 +113,12 @@ const ProjectCardImg = styled.img.attrs(props => ({
     border-radius: 9999px;
     width: 10rem;
     height: 10rem;
+
+    @media (max-width: 640px) {
+        width: 5rem;
+        height: 5rem;
+    
+    }
 `
 
 const ProjectCardLeftBody = styled.div`

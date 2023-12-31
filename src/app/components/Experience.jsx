@@ -14,7 +14,7 @@ const ExperiencesSection = styled.div`
     height: 20rem;
 
     @media (max-width: 640px) {
-        height: 35rem;
+        height: 30rem;
     }
 `
 
@@ -48,7 +48,7 @@ const ExperiencesWrapper = styled.div`
 
     @media (max-width: 640px) {
         .experience-container {
-            height: 32rem;
+            height: 27rem;
         }
     }
 `
@@ -111,6 +111,11 @@ const ExperieneCardImg = styled.img.attrs(props => ({
     border-radius: 9999px;
     width: 10rem;
     height: 10rem;
+
+    @media (max-width: 640px) {
+        width: 5rem;
+        height: 5rem;
+    }
 `
 
 const ExperienceCardLeftBody = styled.div`

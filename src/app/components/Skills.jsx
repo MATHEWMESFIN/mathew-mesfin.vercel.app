@@ -16,7 +16,7 @@ const SkillsWrapper = styled.div`
     flex-direction: row;
 
     @media (max-width: 640px) {
-        flex-direction: column;
+        /* flex-direction: column; */
     }
 `
 
@@ -25,6 +25,7 @@ const SkillPanel = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 20rem;
     align-items: center;
 
     .active-tab {
@@ -38,14 +39,12 @@ const SkillPanel = styled.div`
     }
 
     @media (max-width: 640px) {
-        flex-direction: row;
-        justify-content: space-around;
-        height: 10rem;
+        width: 10rem;
+        height: 30rem;
 
         .active-tab {
-            width: var(--skill-width);
-            height: 90%;
-            transform: translateX(var(--distance-small));
+            height: var(--skill-height-small);
+            transform: translateY(var(--distance));
         
         }
     }
@@ -60,7 +59,7 @@ const SkillTypeContainer = styled.div`
 
     @media (max-width: 640px) {
         width: 100%;
-        height: 22rem;
+        height: 30rem;
     
     }
 `
@@ -69,7 +68,7 @@ const Skill = styled.div`
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     gap: 1rem;
     width: 100%;
     height: 100%;
@@ -79,6 +78,10 @@ const Skill = styled.div`
     padding: 1rem;
     transform: translateY(var(--skill-offset));
     transition: all 0.3s ease-in;
+
+    @media (max-width: 640px) {
+        flex-direction: row;
+    }
 `
 
 const SkillItem = styled.div`
@@ -129,8 +132,7 @@ const Skills = () => {
                         style={{
                             "--distance": `${tab - 1}00%`,
                             "--skill-height": `${20 / 3}rem`,
-                            "--distance-small": `${tab - 2}00%`,
-                            "--skill-width": `${18 / 3}rem`,
+                            "--skill-height-small": `${30 / 3}rem`,
                         }}
                         />
                     <TabButton 

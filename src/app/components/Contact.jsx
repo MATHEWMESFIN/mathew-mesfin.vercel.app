@@ -15,6 +15,7 @@ const ContactSection = styled.div`
     @media (max-width: 640px) {
         display: flex;
         flex-direction: column;
+        gap: 1rem;
     }
 `
 
@@ -137,14 +138,13 @@ const FormWrapper = styled.form`
         }
 
         #message {
-            height: 8rem;
+            height: 4rem;
         }
 
         .contact-submit {
             font-size: 0.75rem;
             padding: 0.5rem;
         }
-    
     
     }
     

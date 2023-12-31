@@ -58,7 +58,6 @@ const NavigateCardBtn = styled.button`
     user-select: none;
     background: unset;
     border: unset;
-
     filter: drop-shadow(0 0 0.75rem white);
 
     transition: all 0.3s;
@@ -72,7 +71,8 @@ const NavigateCardBtnTop = styled(NavigateCardBtn)`
     top: 3rem;
 
     @media (max-width: 640px) {
-        top: 1rem;
+        font-size: 3rem;
+        top: 0;
     }
 `
 
@@ -80,7 +80,8 @@ const NavigateCardBtnBottom = styled(NavigateCardBtn)`
     bottom: 3rem;
 
     @media (max-width: 640px) {
-        bottom: 1rem;
+        font-size: 3rem;
+        bottom: 0;
     }
 `
 
@@ -92,7 +93,7 @@ const CarouselContainer = styled.div`
     width: 60rem;
 
     @media (max-width: 640px) {
-        height: 40rem;
+        height: 35rem;
         width: 20rem;
 }
 `
