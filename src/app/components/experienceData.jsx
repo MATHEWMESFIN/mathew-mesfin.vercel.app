@@ -8,9 +8,7 @@ const experiences = [
         company: "CourseStorm",
         location: "Remote",
         duration: "June 2023 - August 2023",
-        about: "Worked in an agile team to update and streamline the waiting list entry into the registration application process.\n\
-            Gathered information through user interviews to determine how to update the application to meet their needs.\n\
-            Made project plan documents, integrations, pulls, pushes, merges, and tests.",
+        about: "Worked in an agile team to update and streamline the waiting list entry into the registration application process.",
         skills: [
             {
                 id: 1,

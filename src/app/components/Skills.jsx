@@ -13,6 +13,11 @@ const SkillsSection = styled.div`
 
 const SkillsWrapper = styled.div`
     display: flex;
+    flex-direction: row;
+
+    @media (max-width: 640px) {
+        flex-direction: column;
+    }
 `
 
 const SkillPanel = styled.div`
@@ -31,6 +36,19 @@ const SkillPanel = styled.div`
         transform: translateY(var(--distance));
         transition: transform 0.3s ease-out;
     }
+
+    @media (max-width: 640px) {
+        flex-direction: row;
+        justify-content: space-around;
+        height: 10rem;
+
+        .active-tab {
+            width: var(--skill-width);
+            height: 90%;
+            transform: translateX(var(--distance-small));
+        
+        }
+    }
 `
 
 const SkillTypeContainer = styled.div`
@@ -39,13 +57,19 @@ const SkillTypeContainer = styled.div`
     border-radius: 1rem;
     width: 130rem;
     height: 20rem;
+
+    @media (max-width: 640px) {
+        width: 100%;
+        height: 22rem;
+    
+    }
 `
 
 const Skill = styled.div`
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
     width: 100%;
     height: 100%;
@@ -73,6 +97,18 @@ const SkillItem = styled.div`
         font-size: 2rem;
     }
 
+    @media (max-width: 640px) {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+        gap: 0.5rem;
+        
+    
+            .skill-item-img {
+                font-size: 1.5rem;
+            }
+        
+    }
+
 `
 
 const Skills = () => {
@@ -92,7 +128,9 @@ const Skills = () => {
                         className='active-tab'
                         style={{
                             "--distance": `${tab - 1}00%`,
-                            "--skill-height": `${20 / 3}rem`
+                            "--skill-height": `${20 / 3}rem`,
+                            "--distance-small": `${tab - 2}00%`,
+                            "--skill-width": `${18 / 3}rem`,
                         }}
                         />
                     <TabButton 
@@ -108,13 +146,13 @@ const Skills = () => {
                         selectTab={() => handleTabChange(3)}
                         title='Other' />
                 </SkillPanel>
-            <SkillTypeContainer>
+                <SkillTypeContainer>
                 
-                {skills.map((skill) => (
-                    <SkillCard key={skill.id} skill={skill} tab={tab} />
-                ))}
+                    {skills.map((skill) => (
+                        <SkillCard key={skill.id} skill={skill} tab={tab} />
+                    ))}
 
-            </SkillTypeContainer>
+                </SkillTypeContainer>
 
             </SkillsWrapper>
         </SkillsSection>

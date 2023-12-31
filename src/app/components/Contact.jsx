@@ -12,6 +12,10 @@ const ContactSection = styled.div`
     width: 100%;
     height: 100%;
 
+    @media (max-width: 640px) {
+        display: flex;
+        flex-direction: column;
+    }
 `
 
 const InfoWrapper = styled.div`
@@ -40,6 +44,21 @@ const InfoWrapper = styled.div`
         display: flex;
         flex-direction: row;
         gap: 1rem;
+    }
+
+    @media (max-width: 640px) {
+        .header {
+            font-size: 1.5rem;
+        }
+
+        .description {
+            font-size: 0.75rem;
+        }
+
+        .socials {
+            gap: 0.5rem;
+        }
+    
     }
 `
 
@@ -99,6 +118,33 @@ const FormWrapper = styled.form`
             transform: scale(1.05);
             background-color: rgb(139, 92, 246, 0.7);
         }
+    
+    }
+
+    @media (max-width: 640px) {
+
+        .email-subject-wrapper {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .contact-label {
+            font-size: 0.75rem;
+        }
+
+        .contact-input {
+            font-size: 0.75rem;
+            padding: 0.5rem;
+        }
+
+        #message {
+            height: 8rem;
+        }
+
+        .contact-submit {
+            font-size: 0.75rem;
+            padding: 0.5rem;
+        }
+    
     
     }
     

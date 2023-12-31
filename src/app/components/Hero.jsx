@@ -19,6 +19,10 @@ const HeroContainer = styled.div`
     height: 100%;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+    }
 `
 
 const HeroLeft = styled.div`
@@ -39,6 +43,18 @@ const HeroLeft = styled.div`
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
     }
+
+    @media (max-width: 640px) {
+
+        .type-animation-container {
+            font-size: 1.5rem;
+        }
+
+        .description {
+            font-size: 1rem;
+        }
+    
+    }
 `
 
 const HeroName = styled.h1`
@@ -50,6 +66,10 @@ const HeroName = styled.h1`
 
     .colored {
         color: rgb(139 92 246);
+    }
+
+    @media (max-width: 640px) {
+        font-size: 2rem;
     }
 `
 
@@ -120,6 +140,20 @@ const HeroRight = styled.div`
             transform: translate(-50%, -50%);
         }
     }
+
+    @media (max-width: 640px) {
+        
+        .hero-img-container {
+            margin-left: 0;
+            margin-bottom: 5rem;
+
+            .hero-img {
+                width: 13rem;
+                height: 13rem;
+            }
+        }
+    
+    }
 `
 
 const Hero = ({ setActive }) => {
@@ -148,7 +182,7 @@ const Hero = ({ setActive }) => {
                         ]}
                         wrapper="span"
                         speed={50}
-                        style={{ display: 'inline-block' }}
+                        style={{ display: 'inline-block'}}
                         repeat={Infinity}
                         />
                 </h2>

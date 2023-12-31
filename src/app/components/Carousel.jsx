@@ -33,29 +33,54 @@ const CarouselCard = styled.div`
     .title {
         color: rgb(139, 92, 246);
     }
+
+    @media (max-width: 640px) {
+        padding: 1rem;
+        
+        .title-container {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+    }
 `
 
 const NavigateCardBtn = styled.button`
+    position: absolute;
+    left: 0;
+    right: 0;
     color: white;
     font-size: 5rem;
-    /* position: absolute; */
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 50%;
     z-index: 2;
     cursor: pointer;
     user-select: none;
     background: unset;
     border: unset;
-    transition: all 0.3s;
-    position: relative;
-    margin: auto;
+
     filter: drop-shadow(0 0 0.75rem white);
 
+    transition: all 0.3s;
     &:hover {
         color: rgb(139, 92, 246);
         filter: drop-shadow(0 0 0.75rem rgb(139, 92, 246 ));
+    }
+`
+
+const NavigateCardBtnTop = styled(NavigateCardBtn)`
+    top: 3rem;
+
+    @media (max-width: 640px) {
+        top: 1rem;
+    }
+`
+
+const NavigateCardBtnBottom = styled(NavigateCardBtn)`
+    bottom: 3rem;
+
+    @media (max-width: 640px) {
+        bottom: 1rem;
     }
 `
 
@@ -65,6 +90,11 @@ const CarouselContainer = styled.div`
     transform-style: preserve-3d;
     height: 30rem;
     width: 60rem;
+
+    @media (max-width: 640px) {
+        height: 40rem;
+        width: 20rem;
+}
 `
 
 const CarouselCardContainer = styled.div`
@@ -99,12 +129,6 @@ export const Carousel = ({ setActive, active, children }) => {
   const count = React.Children.count(children);
 
     return (
-        <div>
-        {active >= 1 && (
-            <NavigateCardBtn onClick={() => setActive((i) => i - 1)}>
-                <FaChevronUp />
-            </NavigateCardBtn>
-        )}
         <CarouselContainer>
             {React.Children.map(children, (child, i) => (
                 <CarouselCardContainer
@@ -123,42 +147,48 @@ export const Carousel = ({ setActive, active, children }) => {
                 </CarouselCardContainer>
             ))}
         </CarouselContainer>
-        {active < count - 1 && (
-            <NavigateCardBtn onClick={() => setActive((i) => i + 1)}>
-                <FaChevronDown />
-            </NavigateCardBtn>
-        )}
-        </div>
     );
 };
 
 export const App = () => {
     const [active, setActive] = useState(0);
+    const count = 5;
+
     return(
         <div className='app'>
-        <Navbar active={active} setActive={setActive}/>
-        <Carousel setActive={setActive} active={active}>
-            <Card
-                title=''
-                content={<Hero setActive={setActive} />}
-            />
-            <Card
-                title='Skills'
-                content={<Skills />}
-            />
-            <Card
-                title='Experience'
-                content={<Experience />}
-            />
-            <Card
-                title='Projects'
-                content={<Projects />}
-            />
-            <Card
-                title='Contact'
-                content={<Contact />}
-            />
-        </Carousel>
+            <Navbar active={active} setActive={setActive}/>
+            {active >= 1 && (
+                <NavigateCardBtnTop onClick={() => setActive((i) => i - 1)}>
+                    <FaChevronUp />
+                </NavigateCardBtnTop>
+            )}
+            {active < count - 1 && (
+                <NavigateCardBtnBottom onClick={() => setActive((i) => i + 1)}>
+                    <FaChevronDown />
+                </NavigateCardBtnBottom>
+            )}
+            <Carousel setActive={setActive} active={active}>
+                <Card
+                    title=''
+                    content={<Hero setActive={setActive} />}
+                />
+                <Card
+                    title='Skills'
+                    content={<Skills />}
+                />
+                <Card
+                    title='Experience'
+                    content={<Experience />}
+                />
+                <Card
+                    title='Projects'
+                    content={<Projects />}
+                />
+                <Card
+                    title='Contact'
+                    content={<Contact />}
+                />
+            </Carousel>
         </div>
     )
 };

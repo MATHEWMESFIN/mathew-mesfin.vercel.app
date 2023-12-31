@@ -14,6 +14,10 @@ const ProjectsSection = styled.div`
     position: relative;
     width: 100%;
     height: 20rem;
+
+    @media (max-width: 640px) {
+        height: 35rem;
+    }
 `
 
 const ProjectsWrapper = styled.div`
@@ -41,6 +45,12 @@ const ProjectsWrapper = styled.div`
             align-items: center;
             transform: translateY(var(--distance));
             transition: all 0.4s ease-out;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .projects-container {
+            height: 32rem;
         }
     }
 `
@@ -76,13 +86,24 @@ const ProjectCardContainer = styled.div`
     height: 100%;
     border-radius: 1rem;
     
+    @media (max-width: 640px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+        height: 100%;
+        text-align: left;
+    }
 `
 
 const ProjectCardLeft = styled.div`
     display: flex;
     padding: 1rem;
     width: 100%;
-    gap: 1rem;
+    
+    @media (max-width: 640px) {
+        padding: 0.5rem;
+    }
 `
 
 const ProjectCardImg = styled.img.attrs(props => ({
@@ -121,6 +142,24 @@ const ProjectCardLeftBody = styled.div`
         color: white;
     }
 
+    @media (max-width: 640px) {
+        .heading {
+            font-size: 1rem;
+            
+            .link {
+                font-size: 1.5rem;
+            }
+        }
+
+        .description {
+            font-size: 0.75rem;
+            font-weight: 400;
+            opacity: 1;
+            color: white;
+        }
+    
+    }
+
 `
 
 const ProjectCardSkillsWrapper = styled.div`
@@ -131,6 +170,9 @@ const ProjectCardSkillsWrapper = styled.div`
     align-items: center;
     gap: 0.75rem;
 
+    @media (max-width: 640px) {
+        gap: 0.25rem;
+    }
 `
 
 const SkillItem = styled.div`

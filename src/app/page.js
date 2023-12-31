@@ -6,7 +6,7 @@ import styled, { keyframes } from 'styled-components';
 
 const HomeContainer = styled.div`
     background-color: black;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -92,33 +92,33 @@ export default function Home() {
 
     return (
         <HomeContainer>
-        <StarBackgroundTop>
-            {starData.map((star, index) => (
-                <div 
-                    key={index}
-                    style={{
-                    '--delay': (star.tag) + 's',
-                    '--size': (Math.floor(Math.random() * star.tag) + 5) + 'px',
-                    }}>
-                    <img src="/images/star.jpeg" className="star-img"/>
-                </div>
-            ))}
-        </StarBackgroundTop>
+            <StarBackgroundTop>
+                {starData.map((star, index) => (
+                    <div 
+                        key={index}
+                        style={{
+                        '--delay': (star.tag) + 's',
+                        '--size': (Math.floor(Math.random() * star.tag) + 5) + 'px',
+                        }}>
+                        <img src="/images/star.jpeg" className="star-img"/>
+                    </div>
+                ))}
+            </StarBackgroundTop>
 
-        <StarBackgroundBottom>
-            {starData.map((star, index) => (
-                <div 
-                    key={index}
-                    style={{
-                    '--delay': (star.tag) + 's',
-                    '--size': (Math.floor(Math.random() * star.tag) + 5) + 'px',
-                    }}>
-                    <img src="/images/star.jpeg" className="star-img"/>
-                </div>
-            ))}
-        </StarBackgroundBottom>
+            <StarBackgroundBottom>
+                {starData.map((star, index) => (
+                    <div 
+                        key={index}
+                        style={{
+                        '--delay': (star.tag) + 's',
+                        '--size': (Math.floor(Math.random() * star.tag) + 5) + 'px',
+                        }}>
+                        <img src="/images/star.jpeg" className="star-img"/>
+                    </div>
+                ))}
+            </StarBackgroundBottom>
 
-        <App />
+            <App />
         </HomeContainer>
     )
 }

@@ -6,6 +6,7 @@ const TabButtonStyle = styled.button`
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: 100%;
     color: white;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;

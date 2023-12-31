@@ -7,14 +7,15 @@ import styled from 'styled-components';
 const NavContainer = styled.nav`
     position: absolute;
     display: flex;
-    right: 2.5rem;
+    right: 1rem;
     bottom: 0;
     top: 0;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 
     @media screen {
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             display: none;
         }
     }
