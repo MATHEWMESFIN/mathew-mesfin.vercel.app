@@ -20,7 +20,7 @@ const HeroContainer = styled.div`
     align-items: center;
     justify-content: center;
 
-    @media (max-width: 640px) {
+    @media (max-width: 880px) {
         grid-template-columns: 1fr;
     }
 `
@@ -44,7 +44,18 @@ const HeroLeft = styled.div`
         margin-bottom: 1.5rem;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 1120px) {
+            
+        .type-animation-container {
+            font-size: 2rem;
+        }
+
+        .description {
+            font-size: 1.25rem;
+        }
+    }
+
+    @media (max-width: 880px) {
 
         .type-animation-container {
             font-size: 1.5rem;
@@ -68,7 +79,11 @@ const HeroName = styled.h1`
         color: rgb(139 92 246);
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 1120px) {
+        font-size: 3rem;
+    }
+
+    @media (max-width: 880px) {
         font-size: 2rem;
     }
 `
@@ -141,8 +156,13 @@ const HeroRight = styled.div`
         }
     }
 
-    @media (max-width: 640px) {
-        
+    @media (max-width: 1120px) {
+        .hero-img-container {
+            margin-left: 1rem;
+        }
+    }
+
+    @media (max-width: 880px) {
         .hero-img-container {
             margin-left: 0;
             margin-bottom: 3rem;
@@ -152,7 +172,6 @@ const HeroRight = styled.div`
                 height: 13rem;
             }
         }
-    
     }
 `
 

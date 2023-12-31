@@ -3,9 +3,6 @@ import React, { useState, useTransition } from 'react';
 import skills from './skillsData';
 import TabButton from './TabButton';
 import styled from 'styled-components';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
 
 const SkillsSection = styled.div`
  
@@ -14,17 +11,13 @@ const SkillsSection = styled.div`
 const SkillsWrapper = styled.div`
     display: flex;
     flex-direction: row;
-
-    @media (max-width: 640px) {
-        /* flex-direction: column; */
-    }
 `
 
 const SkillPanel = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 25rem;
     height: 20rem;
     align-items: center;
 
@@ -38,7 +31,11 @@ const SkillPanel = styled.div`
         transition: transform 0.3s ease-out;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 1120px) {
+        width: 15rem;
+    }
+
+    @media (max-width: 880px) {
         width: 10rem;
         height: 30rem;
 
@@ -54,13 +51,11 @@ const SkillTypeContainer = styled.div`
     position: relative;
     background-color: rgba(139, 92, 246, 0.2);
     border-radius: 1rem;
-    width: 130rem;
+    width: 100%;
     height: 20rem;
 
-    @media (max-width: 640px) {
-        width: 100%;
+    @media (max-width: 880px) {
         height: 30rem;
-    
     }
 `
 
@@ -78,10 +73,6 @@ const Skill = styled.div`
     padding: 1rem;
     transform: translateY(var(--skill-offset));
     transition: all 0.3s ease-in;
-
-    @media (max-width: 640px) {
-        flex-direction: row;
-    }
 `
 
 const SkillItem = styled.div`
@@ -100,7 +91,7 @@ const SkillItem = styled.div`
         font-size: 2rem;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 1120px) {
         font-size: 0.75rem;
         padding: 0.25rem 0.5rem;
         gap: 0.5rem;
@@ -109,7 +100,6 @@ const SkillItem = styled.div`
             .skill-item-img {
                 font-size: 1.5rem;
             }
-        
     }
 
 `

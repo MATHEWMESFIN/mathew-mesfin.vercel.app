@@ -15,7 +15,11 @@ const ProjectsSection = styled.div`
     width: 100%;
     height: 20rem;
 
-    @media (max-width: 640px) {
+    @media (max-width: 1120px) {
+        height: 20rem;
+    }
+
+    @media (max-width: 880px) {
         height: 30rem;
     }
 `
@@ -48,7 +52,13 @@ const ProjectsWrapper = styled.div`
         }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 1120px) {
+        .projects-container {
+            height: 17rem;
+        }
+    }
+
+    @media (max-width: 880px) {
         .projects-container {
             height: 27rem;
         }
@@ -85,8 +95,13 @@ const ProjectCardContainer = styled.div`
     width: 50rem;
     height: 100%;
     border-radius: 1rem;
+
+    @media (max-width: 1120px) {
+        grid-template-columns: 10rem 25rem;
+        width: 35rem;
+    }
     
-    @media (max-width: 640px) {
+    @media (max-width: 880px) {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -148,7 +163,7 @@ const ProjectCardLeftBody = styled.div`
         color: white;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 1120px) {
         .heading {
             font-size: 1rem;
             
@@ -156,6 +171,9 @@ const ProjectCardLeftBody = styled.div`
                 font-size: 1.5rem;
             }
         }
+    }
+
+    @media (max-width: 640px) {
 
         .description {
             font-size: 0.75rem;
@@ -195,6 +213,16 @@ const SkillItem = styled.div`
 
     .skill-item-img {
         font-size: 1rem;
+    }
+
+    @media (max-width: 1120px) {
+        font-size: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        gap: 0.25rem;
+
+        .skill-item-img {
+            font-size: 0.75rem;
+        }
     }
 `
 

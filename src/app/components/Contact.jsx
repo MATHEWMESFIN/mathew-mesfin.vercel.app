@@ -12,7 +12,7 @@ const ContactSection = styled.div`
     width: 100%;
     height: 100%;
 
-    @media (max-width: 640px) {
+    @media (max-width: 880px) {
         display: flex;
         flex-direction: column;
         gap: 1rem;

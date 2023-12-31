@@ -13,7 +13,11 @@ const ExperiencesSection = styled.div`
     width: 100%;
     height: 20rem;
 
-    @media (max-width: 640px) {
+    @media (max-width: 1120px) {
+        height: 20rem;
+    }
+
+    @media (max-width: 880px) {
         height: 30rem;
     }
 `
@@ -46,7 +50,13 @@ const ExperiencesWrapper = styled.div`
         }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 1120px) {
+        .experience-container {
+            height: 17rem;
+        }
+    }
+
+    @media (max-width: 880px) {
         .experience-container {
             height: 27rem;
         }
@@ -84,7 +94,12 @@ const ExperienceCardContainer = styled.div`
     height: 100%;
     border-radius: 1rem;
 
-    @media (max-width: 640px) {
+    @media (max-width: 1120px) {
+        grid-template-columns: 10rem 25rem;
+        width: 35rem;
+    }
+
+    @media (max-width: 880px) {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -149,11 +164,6 @@ const ExperienceCardLeftBody = styled.div`
         opacity: 1;
     }
 
-    @media (max-width: 640px) {
-
-    
-    }
-
 `
 
 const ExperienceCardSkillsWrapper = styled.div`
@@ -185,6 +195,17 @@ const SkillItem = styled.div`
 
     .skill-item-img {
         font-size: 1rem;
+    }
+
+    @media (max-width: 1120px) {
+        font-size: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        gap: 0.25rem;
+
+        .skill-item-img {
+            font-size: 0.75rem;
+        }
+    
     }
 `
 

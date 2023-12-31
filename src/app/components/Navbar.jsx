@@ -25,6 +25,10 @@ const NavContainer = styled.nav`
         background-color: rgba(0, 0, 0, 0.9);
     }
 
+    @media (max-width: 1120px) {
+
+    }
+
     @media (max-width: 640px) {
         bottom: -3rem;
         right: 0;

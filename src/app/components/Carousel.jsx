@@ -34,7 +34,25 @@ const CarouselCard = styled.div`
         color: rgb(139, 92, 246);
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 1120px) {
+        padding: 2rem;
+        
+        .title-container {
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+        }
+    }
+
+    /* @media (max-width: 880px) {
+        padding: 1.5rem;
+        
+        .title-container {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+    } */
+
+    @media (max-width: 880px) {
         padding: 1rem;
         
         .title-container {
@@ -89,6 +107,16 @@ const CarouselContainer = styled.div`
     transform-style: preserve-3d;
     height: 30rem;
     width: 60rem;
+
+    @media (max-width: 1120px) {
+        height: 30rem;
+        width: 45rem;
+    }
+
+    @media (max-width: 880px) {
+        height: 35rem;
+        width: 30rem;
+    }
 
     @media (max-width: 640px) {
         height: 35rem;
@@ -158,7 +186,7 @@ export const App = () => {
     return(
         <div className='app'>
             
-            {active >= 1 && (
+            {/* {active >= 1 && (
                 <NavigateCardBtnTop onClick={() => setActive((i) => i - 1)}>
                     <FaChevronUp />
                 </NavigateCardBtnTop>
@@ -167,7 +195,9 @@ export const App = () => {
                 <NavigateCardBtnBottom onClick={() => setActive((i) => i + 1)}>
                     <FaChevronDown />
                 </NavigateCardBtnBottom>
-            )}
+            )} */}
+
+
             <Carousel setActive={setActive} active={active}>
                 <Card
                     title=''
