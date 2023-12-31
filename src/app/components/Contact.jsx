@@ -155,7 +155,7 @@ const Contact = () => {
     <ContactSection>
         <InfoWrapper>
             <h2 className='header'>
-                Lets {" "}
+                Let's {" "}
                 <span className='colored'>
                     connect
                 </span>
@@ -186,7 +186,7 @@ const Contact = () => {
             </div>
 
             <label className='contact-label' htmlFor='message'>Message</label>
-            <textarea className='contact-input' id='message' type='message' required placeholder='Lets talk about...' />
+            <textarea className='contact-input' id='message' type='message' required placeholder="Let's talk about..." />
 
             <button className='contact-submit' type='submit'>Send</button>
         </FormWrapper>
