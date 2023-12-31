@@ -7,18 +7,13 @@ import styled from 'styled-components';
 const NavContainer = styled.nav`
     position: absolute;
     display: flex;
-    right: 1rem;
+    right: 0;
     bottom: 0;
     top: 0;
     align-items: center;
     justify-content: center;
     z-index: 2;
-
-    @media screen {
-        @media (max-width: 1024px) {
-            display: none;
-        }
-    }
+    transition: all 0.3s ease-out;
 
     .nav-main {
         display: flex;
@@ -27,6 +22,21 @@ const NavContainer = styled.nav`
         align-items: center;
         justify-content: center;
         padding: 1rem;
+        border-radius: 9999px;
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    @media (max-width: 640px) {
+        right: 0;
+        top: 0;
+        bottom: unset;
+        left: 0;
+
+        .nav-main {
+            flex-direction: row;
+            gap: 1rem;
+            padding: 0;
+        }
     }
 `
 

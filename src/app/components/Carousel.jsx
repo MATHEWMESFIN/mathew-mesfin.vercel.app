@@ -71,8 +71,7 @@ const NavigateCardBtnTop = styled(NavigateCardBtn)`
     top: 3rem;
 
     @media (max-width: 640px) {
-        font-size: 3rem;
-        top: 0;
+        display: none;
     }
 `
 
@@ -80,8 +79,7 @@ const NavigateCardBtnBottom = styled(NavigateCardBtn)`
     bottom: 3rem;
 
     @media (max-width: 640px) {
-        font-size: 3rem;
-        bottom: 0;
+        display: none;
     }
 `
 
@@ -100,6 +98,7 @@ const CarouselContainer = styled.div`
 
 const CarouselCardContainer = styled.div`
     position: absolute;
+    top: 0;
     width: 100%;
     height: 100%;
     transform: rotateX(calc(var(--offset) * 50deg)) 
