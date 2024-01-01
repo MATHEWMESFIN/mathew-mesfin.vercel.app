@@ -1,6 +1,5 @@
 'use client'
-import React, { useState } from 'react'
-import { GoDotFill } from "react-icons/go";
+import React, { useState } from 'react';
 import navCards from './navCards';
 import styled from 'styled-components';
 

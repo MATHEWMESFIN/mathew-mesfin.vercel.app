@@ -43,15 +43,6 @@ const CarouselCard = styled.div`
         }
     }
 
-    /* @media (max-width: 880px) {
-        padding: 1.5rem;
-        
-        .title-container {
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-    } */
-
     @media (max-width: 880px) {
         padding: 1rem;
         

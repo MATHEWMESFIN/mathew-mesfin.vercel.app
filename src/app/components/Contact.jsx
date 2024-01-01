@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 
