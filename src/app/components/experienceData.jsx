@@ -44,8 +44,7 @@ const experiences = [
         company: "Towson University",
         location: "Towson, MD",
         duration: "August 2023 - Present",
-        about: "Provided technical assistance to students and faculty with technical questions, troubleshooting problems, network service access requests, and software installation.\n\
-         Oversee laboratory cleanliness and organization while maintaining an inventory of lab supplies and equipment."
+        about: "Provided technical assistance to students and faculty with technical questions, troubleshooting problems, network service access requests, and software installation."
     },
     {
         id: 3,

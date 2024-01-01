@@ -128,12 +128,6 @@ const ProjectCardImg = styled.img.attrs(props => ({
     border-radius: 9999px;
     width: 10rem;
     height: 10rem;
-
-    @media (max-width: 640px) {
-        width: 5rem;
-        height: 5rem;
-    
-    }
 `
 
 const ProjectCardLeftBody = styled.div`
@@ -238,6 +232,7 @@ const Projects = () => {
                             className='project'
                             style={{
                                 "--distance": timeTab === project.id ? '0' : timeTab > project.id ? '-40%' : '40%',
+                                zIndex: timeTab === project.id ? 1 : 0,
                                 opacity: timeTab === project.id ? 1 : 0,
                                 
                             }}>

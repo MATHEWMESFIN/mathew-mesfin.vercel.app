@@ -126,11 +126,6 @@ const ExperieneCardImg = styled.img.attrs(props => ({
     border-radius: 9999px;
     width: 10rem;
     height: 10rem;
-
-    @media (max-width: 640px) {
-        width: 5rem;
-        height: 5rem;
-    }
 `
 
 const ExperienceCardLeftBody = styled.div`
@@ -221,6 +216,7 @@ const Experience = () => {
                             className='experience'
                             style={{
                                 "--distance": timeTab === experience.id ? '0' : timeTab > experience.id ? '-40%' : '40%',
+                                zIndex: timeTab === experience.id ? 1 : 0,
                                 opacity: timeTab === experience.id ? 1 : 0,
                                 
                             }}>
