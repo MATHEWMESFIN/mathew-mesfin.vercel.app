@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { AiOutlineLoading } from "react-icons/ai";
+import { FaXmark } from "react-icons/fa6";
+
 
 
 
@@ -102,7 +103,6 @@ const FormWrapper = styled.form`
         transition: all 0.3s ease-out;
 
         &:hover {
-            transform: scale(1.05);
             background-color: rgb(139, 92, 246, 0.7);
         }
 
@@ -114,36 +114,56 @@ const FormWrapper = styled.form`
     
 `
 
+const ContactSuccess = styled.div`
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    .success-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        border-radius: 9999px;
+        background-color: rgba(0, 128, 0, 0.5);
+        opacity: var(--opacity);
+        transition: all 0.3s ease-out;
+
+        .success-message {
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+        }
+    }
+`
+
 const Contact = () => {
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
-    const [loading, setLoading] = useState(false);
-
-    const handleChange = (e) => {
-        const {id, value} = e.target;
-        if (id === 'email') {
-            setEmail(value);
-        } else if (id === 'subject') {
-            setSubject(value);
-        } else if (id === 'message') {
-            setMessage(value);
-        }
-    }
+    const [sentEmail, setSentEmail] = useState(false);
 
     const handleSubmit = async (e) => {
-        setLoading(true);
+
         e.preventDefault();
         const res = await fetch('/api/contact', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Accept: 'application/json'
             },
             body: JSON.stringify({email, subject, message})
         });
-        console.log(res);
-        setLoading(false);
+
+        setEmail('');
+        setSubject('');
+        setMessage('');
+        setSentEmail(true);
     }
 
   return (
@@ -168,7 +188,7 @@ const Contact = () => {
             </div>
         </InfoWrapper>
 
-        <FormWrapper>
+        <FormWrapper onSubmit={handleSubmit}>
             <div className='email-subject-wrapper'>
                 <div className='email-wrapper'>
                     <label className='contact-label' htmlFor='email'>Your Email</label>
@@ -178,7 +198,7 @@ const Contact = () => {
                         required 
                         placeholder='example@email.com'
                         value={email}
-                        onChange={handleChange}/>
+                        onChange={(e) => {setEmail(e.target.value)}}/>
                 </div>
                 <div className='subject-wrapper'>
                     <label className='contact-label' htmlFor='subject'>Subject</label>
@@ -188,7 +208,7 @@ const Contact = () => {
                         required 
                         placeholder='Hello there'
                         value={subject}
-                        onChange={handleChange} />
+                        onChange={(e) => {setSubject(e.target.value)}} />
                 </div>
             </div>
 
@@ -199,16 +219,27 @@ const Contact = () => {
                 required 
                 placeholder='Lets talk about...'
                 value={message}
-                onChange={handleChange} />
+                onChange={(e) => {setMessage(e.target.value)}} />
 
-            <button className='contact-submit' 
+            <button className="contact-submit"
                 type='submit'
-                disabled={!email || !subject || !message}
-                loading={loading}
-                onClick={handleSubmit}>
-                    {loading ? <AiOutlineLoading className=' animate-spin'/> : 'Send'}
+                disabled={!email || !subject || !message}>
+                    Send
             </button>
         </FormWrapper>
+
+        <ContactSuccess>
+            <div 
+                className='success-wrapper'
+                style={{
+                    '--opacity': sentEmail ? '1' : '0',
+                }}>
+                <p className='success-message'>Email sent!</p>
+                <button className='close-message'>
+                    <FaXmark onClick={() => {setSentEmail(false)}} />
+                </button>
+            </div>
+        </ContactSuccess>
 
     </ContactSection>
   )
