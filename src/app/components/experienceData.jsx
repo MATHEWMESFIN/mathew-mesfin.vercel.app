@@ -1,4 +1,5 @@
-import { SiPhp, SiHtml5, SiMysql, SiSass, SiJavascript } from "react-icons/si"
+import { SiPhp, SiHtml5, SiMysql, SiSass, SiPython, SiJavascript, SiStreamlit,
+    SiPandas, SiFolium } from "react-icons/si"
 
 const experiences = [
     {
@@ -54,7 +55,29 @@ const experiences = [
         location: "Towson, MD",
         duration: "August 2023 - Present",
         about: "Researched, analyzed, and organized Baltimore crime data to highlight and bring awareness to criminal activity problems.\n\
-          Used Streamlit and Pandas with Python to clean the data and visualize the cleaned data."
+          Used Streamlit and Pandas with Python to clean the data and visualize the cleaned data.",
+        skills: [
+            {
+                id: 1,
+                name: "Python",
+                image: [<SiPython />]
+            },
+            {
+                id: 2,
+                name: "Streamlit",
+                image: [<SiStreamlit />]
+            },
+            {
+                id: 3,
+                name: "Pandas",
+                image: [<SiPandas />]
+            },
+            {
+                id: 4,
+                name: "Folium",
+                image: [<SiFolium />]
+            }
+        ]
     }
 ]
 

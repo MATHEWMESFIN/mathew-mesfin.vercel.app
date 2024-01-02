@@ -9,19 +9,21 @@ const TimelineStyle = styled.button`
         width: 100%;
         height: 100%;
         font-size: 1.5rem;
-        color: rgb(139, 92, 246);
+        color: rgba(255, 255, 255, 0.5);
         background-color: black;
         border-radius: 9999px;
         transition: all 0.3s ease-out;
 
         &:hover {
             transform: scale(1.3);
+            color: rgb(139, 92, 246);
         }
     }
 
     .active {
         cursor: default;
         background-color: rgb(139, 92, 246);
+        color: rgb(139, 92, 246);
 
         &:hover {
             transform: scale(1);

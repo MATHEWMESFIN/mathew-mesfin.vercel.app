@@ -185,7 +185,7 @@ const SkillItem = styled.div`
     border-radius: 9999px;
     padding: 0.5rem 1rem;
     gap: 0.5rem;
-    background-color: rgb(139, 92, 246);
+    background-color: rgba(139, 92, 246, 0.5);
     color: white;
 
     .skill-item-img {

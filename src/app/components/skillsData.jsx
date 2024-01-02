@@ -1,7 +1,7 @@
 import { SiTailwindcss, SiNextdotjs, SiReact, SiBootstrap, SiHtml5, 
     SiCss3, SiJavascript, SiNodedotjs, SiExpress, SiMongodb, SiMysql, 
     SiPostgresql, SiPython, SiPhp, SiSass, SiStyledcomponents, SiGit, SiGithub,
-    SiFigma, SiVercel} from "react-icons/si";
+    SiFigma, SiVercel, SiStreamlit, SiPandas, SiFolium } from "react-icons/si";
 import { TbBrandVscode } from "react-icons/tb";
 
 
@@ -102,6 +102,21 @@ const skills = [
                 id: 8,
                 name: "PHP",
                 image: [<SiPhp />]
+            },
+            {
+                id: 9,
+                name: "Streamlit",
+                image: [<SiStreamlit />]
+            },
+            {
+                id: 10,
+                name: "Pandas",
+                image: [<SiPandas />]
+            },
+            {
+                id: 11,
+                name: "Folium",
+                image: [<SiFolium />]
             }
         ]
     },

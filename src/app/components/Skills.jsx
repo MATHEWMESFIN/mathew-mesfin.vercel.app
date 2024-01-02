@@ -61,9 +61,9 @@ const SkillTypeContainer = styled.div`
 
 const Skill = styled.div`
     position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: auto;
     gap: 1rem;
     width: 100%;
     height: 100%;
@@ -73,6 +73,11 @@ const Skill = styled.div`
     padding: 1rem;
     transform: translateY(var(--skill-offset));
     transition: all 0.3s ease-in;
+
+    @media (max-width: 1120px) {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
 `
 
 const SkillItem = styled.div`
@@ -84,7 +89,7 @@ const SkillItem = styled.div`
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
     gap: 1rem;
-    background-color: rgba(139, 92, 246);
+    background-color: rgba(139, 92, 246, 0.5);
     color: white;
 
     .skill-item-img {

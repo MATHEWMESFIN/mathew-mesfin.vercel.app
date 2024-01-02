@@ -48,11 +48,10 @@ const NavDotButton = styled.button`
     font-size: var(--font-size-offset);
     filter: drop-shadow(0 0 0.75rem var(--filter-color));
 
-    /* transform: scale(calc(1 + var(--offset) * -3)); */
     transition: all 0.3s;
 
     &:hover {
-        transform: scaleX(1.5) scaleY(1.5);
+        transform: scaleX(var(--scale-offset)) scaleY(var(--scale-offset));
         opacity: 1;
     }
 `
@@ -74,6 +73,8 @@ export const Navbar = ({active, setActive}) => {
                                 '--filter-color': active === card.to ? 'rgb(139 92 246)' : 'white',
                                 '--opacity-offset': active === card.to ? 1 : 0.5,
                                 '--font-size-offset': active === card.to ? '2rem' : '1rem',
+                                '--scale-offset': active === card.to ? '1' : '1.5',
+                                cursor: active === card.to ? 'default' : 'pointer',
                                 color: active === card.to ? 'rgb(139 92 246)' : 'white',
                             }}
                         >
