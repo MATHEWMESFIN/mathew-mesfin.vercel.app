@@ -156,7 +156,7 @@ const SkillCard = ({ skill, tab }) => {
     return (
         <Skill
             style={{
-                "--skill-offset": tab === skill.id ? '0' : tab > skill.id ? '-30%' : '30%',
+                "--skill-offset": tab === skill.id ? '0' : tab > skill.id ? '30%' : '-30%',
                 zIndex: tab === skill.id ? 1 : 0,
                 opacity: tab === skill.id ? '1' : '0'
             }}>

@@ -136,18 +136,24 @@ const ProjectCardLeftBody = styled.div`
     align-items: flex-start;
     width: 100%;
     height: 100%;
-    gap: 1rem;
-    color: rgb(139, 92, 246);
+    color: white;
 
     .heading {
         font-size: 1.25rem;
         font-weight: 500;
         display: flex;
         gap: 1rem;
+        color: rgb(139, 92, 246);
         
         .link {
             font-size: 2rem;
         }
+    }
+
+    .duration {
+        font-size: 0.75rem;
+        font-weight: 400;
+        opacity: 0.5;
     }
 
     .description {
@@ -283,13 +289,13 @@ const ProjectsCard = ({ project }) => {
                             </Link>
                         )}
                     </div>
-                    <div className='description'>
-                        {project?.description &&
-                            <div>
-                                {project.description}
-                            </div>
-                        }
+                    <div className='duration'>
+                        {project.duration}
                     </div>
+                    <div className='description'>
+                        {project.description}
+                    </div>
+
                     {project?.skills &&
                         <ProjectCardSkillsWrapper>
                             {project?.skills?.map((skill, index) => (

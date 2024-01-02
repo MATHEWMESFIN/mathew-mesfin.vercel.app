@@ -292,7 +292,7 @@ const Contact = () => {
                 className='contact-input' 
                 id='message' type='message' 
                 required 
-                placeholder='Lets talk about...'
+                placeholder="Let's talk about..."
                 value={message}
                 onChange={(e) => {setMessage(e.target.value)}} />
 

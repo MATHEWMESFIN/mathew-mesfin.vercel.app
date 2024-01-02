@@ -1,7 +1,7 @@
 import { SiTailwindcss, SiNextdotjs, SiReact, SiBootstrap, SiHtml5, 
     SiCss3, SiJavascript, SiNodedotjs, SiExpress, SiMongodb, SiMysql, 
     SiPostgresql, SiPython, SiPhp, SiSass, SiStyledcomponents, SiGit, SiGithub,
-    SiFigma } from "react-icons/si";
+    SiFigma, SiVercel} from "react-icons/si";
 import { TbBrandVscode } from "react-icons/tb";
 
 
@@ -128,6 +128,11 @@ const skills = [
                 id: 4,
                 name: "Figma",
                 image: [<SiFigma />]
+            },
+            {
+                id: 5,
+                name: "Vercel",
+                image: [<SiVercel />]
             }
         ]
     }
