@@ -212,7 +212,7 @@ const Hero = ({ setActive }) => {
                     <button className='contact-btn' onClick={() => setActive(4)}>
                         Contact
                     </button>
-                    <Link className='resume-link' href='/Resume - Mathew Mesfin_2023.pdf' target='_blank'>
+                    <Link className='resume-link' href='/Resume - Mathew Mesfin.pdf' target='_blank'>
                         <button className='resume-btn'>
                             Resume
                         </button>
