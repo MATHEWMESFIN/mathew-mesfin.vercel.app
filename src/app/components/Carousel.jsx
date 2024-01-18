@@ -96,36 +96,53 @@ const CarouselContainer = styled.div`
     position: relative;
     perspective: 500px;
     transform-style: preserve-3d;
-    height: 30rem;
-    width: 60rem;
+    width: 70rem;
+    height: 40rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @media (max-width: 1120px) {
-        height: 30rem;
-        width: 45rem;
+        width: 55rem;
+        height: 40rem;
     }
 
     @media (max-width: 880px) {
-        height: 35rem;
-        width: 30rem;
+        width: 40rem;
+        height: 45rem;
     }
 
     @media (max-width: 640px) {
-        height: 35rem;
-        width: 20rem;
-}
+        width: 30rem;
+        height: 45rem;
+    }
 `
 
 const CarouselCardContainer = styled.div`
     position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    width: 60rem;
+    height: 30rem;
     transform: rotateX(calc(var(--offset) * 50deg)) 
         scaleX(calc(1 + var(--abs-offset) * -0.1)) 
         translateZ(calc(var(--abs-offset) * -30rem)) 
         translateY(calc(var(--direction) * -30rem));
     filter: blur(calc(var(--abs-offset) * 1rem));
     transition: all 0.3s ease-out;
+
+    @media (max-width: 1120px) {
+        width: 45rem;
+        height: 30rem;
+    }
+
+    @media (max-width: 880px) {
+        width: 30rem;
+        height: 35rem;
+    }
+
+    @media (max-width: 640px) {
+        width: 20rem;
+        height: 35rem;
+    }
 `
 
 const MAX_VISIBLE = 3;

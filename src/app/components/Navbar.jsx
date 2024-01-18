@@ -1,12 +1,12 @@
 'use client'
-import React, { useState } from 'react';
+import React from 'react';
 import navCards from './navCards';
 import styled from 'styled-components';
 
 const NavContainer = styled.nav`
     position: absolute;
     display: flex;
-    right: -5rem;
+    right: 0;
     top: 0;
     bottom: 0;
     align-items: center;
@@ -29,7 +29,7 @@ const NavContainer = styled.nav`
     }
 
     @media (max-width: 640px) {
-        bottom: -3rem;
+        bottom: 2rem;
         right: 0;
         left: 0;
         top: unset;
