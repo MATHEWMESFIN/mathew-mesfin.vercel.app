@@ -9,7 +9,7 @@ const TimelineStyle = styled.button`
         width: 100%;
         height: 100%;
         font-size: 1.5rem;
-        color: rgba(255, 255, 255, 0.5);
+        color: rgb(var(--foreground-color));
         background-color: black;
         border-radius: 9999px;
         transition: all 0.3s ease-out;

@@ -16,12 +16,14 @@ const NavContainer = styled.nav`
     .nav-main {
         display: flex;
         flex-direction: column;
+        width: 4rem;
+        height: 18rem;
         gap: 1.5rem;
         align-items: center;
         justify-content: center;
         padding: 1rem;
         border-radius: 9999px;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: rgb(var(--primary-color), 0.2);
     }
 
     @media (max-width: 1120px) {
@@ -36,8 +38,9 @@ const NavContainer = styled.nav`
 
         .nav-main {
             flex-direction: row;
+            width: 14rem;
+            height: 3rem;
             gap: 1rem;
-            padding: 0 0.5rem;
         }
     }
 `
@@ -46,7 +49,6 @@ const NavDotButton = styled.button`
     border-radius: 9999px;
     opacity: var(--opacity-offset);
     font-size: var(--font-size-offset);
-    filter: drop-shadow(0 0 0.75rem var(--filter-color));
 
     transition: all 0.3s;
 
@@ -57,8 +59,6 @@ const NavDotButton = styled.button`
 `
 
 export const Navbar = ({active, setActive}) => {
-    
-    const MAX_VISIBLE = 3;
 
     return (
         <NavContainer>
