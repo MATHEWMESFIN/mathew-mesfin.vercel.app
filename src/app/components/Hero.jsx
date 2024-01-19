@@ -29,6 +29,8 @@ const HeroLeft = styled.div`
     grid-column: span 7 / span 7;
     align-items: center;
     justify-content: center;
+    border-radius: 1rem;
+    padding: 1rem;
 
     .type-animation-container {
         color: white;
@@ -144,7 +146,6 @@ const HeroRight = styled.div`
     .hero-img-container {
         position: relative;
         border-radius: 9999px;
-        filter: drop-shadow(0 0 0.75rem white);
         margin-left: 2rem;
 
         .hero-img {
@@ -222,7 +223,7 @@ const Hero = ({ setActive }) => {
             <HeroRight>
                 <div className='hero-img-container'>
                     <img
-                        src='/images/profile-pic.png'
+                        src='/images/portfolio-pic.png'
                         className='hero-img'/>
                 </div>
             </HeroRight>

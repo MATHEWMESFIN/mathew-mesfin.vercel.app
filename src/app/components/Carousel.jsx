@@ -21,7 +21,6 @@ const CarouselCard = styled.div`
     transition: all 0.3s ease-out;
 
     .title-container {
-        border-bottom: 2px solid rgb(var(--primary-color));
         margin-bottom: 2rem;
         font-size: 2rem;
         font-weight: 600;
@@ -48,45 +47,6 @@ const CarouselCard = styled.div`
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
-    }
-`
-
-const NavigateCardBtn = styled.button`
-    position: absolute;
-    left: 0;
-    right: 0;
-    color: white;
-    font-size: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    cursor: pointer;
-    user-select: none;
-    background: unset;
-    border: unset;
-    filter: drop-shadow(0 0 0.75rem white);
-
-    transition: all 0.3s;
-    &:hover {
-        color: rgb(var(--primary-color));
-        filter: drop-shadow(0 0 0.75rem rgb(var(--primary-color)));
-    }
-`
-
-const NavigateCardBtnTop = styled(NavigateCardBtn)`
-    top: 3rem;
-
-    @media (max-width: 640px) {
-        display: none;
-    }
-`
-
-const NavigateCardBtnBottom = styled(NavigateCardBtn)`
-    bottom: 3rem;
-
-    @media (max-width: 640px) {
-        display: none;
     }
 `
 

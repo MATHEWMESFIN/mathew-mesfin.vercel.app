@@ -1,204 +1,304 @@
 const starData = [
     {
-      tag: 5,
-      speed: 19,
+      id: 1,
     },
     {
-      tag: 7,
-      speed: 19,
+      id: 2,
     },
     {
-      tag: 9,
-      speed: 13,
+      id: 3,
     },
     {
-      tag: 6,
-      speed: 19,
+      id: 4,
     },
     {
-      tag: 17,
-      speed: 15,
+      id: 5,
     },
     {
-      tag: 10,
-      speed: 12,
+      id: 6,
     },
     {
-      tag: 12,
-      speed: 15,
+      id: 7,
     },
     {
-      tag: 15,
-      speed: 12,
+      id: 8,
     },
     {
-      tag: 23,
-      speed: 19,
+      id: 9,
     },
     {
-      tag: 16,
-      speed: 23,
+      id: 10,
     },
     {
-      tag: 20,
-      speed: 15,
+      id: 11,
     },
     {
-      tag: 16,
-      speed: 10,
+      id: 12,
     },
     {
-      tag: 12,
-      speed: 16,
+      id: 13,
     },
     {
-      tag: 9,
-      speed: 19,
+      id: 14,
     },
     {
-      tag: 5,
-      speed: 14,
+      id: 15,
     },
     {
-      tag: 6,
-      speed: 19,
+      id: 16,
     },
     {
-      tag: 10,
-      speed: 21,
+      id: 17,
     },
     {
-      tag: 5,
-      speed: 18,
+      id: 18,
     },
     {
-      tag: 9,
-      speed: 15,
+      id: 19,
     },
     {
-      tag: 14,
-      speed: 19,
+      id: 20,
     },
     {
-      tag: 13,
-      speed: 12,
+      id: 21,
     },
     {
-      tag: 12,
-      speed: 18,
+      id: 22,
     },
     {
-      tag: 15,
-      speed: 20,
+      id: 23,
     },
     {
-      tag: 13,
-      speed: 18,
+      id: 24,
     },
     {
-      tag: 18,
-      speed: 23,
+      id: 25,
     },
     {
-      tag: 15,
-      speed: 15,
+      id: 26,
     },
     {
-      tag: 9,
-      speed: 19,
+      id: 27,
     },
     {
-      tag: 5,
-      speed: 18,
+      id: 28,
     },
     {
-      tag: 6,
-      speed: 14,
+      id: 29,
     },
     {
-      tag: 10,
-      speed: 16,
+      id: 30,
     },
     {
-      tag: 5,
-      speed: 14,
+      id: 31,
     },
     {
-      tag: 9,
-      speed: 18,
+      id: 32,
     },
     {
-      tag: 10,
-      speed: 20,
+      id: 33,
     },
     {
-      tag: 9,
-      speed: 15,
+      id: 34,
     },
     {
-      tag: 6,
-      speed: 19,
+      id: 35,
     },
     {
-      tag: 17,
-      speed: 12,
+      id: 36,
     },
     {
-      tag: 10,
-      speed: 18,
+      id: 37,
     },
     {
-      tag: 12,
-      speed: 19,
+      id: 38,
     },
     {
-      tag: 15,
-      speed: 12,
+      id: 39,
     },
     {
-      tag: 23,
-      speed: 15,
+      id: 40,
     },
     {
-      tag: 16,
-      speed: 23,
+      id: 41,
     },
     {
-      tag: 20,
-      speed: 15,
+      id: 42,
     },
     {
-      tag: 16,
-      speed: 19,
+      id: 43,
     },
     {
-      tag: 12,
-      speed: 18,
+      id: 44,
     },
     {
-      tag: 9,
-      speed: 16,
+      id: 45,
     },
     {
-      tag: 5,
-      speed: 16,
+      id: 46,
     },
     {
-      tag: 6,
-      speed: 19,
+      id: 47,
     },
     {
-      tag: 10,
-      speed: 18,
+      id: 48,
     },
     {
-      tag: 5,
-      speed: 15,
+      id: 49,
     },
     {
-      tag: 9,
-      speed: 17,
+      id: 50,
     },
+    {
+      id: 51,
+    },
+    {
+      id: 52,
+    },
+    {
+      id: 53,
+    },
+    {
+      id: 54,
+    },
+    {
+      id: 55,
+    },
+    {
+      id: 56,
+    },
+    {
+      id: 57,
+    },
+    {
+      id: 58,
+    },
+    {
+      id: 59,
+    },
+    {
+      id: 60,
+    },
+    {
+      id: 61,
+    },
+    {
+      id: 62,
+    },
+    {
+      id: 63,
+    },
+    {
+      id: 64,
+    },
+    {
+      id: 65,
+    },
+    {
+      id: 66,
+    },
+    {
+      id: 67,
+    },
+    {
+      id: 68,
+    },
+    {
+      id: 69,
+    },
+    {
+      id: 70,
+    },
+    {
+      id: 71,
+    },
+    {
+      id: 72,
+    },
+    {
+      id: 73,
+    },
+    {
+      id: 74,
+    },
+    {
+      id: 75,
+    },
+    {
+      id: 76,
+    },
+    {
+      id: 77,
+    },
+    {
+      id: 78,
+    },
+    {
+      id: 79,
+    },
+    {
+      id: 80,
+    },
+    {
+      id: 81,
+    },
+    {
+      id: 82,
+    },
+    {
+      id: 83,
+    },
+    {
+      id: 84,
+    },
+    {
+      id: 85,
+    },
+    {
+      id: 86,
+    },
+    {
+      id: 87,
+    },
+    {
+      id: 88,
+    },
+    {
+      id: 89,
+    },
+    {
+      id: 90,
+    },
+    {
+      id: 91,
+    },
+    {
+      id: 92,
+    },
+    {
+      id: 93,
+    },
+    {
+      id: 94,
+    },
+    {
+      id: 95,
+    },
+    {
+      id: 96,
+    },
+    {
+      id: 97,
+    },
+    {
+      id: 98,
+    },
+    {
+      id: 99,
+    },
+    {
+      id: 100,
+    }
 ]
 
 export default starData

@@ -26,12 +26,11 @@ const StarBackground = styled.div`
 
     .star-img {
         opacity: 0;
-        box-shadow: 0 0 1rem 1rem rgb(var(--foreground-color));
+        box-shadow: 0 0 1rem 0.5rem rgb(var(--foreground-color));
         filter: blur(1rem);
         width: 10px;
         border-radius: 9999px;
-        animation: ${glide} var(--speed) linear infinite,
-            pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        animation: ${glide} var(--speed) linear infinite;
     }
 
     .star-img:nth-child(1) {
@@ -48,9 +47,9 @@ const Stars = () => {
                 <div 
                     key={index}
                     style={{
-                    '--delay': (star.tag) + 's',
-                    '--speed': (star.speed) + 's',
-                    '--size': (Math.floor(Math.random() * star.tag) + 10) + 'rem',
+                    '--delay': (Math.floor(Math.random() * 25)) + 's',
+                    '--speed': (Math.floor(Math.random() * 20) + 10) + 's',
+                    '--size': (Math.floor(Math.random() * 10)) + 'rem',
                     }}>
                     <img src="/images/star.png" className="star-img"/>
                 </div>
