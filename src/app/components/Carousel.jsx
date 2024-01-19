@@ -1,6 +1,8 @@
 'use client'
 import React, { useState } from 'react';
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { BiSolidBriefcase, BiSolidMessageRounded } from "react-icons/bi";
+import { FaCode, FaUserCircle } from "react-icons/fa";
+import { IoStatsChart } from "react-icons/io5";
 import Skills from './Skills';
 import Hero from './Hero';
 import Experience from './Experience';
@@ -21,14 +23,29 @@ const CarouselCard = styled.div`
     transition: all 0.3s ease-out;
 
     .title-container {
-        margin-bottom: 2rem;
-        font-size: 2rem;
-        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 3rem;
+        font-weight: 800;
         text-align: center;
     }
 
     .title {
         color: rgb(var(--primary-color));
+    }
+
+    .card-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 200vh;
+        color: rgb(var(--foreground-color), 0.3);
+        filter: blur(2rem);
+        z-index: -1;
     }
 
     @media (max-width: 1120px) {
@@ -105,7 +122,7 @@ const CarouselCardContainer = styled.div`
 
 const MAX_VISIBLE = 1;
 
-const Card = ({ title, content }) => (
+const Card = ({ title, content, background }) => (
     <CarouselCard>
         {title !== '' && (
             <div className='title-container'>
@@ -114,6 +131,9 @@ const Card = ({ title, content }) => (
                 </span>
             </div>
         )}
+        {/* <div className='card-background'>
+            {background}
+        </div> */}
         {content}
     </CarouselCard>
 )
@@ -154,22 +174,27 @@ export const App = () => {
                 <Card
                     title=''
                     content={<Hero setActive={setActive} />}
+                    background={<FaUserCircle />}
                 />
                 <Card
                     title='Skills'
                     content={<Skills />}
+                    background={<IoStatsChart />}
                 />
                 <Card
                     title='Experience'
                     content={<Experience />}
+                    background={<BiSolidBriefcase />}
                 />
                 <Card
                     title='Projects'
                     content={<Projects />}
+                    background={<FaCode />}
                 />
                 <Card
                     title='Contact'
                     content={<Contact />}
+                    background={<BiSolidMessageRounded />}
                 />
             </Carousel>
         </div>

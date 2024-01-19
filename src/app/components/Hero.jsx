@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 const HeroSection = styled.section`
+    position: relative;
     display: flex;
     width: 100%;
     height: 100%;
@@ -26,28 +27,38 @@ const HeroContainer = styled.div`
 `
 
 const HeroLeft = styled.div`
-    grid-column: span 7 / span 7;
+    grid-column: span 12 / span 12;
     align-items: center;
     justify-content: center;
     border-radius: 1rem;
     padding: 1rem;
 
     .type-animation-container {
-        color: white;
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
+        color: rgb(var(--foreground-color));
+        font-size: 5rem;
+        font-weight: 800;
     }
 
     .description {
         color: rgb(203 213 225);
-        font-size: 1.25rem;
-        margin-top: 1.5rem;
+        text-align: left;
+        font-size: 2rem;
         margin-bottom: 1.5rem;
     }
 
     @media (max-width: 1120px) {
             
+        .type-animation-container {
+            font-size: 3rem;
+        }
+
+        .description {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 880px) {
+
         .type-animation-container {
             font-size: 2rem;
         }
@@ -55,38 +66,32 @@ const HeroLeft = styled.div`
         .description {
             font-size: 1.25rem;
         }
+    
     }
 
-    @media (max-width: 880px) {
+    @media (max-width: 640px) {
 
         .type-animation-container {
             font-size: 1.5rem;
         }
-
-        .description {
-            font-size: 1rem;
-        }
-    
     }
 `
 
 const HeroName = styled.h1`
-    font-size: 4rem;
-    font-weight: 800;
-    color: white;
-
-    transition: all 0.3s;
+    font-size: 7rem;
+    font-weight: 900;
+    color: rgb(var(--foreground-color));
 
     .colored {
-        color: rgb(139 92 246);
+        color: rgb(var(--primary-color));
     }
 
     @media (max-width: 1120px) {
-        font-size: 3rem;
+        font-size: 5rem;
     }
 
     @media (max-width: 880px) {
-        font-size: 2rem;
+        font-size: 4rem;
     }
 `
 
@@ -176,6 +181,22 @@ const HeroRight = styled.div`
     }
 `
 
+const BackGroundImage = styled.img`
+    position: absolute;
+    width: 100vw;
+    filter: blur(2rem);
+    opacity: 0.5;
+    z-index: -1;
+
+    @media (max-width: 1120px) {
+        filter: blur(1rem);
+    }
+
+    @media (max-width: 880px) {
+        filter: blur(0.5rem);
+    }
+`
+
 const Hero = ({ setActive }) => {
   return (
     <HeroSection>
@@ -220,13 +241,13 @@ const Hero = ({ setActive }) => {
                     </Link>
                 </HeroButtons>
             </HeroLeft>
-            <HeroRight>
+            {/* <HeroRight>
                 <div className='hero-img-container'>
                     <img
                         src='/images/portfolio-pic.png'
                         className='hero-img'/>
                 </div>
-            </HeroRight>
+            </HeroRight> */}
         </HeroContainer>
     </HeroSection>
   )
