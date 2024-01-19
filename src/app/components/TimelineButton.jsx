@@ -16,14 +16,14 @@ const TimelineStyle = styled.button`
 
         &:hover {
             transform: scale(1.3);
-            color: rgb(139, 92, 246);
+            color: rgb(var(--primary-color));
         }
     }
 
     .active {
         cursor: default;
-        background-color: rgb(139, 92, 246);
-        color: rgb(139, 92, 246);
+        background-color: rgb(var(--primary-color));
+        color: rgb(var(--primary-color));
 
         &:hover {
             transform: scale(1);

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useTransition } from 'react';
+import React from 'react';
 import skills from './skillsData';
 import styled from 'styled-components';
 
@@ -10,7 +10,7 @@ const SkillsContainer = styled.div`
     height: 20rem;
     gap: 1rem;
     padding: 1rem;
-    background-color: rgba(139, 92, 246, 0.2);
+    background-color: rgb(var(--primary-color), 0.2);
     border-radius: 1rem;
     overflow: auto;
 
@@ -38,14 +38,14 @@ const SkillItem = styled.div`
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
     gap: 1rem;
-    background-color: rgba(139, 92, 246, 0.75);
+    background-color: rgb(var(--primary-color), 0.75);
     color: white;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 
     &:hover {
         transform: scale(1.1);
-        background-color: rgba(139, 92, 246);
+        background-color: rgb(var(--primary-color));
 
         .skill-item-img {
             transform: rotate(360deg);

@@ -14,24 +14,22 @@ const CarouselCard = styled.div`
     height: 100%;
     border: none;
     border-radius: 1rem;
-    background-color: black;
+    background-color: transparent;
     color: white;
     text-align: justify;
     padding: 2.5rem;
     transition: all 0.3s ease-out;
-    filter: drop-shadow(0 0 0.75rem white);
 
     .title-container {
-        border-bottom: 2px solid rgb(139, 92, 246);
+        border-bottom: 2px solid rgb(var(--primary-color));
         margin-bottom: 2rem;
         font-size: 2rem;
         font-weight: 600;
         text-align: center;
-        filter: drop-shadow(0 0 0.75rem rgb(139, 92, 246));
     }
 
     .title {
-        color: rgb(139, 92, 246);
+        color: rgb(var(--primary-color));
     }
 
     @media (max-width: 1120px) {
@@ -71,8 +69,8 @@ const NavigateCardBtn = styled.button`
 
     transition: all 0.3s;
     &:hover {
-        color: rgb(139, 92, 246);
-        filter: drop-shadow(0 0 0.75rem rgb(139, 92, 246 ));
+        color: rgb(var(--primary-color));
+        filter: drop-shadow(0 0 0.75rem rgb(var(--primary-color)));
     }
 `
 
@@ -127,7 +125,7 @@ const CarouselCardContainer = styled.div`
         translateZ(calc(var(--abs-offset) * -30rem)) 
         translateY(calc(var(--direction) * -30rem));
     filter: blur(calc(var(--abs-offset) * 1rem));
-    transition: all 0.3s ease-out;
+    transition: all 0.5s ease-out;
 
     @media (max-width: 1120px) {
         width: 45rem;
@@ -145,7 +143,7 @@ const CarouselCardContainer = styled.div`
     }
 `
 
-const MAX_VISIBLE = 3;
+const MAX_VISIBLE = 1;
 
 const Card = ({ title, content }) => (
     <CarouselCard>
@@ -177,7 +175,6 @@ export const Carousel = ({ setActive, active, children }) => {
                     "--abs-offset": Math.abs(active - i) / 3,
                     "pointerEvents": active === i ? 'auto' : 'none',
                     opacity: Math.abs(active - i) >= MAX_VISIBLE ? '0' : '1',
-                    display: Math.abs(active - i) > MAX_VISIBLE ? 'none' : 'block',
                     }}
                 >
                     {child}
@@ -193,19 +190,6 @@ export const App = () => {
 
     return(
         <div className='app'>
-            
-            {/* {active >= 1 && (
-                <NavigateCardBtnTop onClick={() => setActive((i) => i - 1)}>
-                    <FaChevronUp />
-                </NavigateCardBtnTop>
-            )}
-            {active < count - 1 && (
-                <NavigateCardBtnBottom onClick={() => setActive((i) => i + 1)}>
-                    <FaChevronDown />
-                </NavigateCardBtnBottom>
-            )} */}
-
-
             <Carousel setActive={setActive} active={active}>
                 <Card
                     title=''

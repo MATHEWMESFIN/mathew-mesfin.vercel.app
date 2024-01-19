@@ -33,7 +33,7 @@ const InfoWrapper = styled.div`
         color: white;
 
         .colored {
-            color: rgb(139, 92, 246);
+            color: rgb(var(--primary-color));
         }
     }
 
@@ -92,7 +92,7 @@ const FormWrapper = styled.form`
         font-size: 1rem;
         font-weight: 400;
         color: white;
-        background-color: rgba(139, 92, 246, 0.2);
+        background-color: rgba(var(--primary-color), 0.2);
         border: none;
         border-radius: 1rem;
         padding: 1rem;
@@ -113,7 +113,7 @@ const FormWrapper = styled.form`
         font-size: 1rem;
         font-weight: 600;
         color: white;
-        background-color: rgba(139, 92, 246);
+        background-color: rgb(var(--primary-color));
         border: none;
         border-radius: 1rem;
         padding: 1rem;
@@ -122,11 +122,11 @@ const FormWrapper = styled.form`
         transition: all 0.3s ease-out;
 
         &:hover {
-            background-color: rgb(139, 92, 246, 0.7);
+            background-color: rgb(var(--primary-color), 0.7);
         }
 
         &:disabled {
-            background-color: rgba(139, 92, 246, 0.5);
+            background-color: rgba(var(--primary-color), 0.5);
             cursor: default;
         }
     }

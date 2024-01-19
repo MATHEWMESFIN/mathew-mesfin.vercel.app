@@ -35,7 +35,7 @@ const ExperiencesWrapper = styled.div`
         height: 17rem;
         position: absolute;
         top: 0;
-        background-color: rgba(139, 92, 246, 0.2);
+        background-color: rgba(var(--primary-color), 0.2);
         border-radius: 1rem;
 
         .experience {
@@ -75,7 +75,7 @@ const TimeLineWrapper = styled.div`
 const TimeLineLine = styled.div`
     position: absolute;
     bottom: 1.75rem;
-    background-color: rgb(139, 92, 246, 0.5);
+    background-color: rgb(var(--primary-color), 0.5);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -138,7 +138,7 @@ const ExperienceCardLeftBody = styled.div`
     .role {
         font-size: 1.25rem;
         font-weight: 500;
-        color: rgb(139, 92, 246);
+        color: rgb(var(--primary-color));
     }
 
     .company {
@@ -185,7 +185,7 @@ const SkillItem = styled.div`
     border-radius: 9999px;
     padding: 0.5rem 1rem;
     gap: 0.5rem;
-    background-color: rgba(139, 92, 246, 0.5);
+    background-color: rgba(var(--primary-color), 0.5);
     color: white;
 
     .skill-item-img {

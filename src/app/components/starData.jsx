@@ -1,193 +1,204 @@
 const starData = [
     {
-      tag: 5
+      tag: 5,
+      speed: 19,
     },
     {
-      tag: 7
+      tag: 7,
+      speed: 19,
     },
     {
-      tag: 2
+      tag: 9,
+      speed: 13,
     },
     {
-      tag: 9
+      tag: 6,
+      speed: 19,
     },
     {
-      tag: 6
+      tag: 17,
+      speed: 15,
     },
     {
-      tag: 4
+      tag: 10,
+      speed: 12,
     },
     {
-      tag: 17
+      tag: 12,
+      speed: 15,
     },
     {
-      tag: 10
+      tag: 15,
+      speed: 12,
     },
     {
-      tag: 12
+      tag: 23,
+      speed: 19,
     },
     {
-      tag: 15
+      tag: 16,
+      speed: 23,
     },
     {
-      tag: 23
+      tag: 20,
+      speed: 15,
     },
     {
-      tag: 16
+      tag: 16,
+      speed: 10,
     },
     {
-      tag: 20
+      tag: 12,
+      speed: 16,
     },
     {
-      tag: 16
+      tag: 9,
+      speed: 19,
     },
     {
-      tag: 12
+      tag: 5,
+      speed: 14,
     },
     {
-      tag: 9
+      tag: 6,
+      speed: 19,
     },
     {
-      tag: 5
+      tag: 10,
+      speed: 21,
     },
     {
-      tag: 3
+      tag: 5,
+      speed: 18,
     },
     {
-      tag: 6
+      tag: 9,
+      speed: 15,
     },
     {
-      tag: 10
+      tag: 14,
+      speed: 19,
     },
     {
-      tag: 1
+      tag: 13,
+      speed: 12,
     },
     {
-      tag: 5
+      tag: 12,
+      speed: 18,
     },
     {
-      tag: 9
+      tag: 15,
+      speed: 20,
     },
     {
-      tag: 14
+      tag: 13,
+      speed: 18,
     },
     {
-      tag: 13
+      tag: 18,
+      speed: 23,
     },
     {
-      tag: 12
+      tag: 15,
+      speed: 15,
     },
     {
-      tag: 15
+      tag: 9,
+      speed: 19,
     },
     {
-      tag: 13
+      tag: 5,
+      speed: 18,
     },
     {
-      tag: 18
+      tag: 6,
+      speed: 14,
     },
     {
-      tag: 15
+      tag: 10,
+      speed: 16,
     },
     {
-      tag: 4
+      tag: 5,
+      speed: 14,
     },
     {
-      tag: 9
+      tag: 9,
+      speed: 18,
     },
     {
-      tag: 5
+      tag: 10,
+      speed: 20,
     },
     {
-      tag: 3
+      tag: 9,
+      speed: 15,
     },
     {
-      tag: 6
+      tag: 6,
+      speed: 19,
     },
     {
-      tag: 10
+      tag: 17,
+      speed: 12,
     },
     {
-      tag: 1
+      tag: 10,
+      speed: 18,
     },
     {
-      tag: 5
+      tag: 12,
+      speed: 19,
     },
     {
-      tag: 9
+      tag: 15,
+      speed: 12,
     },
     {
-      tag: 2
+      tag: 23,
+      speed: 15,
     },
     {
-      tag: 10
+      tag: 16,
+      speed: 23,
     },
     {
-      tag: 9
+      tag: 20,
+      speed: 15,
     },
     {
-      tag: 6
+      tag: 16,
+      speed: 19,
     },
     {
-      tag: 4
+      tag: 12,
+      speed: 18,
     },
     {
-      tag: 17
+      tag: 9,
+      speed: 16,
     },
     {
-      tag: 10
+      tag: 5,
+      speed: 16,
     },
     {
-      tag: 12
+      tag: 6,
+      speed: 19,
     },
     {
-      tag: 15
+      tag: 10,
+      speed: 18,
     },
     {
-      tag: 23
+      tag: 5,
+      speed: 15,
     },
     {
-      tag: 16
+      tag: 9,
+      speed: 17,
     },
-    {
-      tag: 20
-    },
-    {
-      tag: 16
-    },
-    {
-      tag: 12
-    },
-    {
-      tag: 9
-    },
-    {
-      tag: 5
-    },
-    {
-      tag: 3
-    },
-    {
-      tag: 6
-    },
-    {
-      tag: 10
-    },
-    {
-      tag: 1
-    },
-    {
-      tag: 5
-    },
-    {
-      tag: 9
-    },
-    {
-      tag: 14
-    },
-    {
-      tag: 3
-    }
 ]
 
 export default starData
