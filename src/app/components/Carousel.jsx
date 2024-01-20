@@ -53,7 +53,7 @@ const CarouselCard = styled.div`
         
         .title-container {
             margin-bottom: 2rem;
-            font-size: 1.75rem;
+            font-size: 2rem;
         }
     }
 
@@ -62,7 +62,7 @@ const CarouselCard = styled.div`
         
         .title-container {
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
         }
     }
 `

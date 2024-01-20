@@ -10,7 +10,6 @@ const SkillsContainer = styled.div`
     height: 20rem;
     gap: 1rem;
     padding: 1rem;
-    background-color: rgb(var(--primary-color), 0.2);
     border-radius: 1rem;
     overflow: auto;
 

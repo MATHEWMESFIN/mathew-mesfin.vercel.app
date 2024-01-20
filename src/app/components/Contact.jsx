@@ -48,6 +48,16 @@ const InfoWrapper = styled.div`
         display: flex;
         flex-direction: row;
         gap: 1rem;
+
+        .social {
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                color: rgb(var(--primary-color));
+            }
+        }
     }
 
     @media (max-width: 640px) {
@@ -61,6 +71,10 @@ const InfoWrapper = styled.div`
 
         .socials {
             gap: 0.5rem;
+
+            .social {
+                font-size: 1.5rem;
+            }
         }
     
     }
@@ -254,10 +268,10 @@ const Contact = () => {
                 If you would like to get in touch with me, please fill out the form and I will get back to you as soon as possible.
             </p>
             <div className='socials'>
-                <Link href='https://github.com/MATHEWMESFIN' target='_blank'>
+                <Link href='https://github.com/MATHEWMESFIN' target='_blank' className='social'>
                     <FaGithub />
                 </Link>
-                <Link href='https://www.linkedin.com/in/mathew-mesfin-9b1610234/' target='_blank'>
+                <Link href='https://www.linkedin.com/in/mathew-mesfin-9b1610234/' target='_blank' className='social'>
                     <FaLinkedin />
                 </Link>
             </div>

@@ -125,7 +125,7 @@ const ProjectCardImg = styled.img.attrs(props => ({
     src: props.src,
 }))
 `
-    border-radius: 9999px;
+    border-radius: 1rem;
     width: 10rem;
     height: 10rem;
 `
