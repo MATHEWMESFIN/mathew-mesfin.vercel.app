@@ -18,9 +18,8 @@ const NavContainer = styled.nav`
         flex-direction: column;
         width: 4rem;
         height: 18rem;
-        gap: 1.5rem;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         padding: 1rem;
         border-radius: 9999px;
         background-color: rgb(var(--primary-color), 0.2);
@@ -40,7 +39,6 @@ const NavContainer = styled.nav`
             flex-direction: row;
             width: 14rem;
             height: 3rem;
-            gap: 1rem;
         }
     }
 `

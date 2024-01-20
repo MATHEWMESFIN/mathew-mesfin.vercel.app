@@ -11,21 +11,16 @@ const navCards = [
     },
     {
         to: 1,
-        title: 'Skills',
-        icon: <IoStatsChart />,
-    },
-    {
-        to: 2,
         title: 'Experience',
         icon: <BiSolidBriefcase />,
     },
     {
-        to: 3,
+        to: 2,
         title: 'Projects',
         icon: <FaCode />,
     },
     {
-        to: 4,
+        to: 3,
         title: 'Contact',
         icon: <BiSolidMessageRounded />,
     }

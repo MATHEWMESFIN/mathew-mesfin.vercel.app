@@ -177,11 +177,6 @@ export const App = () => {
                     background={<FaUserCircle />}
                 />
                 <Card
-                    title='Skills'
-                    content={<Skills />}
-                    background={<IoStatsChart />}
-                />
-                <Card
                     title='Experience'
                     content={<Experience />}
                     background={<BiSolidBriefcase />}

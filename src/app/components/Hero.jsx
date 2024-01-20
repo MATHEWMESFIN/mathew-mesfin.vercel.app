@@ -3,33 +3,15 @@ import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import styled from 'styled-components';
 import Link from 'next/link';
+import { FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
 
-const HeroSection = styled.section`
-    position: relative;
+const HeroSection = styled.div`
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     width: 100%;
     height: 100%;
-    justify-content: center;
-    align-items: center;
-`
-
-const HeroContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-
-    @media (max-width: 880px) {
-        grid-template-columns: 1fr;
-    }
-`
-
-const HeroLeft = styled.div`
-    grid-column: span 12 / span 12;
-    align-items: center;
-    justify-content: center;
     border-radius: 1rem;
     padding: 1rem;
 
@@ -99,158 +81,68 @@ const HeroButtons = styled.div`
     display: flex;
     gap: 1rem;
 
-    .resume-link {
-        border-radius: 9999px;
-    }
-
-    .resume-btn {
-        background-color: transparent;
-        padding: 1rem 2rem;
-        border-radius: 9999px;
-        border: 2px solid rgb(139 92 246);
-        color: rgb(139 92 246);
-        font-weight: 600;
+    .link {
+        font-size: 3rem;
+        color: rgb(var(--foreground-color));
         transition: all 0.3s ease-in-out;
 
         &:hover {
-            background-color: rgb(139 92 246);
-            transform: scale(1.1);
-            color: white;
-        }
-
-        .resume-link {
-            display: flex;
-            width: 100%;
-            height: 100%;
-        }
-    
-    }
-
-    .contact-btn {
-        background-color: black;
-        padding: 1rem 2rem;
-        border-radius: 9999px;
-        border: 2px solid white;
-        color: white;
-        font-weight: 600;
-        transition: all 0.3s ease-in-out;
-
-        &:hover {
-            background-color: white;
-            transform: scale(1.1);
-            color: black;
-        }
-    }
-`
-
-const HeroRight = styled.div`
-    grid-column: span 5 / span 5;
-    align-items: center;
-    justify-content: center;
-
-    .hero-img-container {
-        position: relative;
-        border-radius: 9999px;
-        margin-left: 2rem;
-
-        .hero-img {
-            border-radius: 9999px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            color: rgb(var(--primary-color));
+            scale: 1.1;
         }
     }
 
     @media (max-width: 1120px) {
-        .hero-img-container {
-            margin-left: 1rem;
+        .link {
+            font-size: 2rem;
         }
-    }
-
-    @media (max-width: 880px) {
-        .hero-img-container {
-            margin-left: 0;
-            margin-bottom: 3rem;
-
-            .hero-img {
-                width: 13rem;
-                height: 13rem;
-            }
-        }
-    }
-`
-
-const BackGroundImage = styled.img`
-    position: absolute;
-    width: 100vw;
-    filter: blur(2rem);
-    opacity: 0.5;
-    z-index: -1;
-
-    @media (max-width: 1120px) {
-        filter: blur(1rem);
-    }
-
-    @media (max-width: 880px) {
-        filter: blur(0.5rem);
     }
 `
 
 const Hero = ({ setActive }) => {
-  return (
-    <HeroSection>
-        <HeroContainer>
-            <HeroLeft>
-                <HeroName>
-                    <span className='colored'>
-                        Mathew {" "}
-                    </span>
-                    Mesfin
-                </HeroName>
-                <h2 className='type-animation-container'>
-                    <TypeAnimation
-                        sequence={[
-                            // Same substring at the start will only be typed out once, initially
-                            'Software Engineer',
-                            1000, // wait 1s before replacing "Mice" with "Hamsters"
-                            'Web Developer',
-                            1000,
-                            'Full Stack Developer',
-                            1000,
-                            'Problem Solver',
-                            1000
-                        ]}
-                        wrapper="span"
-                        speed={50}
-                        style={{ display: 'inline-block'}}
-                        repeat={Infinity}
-                        />
-                </h2>
-                <p className='description'>
-                    A man who finds happiness on the path to success.
-                </p>
-                <HeroButtons>
-                    <button className='contact-btn' onClick={() => setActive(4)}>
-                        Contact
-                    </button>
-                    <Link className='resume-link' href='/Resume - Mathew Mesfin.pdf' target='_blank'>
-                        <button className='resume-btn'>
-                            Resume
-                        </button>
-                    </Link>
-                </HeroButtons>
-            </HeroLeft>
-            {/* <HeroRight>
-                <div className='hero-img-container'>
-                    <img
-                        src='/images/portfolio-pic.png'
-                        className='hero-img'/>
-                </div>
-            </HeroRight> */}
-        </HeroContainer>
-    </HeroSection>
-  )
+    return (
+        <HeroSection>
+            <HeroName>
+                <span className='colored'>
+                    Mathew {" "}
+                </span>
+                Mesfin
+            </HeroName>
+            <h2 className='type-animation-container'>
+                <TypeAnimation
+                    sequence={[
+                        // Same substring at the start will only be typed out once, initially
+                        'Software Engineer',
+                        1000, // wait 1s before replacing "Mice" with "Hamsters"
+                        'Web Developer',
+                        1000,
+                        'Full Stack Developer',
+                        1000,
+                        'Problem Solver',
+                        1000
+                    ]}
+                    wrapper="span"
+                    speed={50}
+                    style={{ display: 'inline-block'}}
+                    repeat={Infinity}
+                    />
+            </h2>
+            <p className='description'>
+                A man who finds happiness on the path to success.
+            </p>
+            <HeroButtons>
+                <Link className='link' href='/Resume - Mathew Mesfin.pdf' target='_blank'>
+                    <FaFileAlt />
+                </Link>
+                <Link href='https://github.com/MATHEWMESFIN' target='_blank' className='link'>
+                    <FaGithub />
+                </Link>
+                <Link href='https://www.linkedin.com/in/mathew-mesfin-9b1610234/' target='_blank' className='link'>
+                    <FaLinkedin />
+                </Link>
+            </HeroButtons>
+        </HeroSection>
+    )
 }
 
 export default Hero
