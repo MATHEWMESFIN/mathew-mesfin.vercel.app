@@ -20,21 +20,6 @@ const CarouselContainer = styled.div`
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 5% 0;
-
-    @media (max-width: 1120px) {
-        width: 55rem;
-        height: 40rem;
-    }
-
-    @media (max-width: 880px) {
-        width: 40rem;
-        height: 45rem;
-    }
-
-    @media (max-width: 640px) {
-        width: 30rem;
-        height: 45rem;
-    }
 `
 
 const CarouselCardContainer = styled.div`
@@ -68,35 +53,8 @@ const CarouselCard = styled.div`
     text-align: justify;
     transition: all 0.3s ease-out;
 
-    .title-container {
-        margin-bottom: 1rem;
-        font-size: 3rem;
-        font-weight: 800;
-        text-align: center;
-    }
-
-    .title {
-        color: rgb(var(--primary-color));
-    }
-
-    @media (max-width: 1120px) {
-        padding: 2rem;
-        height: 40rem;
-        
-        .title-container {
-            margin-bottom: 2rem;
-            font-size: 2rem;
-        }
-    }
-
     @media (max-width: 880px) {
-        padding: 1rem;
         height: 45rem;
-        
-        .title-container {
-            margin-bottom: 1rem;
-            font-size: 1.75rem;
-        }
     }
 `
 
@@ -106,13 +64,6 @@ const Card = ({ title, content }) => {
 
     return (
         <CarouselCard>
-            {/* {title !== '' && (
-                <div className='title-container'>
-                    <span className='title'>
-                        {title}
-                    </span>
-                </div>
-            )} */}
             {content}
         </CarouselCard>
     )

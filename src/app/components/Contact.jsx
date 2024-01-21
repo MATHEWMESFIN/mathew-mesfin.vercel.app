@@ -10,14 +10,11 @@ const ContactSection = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
     height: 40rem;
     border-radius: 1rem;
 
     @media (max-width: 880px) {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        height: 45rem;
     }
 `
 
@@ -36,7 +33,12 @@ const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 10rem;
     gap: 1rem;
+    background-color: rgb(var(--background-color), 0.8);
+    border: 1px solid rgba(var(--primary-color));
+    border-radius: 1rem;
+    padding: 1rem;
     
     .header {
         font-size: 2rem;
@@ -49,9 +51,19 @@ const InfoWrapper = styled.div`
     }
 
     .description {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: 400;
         color: white;
+    }
+
+    @media (max-width: 880px) {
+        .header {
+            font-size: 1.5rem;
+        }
+
+        .description {
+            font-size: 1rem;
+        }
     }
 
     @media (max-width: 640px) {
@@ -69,7 +81,13 @@ const FormWrapper = styled.form`
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 24rem;
+    margin-top: 1rem;
     align-items: flex-start;
+    background-color: rgb(var(--background-color), 0.8);
+    border: 1px solid rgba(var(--primary-color));
+    border-radius: 1rem;
+    padding: 1rem;
 
     .email-subject-wrapper {
         display: flex;
@@ -108,7 +126,7 @@ const FormWrapper = styled.form`
         /* make it so that the user cannot alter the size of the text area */
         resize: none;
         width: 100%;
-        height: 10rem;
+        height: 100%;
     }
 
     .contact-submit {
@@ -137,6 +155,10 @@ const FormWrapper = styled.form`
         }
     }
 
+    @media (max-width: 880px) {
+        height: 29rem;
+    }
+
     @media (max-width: 640px) {
 
         .email-subject-wrapper {
@@ -150,10 +172,6 @@ const FormWrapper = styled.form`
         .contact-input {
             font-size: 0.75rem;
             padding: 0.5rem;
-        }
-
-        #message {
-            height: 4rem;
         }
 
         .contact-submit {

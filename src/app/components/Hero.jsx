@@ -10,6 +10,7 @@ const HeroSection = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    width: 100%;
     height: 40rem;
     border-radius: 1rem;
 
@@ -29,22 +30,19 @@ const HeroSection = styled.div`
     @media (max-width: 1120px) {
             
         .type-animation-container {
-            font-size: 3rem;
-        }
-
-        .description {
-            font-size: 1.5rem;
+            font-size: 4rem;
         }
     }
 
     @media (max-width: 880px) {
+        height: 45rem;
 
         .type-animation-container {
-            font-size: 2rem;
+            font-size: 2.5rem;
         }
 
         .description {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
         }
     
     }
@@ -67,11 +65,11 @@ const HeroName = styled.h1`
     }
 
     @media (max-width: 1120px) {
-        font-size: 5rem;
+        font-size: 5.5rem;
     }
 
     @media (max-width: 880px) {
-        font-size: 4rem;
+        font-size: 5rem;
     }
 `
 
@@ -90,7 +88,7 @@ const HeroButtons = styled.div`
         }
     }
 
-    @media (max-width: 1120px) {
+    @media (max-width: 880px) {
         .link {
             font-size: 2rem;
         }

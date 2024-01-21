@@ -25,13 +25,7 @@ const NavContainer = styled.nav`
     }
 
     @media (max-width: 640px) {
-        left: 0;
-
-        .nav-main {
-            width: 2rem;
-            height: 18rem;
-            padding: 0.5rem;
-        }
+        display: none;
     }
 `
 

@@ -27,6 +27,10 @@ const ExperiencesSection = styled.div`
             transition: all 0.3s ease-in-out;
         }
     }
+
+    @media (max-width: 880px) {
+        height: 45rem;
+    }
 `
 
 const Title = styled.div`
@@ -50,6 +54,10 @@ const ExperiencesWrapper = styled.div`
     height: 30rem;
     overflow-x: scroll;
     gap: 2rem;
+
+    @media (max-width: 880px) {
+        height: 35rem;
+    }
 `
 
 const ExperienceCardContainer = styled.div`
@@ -61,6 +69,19 @@ const ExperienceCardContainer = styled.div`
     width: 60rem;
     height: 30rem;
     border-radius: 1rem;
+
+    @media (max-width: 1120px) {
+        width: 45rem;
+    }
+
+    @media (max-width: 880px) {
+        width: 30rem;
+        height: 35rem;
+    }
+
+    @media (max-width: 640px) {
+        width: 20rem;
+    }
     
 `
 
@@ -77,6 +98,7 @@ const ExperienceCardTopBody = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    text-align: left;
     padding: 1rem;
 
     .role {
@@ -96,6 +118,37 @@ const ExperienceCardTopBody = styled.div`
         font-weight: 500;
         opacity: 0.5;
     }
+
+    @media (max-width: 880px) {
+        .role {
+            font-size: 1.5rem;
+        }
+
+        .company {
+            font-size: 1.25rem;
+        }
+
+        .duration {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 640px) {
+        padding: 0.5rem;
+
+        .role {
+            font-size: 1rem;
+        }
+
+        .company {
+            font-size: 0.75rem;
+        }
+
+        .duration {
+            font-size: 0.75rem;
+        }
+    
+    }
 `
 
 const ExperieneCardImg = styled.img.attrs(props => ({
@@ -112,7 +165,7 @@ const ExperienceCardBottom = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    height: 19rem;
+    height: 24rem;
     margin-top: 1rem;
     background-color: rgb(var(--background-color), 0.8);
     border: 1px solid rgba(var(--primary-color));
@@ -124,14 +177,21 @@ const ExperienceCardBottomBody = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    text-align: left;
     width: 100%;
 
     .description {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: 400;
         opacity: 1;
     }
 
+    @media (max-width: 880px) {
+        .description {
+            font-size: 1rem;
+        }
+    
+    }
 `
 
 const ExperienceCardSkillsWrapper = styled.div`
@@ -143,8 +203,8 @@ const ExperienceCardSkillsWrapper = styled.div`
     gap: 0.75rem;
     margin-top: 0.5rem;
 
-    @media (max-width: 640px) {
-        gap: 0.25rem;
+    @media (max-width: 880px) {
+        gap: 0.5rem;
     }
 
 `
@@ -153,7 +213,7 @@ const SkillItem = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: .75rem;
     font-weight: 500;
     border-radius: 1rem;
     padding: 0.5rem 1rem;
@@ -163,17 +223,6 @@ const SkillItem = styled.div`
 
     .skill-item-img {
         font-size: 1rem;
-    }
-
-    @media (max-width: 1120px) {
-        font-size: 0.5rem;
-        padding: 0.25rem 0.5rem;
-        gap: 0.25rem;
-
-        .skill-item-img {
-            font-size: 0.75rem;
-        }
-    
     }
 `
 
