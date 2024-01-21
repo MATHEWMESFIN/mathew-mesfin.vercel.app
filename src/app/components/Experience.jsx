@@ -1,122 +1,20 @@
 'use client'
-import React, { useState, useTransition } from 'react';
+import React, { useState } from 'react';
 import experiences from './experienceData';
 import styled from 'styled-components';
-import TimelineButton from './TimelineButton';
+import { GoDot } from 'react-icons/go';
+import { XSlidingSection, XSlidingWrapper, XSlidingCardContainer } from './XSlidingStyles';
 
-const ExperiencesSection = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    height: 20rem;
+const ExperiencesSection = styled(XSlidingSection)`
 
-    @media (max-width: 1120px) {
-        height: 20rem;
-    }
-
-    @media (max-width: 880px) {
-        height: 30rem;
-    }
 `
 
-const ExperiencesWrapper = styled.div`
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-
-    .experience-container {
-        width: 100%;
-        height: 17rem;
-        position: absolute;
-        top: 0;
-        background-color: rgba(var(--primary-color), 0.2);
-        border-radius: 1rem;
-
-        .experience {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform: translateY(var(--distance));
-            transition: all 0.4s ease-out;
-        }
-    }
-
-    @media (max-width: 1120px) {
-        .experience-container {
-            height: 17rem;
-        }
-    }
-
-    @media (max-width: 880px) {
-        .experience-container {
-            height: 27rem;
-        }
-    }
+const ExperiencesWrapper = styled(XSlidingWrapper)`
+    
 `
 
-const TimeLineWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    position: absolute;
-    bottom: 1rem;
-    width: 100%;
-`
-
-const TimeLineLine = styled.div`
-    position: absolute;
-    bottom: 1.75rem;
-    background-color: rgb(var(--primary-color), 0.5);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-radius: 9999px;
-    width: 100%;
-    height: 0.1rem;
-    z-index: -1;
-`
-
-const ExperienceCardContainer = styled.div`
-    display: grid;
-    grid-template-columns: 10rem 40rem;
-    justify-content: center;
-    align-items: center;
-    width: 50rem;
-    height: 100%;
-    border-radius: 1rem;
-
-    @media (max-width: 1120px) {
-        grid-template-columns: 10rem 25rem;
-        width: 35rem;
-    }
-
-    @media (max-width: 880px) {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-        text-align: left;
-        justify-content: space-around;
-    }
-`
-
-const ExperienceCardLeft = styled.div`
-    display: flex;
-    padding: 1rem;
-    width: 100%;
-
-    @media (max-width: 640px) {
-        padding: 0.5rem;
-    }
+const ExperienceCardContainer = styled(XSlidingCardContainer)`
+    
 `
 
 const ExperieneCardImg = styled.img.attrs(props => ({
@@ -125,10 +23,18 @@ const ExperieneCardImg = styled.img.attrs(props => ({
 `
     border-radius: 1rem;
     width: 10rem;
-    height: 10rem;
 `
 
-const ExperienceCardLeftBody = styled.div`
+const ExperienceCardBottom = styled.div`
+    display: flex;
+    width: 100%;
+
+    @media (max-width: 640px) {
+        padding: 0.5rem;
+    }
+`
+
+const ExperienceCardBottomBody = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -182,10 +88,10 @@ const SkillItem = styled.div`
     justify-content: center;
     font-size: 0.75rem;
     font-weight: 500;
-    border-radius: 9999px;
+    border-radius: 1rem;
     padding: 0.5rem 1rem;
     gap: 0.5rem;
-    background-color: rgba(var(--primary-color), 0.5);
+    background-color: rgb(var(--primary-color));
     color: white;
 
     .skill-item-img {
@@ -205,45 +111,37 @@ const SkillItem = styled.div`
 `
 
 const Experience = () => {
-    const [timeTab, setTimeTab] = useState(1);
-    const [isPending, startTransition] = useTransition();
+
+    const count = experiences.length;
+    const [active, setActive] = useState(0);
+
+    const handleScroll = (e) => {
+        const element = e.target;
+        const scroll = element.scrollLeft;
+        const width = element.offsetWidth;
+        const index = Math.round((scroll / width));
+        setActive(index);
+    }
+
     return (
         <ExperiencesSection>
-            <ExperiencesWrapper>
-                <div className='experience-container'>
-                    {experiences.map((experience) => (
-                        <div key={experience.id} 
-                            className='experience'
-                            style={{
-                                "--distance": timeTab === experience.id ? '0' : timeTab > experience.id ? '-40%' : '40%',
-                                zIndex: timeTab === experience.id ? 1 : 0,
-                                opacity: timeTab === experience.id ? 1 : 0,
-                                
-                            }}>
-                            <ExperienceCard experience={experience} />
-                        </div>
-                    )
-                    )}
-                </div>
-
-                <TimeLineWrapper>
-                    {experiences.map((experience) => (
-                        <TimelineButton
-                            key={experience.id}
-                            active={timeTab === experience.id}
-                            selectTab={() => {
-                                startTransition(() => {
-                                    setTimeTab(experience.id)
-                                })
-                            }}
-                            title={experience.company}
-                        />
-                    ))}
-                </TimeLineWrapper>
-
-                <TimeLineLine />
-
+            <ExperiencesWrapper onScroll={handleScroll}>
+                {experiences.map((experience, i) => (
+                    <div key={i}>
+                        <ExperienceCard experience={experience} />
+                    </div>
+                ))}
             </ExperiencesWrapper>
+            <div className='dots'>
+                {experiences.map((experience, i) => (
+                    <div key={i} className='dot'
+                        style={{
+                            '--color-offset': i === active ? 'rgb(var(--primary-color))' : 'rgb(var(--foreground-color))',
+                        }}>
+                        <GoDot/>
+                    </div>
+                ))}
+            </div>
         </ExperiencesSection>
     )
 }
@@ -252,8 +150,8 @@ const ExperienceCard = ({ experience }) => {
     return (
         <ExperienceCardContainer>
             <ExperieneCardImg src={experience.img} />
-            <ExperienceCardLeft>
-                <ExperienceCardLeftBody>
+            <ExperienceCardBottom>
+                <ExperienceCardBottomBody>
                     <div className='role'>
                         {experience.role}
                     </div>
@@ -282,8 +180,8 @@ const ExperienceCard = ({ experience }) => {
                             ))}
                         </ExperienceCardSkillsWrapper>
                     }
-                </ExperienceCardLeftBody>
-            </ExperienceCardLeft>
+                </ExperienceCardBottomBody>
+            </ExperienceCardBottom>
 
         </ExperienceCardContainer>
     )

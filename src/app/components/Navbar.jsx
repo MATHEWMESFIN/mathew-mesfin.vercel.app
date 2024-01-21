@@ -2,11 +2,12 @@
 import React from 'react';
 import navCards from './navCards';
 import styled from 'styled-components';
+import { GoDot } from "react-icons/go";
 
 const NavContainer = styled.nav`
     position: absolute;
     display: flex;
-    right: 0;
+    left: 2rem;
     top: 0;
     bottom: 0;
     align-items: center;
@@ -21,39 +22,25 @@ const NavContainer = styled.nav`
         align-items: center;
         justify-content: space-around;
         padding: 1rem;
-        border-radius: 9999px;
-        background-color: rgb(var(--primary-color), 0.2);
-    }
-
-    @media (max-width: 1120px) {
-
     }
 
     @media (max-width: 640px) {
-        bottom: 2rem;
-        right: 0;
         left: 0;
-        top: unset;
 
         .nav-main {
-            flex-direction: row;
-            width: 14rem;
-            height: 3rem;
+            width: 2rem;
+            height: 18rem;
+            padding: 0.5rem;
         }
     }
 `
 
-const NavDotButton = styled.button`
+const NavDot= styled.div`
     border-radius: 9999px;
     opacity: var(--opacity-offset);
     font-size: var(--font-size-offset);
-
+    color: var(--color-offset);
     transition: all 0.3s;
-
-    &:hover {
-        transform: scaleX(var(--scale-offset)) scaleY(var(--scale-offset));
-        opacity: 1;
-    }
 `
 
 export const Navbar = ({active, setActive}) => {
@@ -63,21 +50,17 @@ export const Navbar = ({active, setActive}) => {
             <ul className='nav-main'>
                 {navCards.map((card, index) => (
                     <li key={index}>
-                        <NavDotButton
-                            onClick={() => setActive(card.to)}
+                        <NavDot
                             style={{
                                 '--active': card.to,
                                 '--offset': Math.abs(active - index) / 5,
-                                '--filter-color': active === card.to ? 'rgb(139 92 246)' : 'white',
                                 '--opacity-offset': active === card.to ? 1 : 0.5,
                                 '--font-size-offset': active === card.to ? '2rem' : '1rem',
-                                '--scale-offset': active === card.to ? '1' : '1.5',
-                                cursor: active === card.to ? 'default' : 'pointer',
-                                color: active === card.to ? 'rgb(139 92 246)' : 'white',
+                                '--color-offset': active === card.to ? 'rgb(var(--primary-color))' : 'rgb(var(--foreground-color))'
                             }}
                         >
                             {card.icon}
-                        </NavDotButton>
+                        </NavDot>
                     </li>
                 ))}
             </ul>

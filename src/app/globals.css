@@ -17,20 +17,8 @@
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  display: none;
 }
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.8);
-  border-radius: 1rem;
-}
-
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

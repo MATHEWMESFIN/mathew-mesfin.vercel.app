@@ -10,10 +10,8 @@ const HeroSection = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    height: 40rem;
     border-radius: 1rem;
-    padding: 1rem;
 
     .type-animation-container {
         color: rgb(var(--foreground-color));

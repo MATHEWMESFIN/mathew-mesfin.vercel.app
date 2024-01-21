@@ -22,7 +22,7 @@ const BackGroundImageCorner = styled.div`
     height: 22rem;
     width: 22rem;
     background-color: rgb(var(--background-color), 0.8);
-    border: 1px solid white;
+    border: 1px solid rgb(var(--primary-color));
     transform: rotate(45deg);
     z-index: 1;
 

@@ -5,15 +5,14 @@ import styled from 'styled-components';
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 
-
-
-
 const ContactSection = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
-    width: 100%;
-    height: 100%;
+    height: 40rem;
+    border-radius: 1rem;
 
     @media (max-width: 880px) {
         display: flex;

@@ -2,113 +2,21 @@
 import React, { useState, useTransition } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { XSlidingSection, XSlidingWrapper, XSlidingCardContainer } from './XSlidingStyles';
 import TimelineButton from './TimelineButton';
 import projects from './projectData';
 import { FaGithub, FaLink } from "react-icons/fa";
+import { GoDot } from "react-icons/go";
 
-const ProjectsSection = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    height: 20rem;
-
-    @media (max-width: 1120px) {
-        height: 20rem;
-    }
-
-    @media (max-width: 880px) {
-        height: 30rem;
-    }
-`
-
-const ProjectsWrapper = styled.div`
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-
-    .projects-container {
-        width: 100%;
-        height: 17rem;
-        position: absolute;
-        top: 0;
-        background-color: rgb(var(--primary-color), 0.2);
-        border-radius: 1rem;
-
-        .project {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform: translateY(var(--distance));
-            transition: all 0.4s ease-out;
-        }
-    }
-
-    @media (max-width: 1120px) {
-        .projects-container {
-            height: 17rem;
-        }
-    }
-
-    @media (max-width: 880px) {
-        .projects-container {
-            height: 27rem;
-        }
-    }
-`
-
-const TimeLineWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    position: absolute;
-    bottom: 1rem;
-    width: 100%;
-`
-
-const TimeLineLine = styled.div`
-    position: absolute;
-    bottom: 1.75rem;
-    background-color: rgb(var(--primary-color), 0.5);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-radius: 9999px;
-    width: 100%;
-    height: 0.1rem;
-    z-index: -1;
-`
-
-const ProjectCardContainer = styled.div`
-    display: grid;
-    grid-template-columns: 10rem 40rem;
-    justify-content: center;
-    align-items: center;
-    width: 50rem;
-    height: 100%;
-    border-radius: 1rem;
-
-    @media (max-width: 1120px) {
-        grid-template-columns: 10rem 25rem;
-        width: 35rem;
-    }
+const ProjectsSection = styled(XSlidingSection)`
     
-    @media (max-width: 880px) {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 100%;
-        height: 100%;
-        text-align: left;
-    }
+`
+
+const ProjectsWrapper = styled(XSlidingWrapper)`
+`
+
+const ProjectCardContainer = styled(XSlidingCardContainer)`
+    
 `
 
 const ProjectCardLeft = styled.div`
@@ -230,43 +138,37 @@ const SkillItem = styled.div`
 const Projects = () => {
     const [timeTab, setTimeTab] = useState(1);
     const [isPending, startTransition] = useTransition();
+
+    const count = projects.length;
+    const [active, setActive] = useState(0);
+
+    const handleScroll = (e) => {
+        const element = e.target;
+        const scroll = element.scrollLeft;
+        const width = element.offsetWidth;
+        const index = Math.round(scroll / width);
+        setActive(index);
+    }
+
     return (
         <ProjectsSection>
-            <ProjectsWrapper>
-                <div className='projects-container'>
-                    {projects.map((project) => (
-                        <div key={project.id} 
-                            className='project'
-                            style={{
-                                "--distance": timeTab === project.id ? '0' : timeTab > project.id ? '-40%' : '40%',
-                                zIndex: timeTab === project.id ? 1 : 0,
-                                opacity: timeTab === project.id ? 1 : 0,
-                                
-                            }}>
-                            <ProjectsCard project={project} />
-                        </div>
-                    )
-                    )}
-                </div>
-
-                <TimeLineWrapper>
-                    {projects.map((project) => (
-                        <TimelineButton
-                            key={project.id}
-                            active={timeTab === project.id}
-                            selectTab={() => {
-                                startTransition(() => {
-                                    setTimeTab(project.id)
-                                })
-                            }}
-                            title={project.title}
-                        />
-                    ))}
-                </TimeLineWrapper>
-
-                <TimeLineLine />
-
+            <ProjectsWrapper onScroll={handleScroll}>
+                {projects.map((project, index) => (
+                    <div key={index}>
+                        <ProjectsCard project={project} />
+                    </div>
+                ))}
             </ProjectsWrapper>
+            <div className='dots'>
+                {projects.map((project, i) => (
+                    <div key={i} className='dot'
+                        style={{
+                            '--color-offset': i === active ? 'rgb(var(--primary-color))' : 'rgb(var(--foreground-color))',
+                        }}>
+                        <GoDot/>
+                    </div>
+                ))}
+            </div>
         </ProjectsSection>
     )
 }
