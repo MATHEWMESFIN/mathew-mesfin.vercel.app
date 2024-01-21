@@ -2,59 +2,110 @@
 import React, { useState, useTransition } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { XSlidingSection, XSlidingWrapper, XSlidingCardContainer } from './XSlidingStyles';
 import TimelineButton from './TimelineButton';
 import projects from './projectData';
 import { FaGithub, FaLink } from "react-icons/fa";
 import { GoDot } from "react-icons/go";
 
-const ProjectsSection = styled(XSlidingSection)`
-    
-`
-
-const ProjectsWrapper = styled(XSlidingWrapper)`
-`
-
-const ProjectCardContainer = styled(XSlidingCardContainer)`
-    
-`
-
-const ProjectCardLeft = styled.div`
+const ProjectsSection = styled.div`
+    position: relative;
     display: flex;
-    padding: 1rem;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
-    
-    @media (max-width: 640px) {
-        padding: 0.5rem;
+    height: 40rem;
+
+    .dots {
+        display: flex;
+        width: 100%;
+        height: 5rem;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        color: rgba(var(--foreground-color));
+
+        .dot {
+            color: var(--color-offset);
+            transition: all 0.3s ease-in-out;
+        }
     }
 `
 
-const ProjectCardImg = styled.img.attrs(props => ({
-    src: props.src,
-}))
-`
-    border-radius: 1rem;
-    width: 10rem;
-    height: 10rem;
+const Title = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(var(--foreground-color));
 `
 
-const ProjectCardLeftBody = styled.div`
+const ProjectsWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 30rem;
+    overflow-x: scroll;
+    gap: 2rem;
+`
+
+const ProjectCardContainer = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60rem;
+    height: 30rem;
+    border-radius: 1rem;
+    
+`
+
+const ProjectCardTop = styled.div`
+    display: flex;
+    width: 100%;
+    height: 10rem;
+    background-color: rgb(var(--background-color), 0.8);
+    border: 1px solid rgba(var(--primary-color));
+    border-radius: 1rem;
+`
+
+const ProjectCardTopBody = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;
-    height: 100%;
-    color: white;
+    padding: 1rem;
+    gap: 0.5rem;
 
     .heading {
-        font-size: 1.25rem;
-        font-weight: 500;
+        font-size: 2rem;
+        font-weight: 700;
         display: flex;
-        gap: 1rem;
         color: rgb(var(--primary-color));
-        
+    }
+
+    .links {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.5rem;
+
         .link {
-            font-size: 2rem;
+            color: white;
+            opacity: 0.75;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                color: rgb(var(--primary-color));
+            }
         }
     }
 
@@ -63,33 +114,41 @@ const ProjectCardLeftBody = styled.div`
         font-weight: 400;
         opacity: 0.5;
     }
+`
+
+const ProjectCardBottom = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    height: 19rem;
+    margin-top: 1rem;
+    background-color: rgb(var(--background-color), 0.8);
+    border: 1px solid rgba(var(--primary-color));
+    border-radius: 1rem;
+    padding: 1rem;
+`
+
+const ProjectCardImg = styled.img.attrs(props => ({
+    src: props.src,
+}))
+`
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    height: 100%;
+`
+
+const ProjectCardBottomBody = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    color: white;
 
     .description {
-        font-size: 1rem;
+        font-size: 1.5rem;
         font-weight: 400;
         opacity: 1;
-        color: white;
-    }
-
-    @media (max-width: 1120px) {
-        .heading {
-            font-size: 1rem;
-            
-            .link {
-                font-size: 1.5rem;
-            }
-        }
-    }
-
-    @media (max-width: 640px) {
-
-        .description {
-            font-size: 0.75rem;
-            font-weight: 400;
-            opacity: 1;
-            color: white;
-        }
-    
     }
 
 `
@@ -112,12 +171,12 @@ const SkillItem = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 500;
-    border-radius: 9999px;
+    border-radius: 1rem;
     padding: 0.5rem 1rem;
     gap: 0.5rem;
-    background-color: rgba(var(--primary-color), 0.5);
+    background-color: rgb(var(--primary-color), 0.8);
     color: white;
 
     .skill-item-img {
@@ -152,6 +211,9 @@ const Projects = () => {
 
     return (
         <ProjectsSection>
+            <Title>
+                Projects
+            </Title>
             <ProjectsWrapper onScroll={handleScroll}>
                 {projects.map((project, index) => (
                     <div key={index}>
@@ -176,11 +238,14 @@ const Projects = () => {
 const ProjectsCard = ({ project }) => {
     return (
         <ProjectCardContainer>
-            <ProjectCardImg src={project.img} />
-            <ProjectCardLeft>
-                <ProjectCardLeftBody>
+
+            <ProjectCardTop>
+                <ProjectCardImg src={project.img} />
+                <ProjectCardTopBody>
                     <div className='heading'>
                         {project.title}
+                    </div>
+                    <div className='links'>
                         {project?.github && (
                             <Link className="link" href={project.github} target='_blank'>
                                 <FaGithub />
@@ -195,6 +260,11 @@ const ProjectsCard = ({ project }) => {
                     <div className='duration'>
                         {project.duration}
                     </div>
+                </ProjectCardTopBody>
+            </ProjectCardTop>
+
+            <ProjectCardBottom>
+                <ProjectCardBottomBody>
                     <div className='description'>
                         {project.description}
                     </div>
@@ -211,8 +281,8 @@ const ProjectsCard = ({ project }) => {
                             ))}
                         </ProjectCardSkillsWrapper>
                     }
-                </ProjectCardLeftBody>
-            </ProjectCardLeft>
+                </ProjectCardBottomBody>
+            </ProjectCardBottom>
 
         </ProjectCardContainer>
     )

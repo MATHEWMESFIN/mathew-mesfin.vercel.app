@@ -10,6 +10,7 @@ export const XSlidingSection = styled.div`
 
     .dots {
         display: flex;
+        height: 5rem;
         flex-direction: row;
         justify-content: center;
         align-items: center;
@@ -23,13 +24,24 @@ export const XSlidingSection = styled.div`
     }
 `
 
+export const XSlidingTitle = styled.div`
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(var(--foreground-color));
+`
+
 export const XSlidingWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    height: 35rem;
+    height: 30rem;
     overflow-x: scroll;
     gap: 2rem;
 `
@@ -41,8 +53,7 @@ export const XSlidingCardContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     width: 60rem;
-    height: 35rem;
+    height: 30rem;
     border-radius: 1rem;
-    padding: 1rem 2rem;
     border: 1px solid rgba(var(--primary-color));
 `

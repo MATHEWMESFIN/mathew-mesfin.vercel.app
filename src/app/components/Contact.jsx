@@ -6,8 +6,8 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 
 const ContactSection = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
@@ -21,9 +21,21 @@ const ContactSection = styled.div`
     }
 `
 
+const TitleWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(var(--foreground-color));
+`
+
 const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 1rem;
     
     .header {
@@ -37,10 +49,9 @@ const InfoWrapper = styled.div`
     }
 
     .description {
-        font-size: 1rem;
+        font-size: 1.5rem;
         font-weight: 400;
         color: white;
-        opacity: 0.75;
     }
 
     @media (max-width: 640px) {
@@ -57,15 +68,20 @@ const InfoWrapper = styled.div`
 const FormWrapper = styled.form`
     display: flex;
     flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
 
     .email-subject-wrapper {
         display: flex;
         flex-direction: row;
+        width: 100%;
+        justify-content: center;
         gap: 1rem;
         
         .email-wrapper, .subject-wrapper {
             display: flex;
             flex-direction: column;
+            width: 100%;
         }
     }
 
@@ -91,13 +107,15 @@ const FormWrapper = styled.form`
     #message {
         /* make it so that the user cannot alter the size of the text area */
         resize: none;
-        height: 6rem;
+        width: 100%;
+        height: 10rem;
     }
 
     .contact-submit {
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
         font-size: 1rem;
         font-weight: 600;
         color: white;
@@ -231,6 +249,10 @@ const Contact = () => {
 
   return (
     <ContactSection>
+        <TitleWrapper>
+            Contact
+        </TitleWrapper>
+
         <InfoWrapper>
             <h2 className='header'>
                 Let's {" "}

@@ -141,7 +141,7 @@ export const Carousel = ({ setActive, active, children }) => {
                     key={i}
                     style={{
                     "--active": i === active ? 1 : 0,
-                    "--right-offset": i <= (active) ? '0' : `calc(${(i - scrollLevel) >= 0 && (i - scrollLevel)}% * 100)`,
+                    "--right-offset": i <= (active) ? '0' : `calc(${(i - scrollLevel) >= 0 && (i - scrollLevel)}% * 130)`,
                     opacity: Math.abs(active - i) >= MAX_VISIBLE ? '1' : '1',
                     }}
                 >

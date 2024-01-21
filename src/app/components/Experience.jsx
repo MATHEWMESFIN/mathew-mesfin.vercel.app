@@ -3,35 +3,121 @@ import React, { useState } from 'react';
 import experiences from './experienceData';
 import styled from 'styled-components';
 import { GoDot } from 'react-icons/go';
-import { XSlidingSection, XSlidingWrapper, XSlidingCardContainer } from './XSlidingStyles';
 
-const ExperiencesSection = styled(XSlidingSection)`
+const ExperiencesSection = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 40rem;
 
+    .dots {
+        display: flex;
+        width: 100%;
+        height: 5rem;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        color: rgba(var(--foreground-color));
+
+        .dot {
+            color: var(--color-offset);
+            transition: all 0.3s ease-in-out;
+        }
+    }
 `
 
-const ExperiencesWrapper = styled(XSlidingWrapper)`
+const Title = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(var(--foreground-color));
+`
+
+const ExperiencesWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 30rem;
+    overflow-x: scroll;
+    gap: 2rem;
+`
+
+const ExperienceCardContainer = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60rem;
+    height: 30rem;
+    border-radius: 1rem;
     
 `
 
-const ExperienceCardContainer = styled(XSlidingCardContainer)`
-    
+const ExperienceCardTop = styled.div`
+    display: flex;
+    width: 100%;
+    height: 10rem;
+    background-color: rgb(var(--background-color), 0.8);
+    border: 1px solid rgba(var(--primary-color));
+    border-radius: 1rem;
+`
+
+const ExperienceCardTopBody = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+
+    .role {
+        font-size: 2rem;
+        font-weight: 700;
+        color: rgb(var(--primary-color));
+    }
+
+    .company {
+        font-size: 1.5rem;
+        font-weight: 600;
+        opacity: 0.75;
+    }
+
+    .duration {
+        font-size: 1.25rem;
+        font-weight: 500;
+        opacity: 0.5;
+    }
 `
 
 const ExperieneCardImg = styled.img.attrs(props => ({
     src: props.src,
 }))
 `
-    border-radius: 1rem;
-    width: 10rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    height: 100%;
 `
 
 const ExperienceCardBottom = styled.div`
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     width: 100%;
-
-    @media (max-width: 640px) {
-        padding: 0.5rem;
-    }
+    height: 19rem;
+    margin-top: 1rem;
+    background-color: rgb(var(--background-color), 0.8);
+    border: 1px solid rgba(var(--primary-color));
+    border-radius: 1rem;
+    padding: 1rem;
 `
 
 const ExperienceCardBottomBody = styled.div`
@@ -39,28 +125,9 @@ const ExperienceCardBottomBody = styled.div`
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    height: 100%;
-
-    .role {
-        font-size: 1.25rem;
-        font-weight: 500;
-        color: rgb(var(--primary-color));
-    }
-
-    .company {
-        font-size: 1rem;
-        font-weight: 400;
-        opacity: 0.75;
-    }
-
-    .duration {
-        font-size: 0.75rem;
-        font-weight: 400;
-        opacity: 0.5;
-    }
 
     .description {
-        font-size: 1rem;
+        font-size: 1.5rem;
         font-weight: 400;
         opacity: 1;
     }
@@ -86,12 +153,12 @@ const SkillItem = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 500;
     border-radius: 1rem;
     padding: 0.5rem 1rem;
     gap: 0.5rem;
-    background-color: rgb(var(--primary-color));
+    background-color: rgb(var(--primary-color), 0.8);
     color: white;
 
     .skill-item-img {
@@ -125,6 +192,9 @@ const Experience = () => {
 
     return (
         <ExperiencesSection>
+            <Title>
+                Experience
+            </Title>
             <ExperiencesWrapper onScroll={handleScroll}>
                 {experiences.map((experience, i) => (
                     <div key={i}>
@@ -149,9 +219,10 @@ const Experience = () => {
 const ExperienceCard = ({ experience }) => {
     return (
         <ExperienceCardContainer>
-            <ExperieneCardImg src={experience.img} />
-            <ExperienceCardBottom>
-                <ExperienceCardBottomBody>
+
+            <ExperienceCardTop>
+                <ExperieneCardImg src={experience.img} />
+                <ExperienceCardTopBody>
                     <div className='role'>
                         {experience.role}
                     </div>
@@ -161,6 +232,11 @@ const ExperienceCard = ({ experience }) => {
                     <div className='duration'>
                         {experience.duration}
                     </div>
+                </ExperienceCardTopBody>
+            </ExperienceCardTop>
+
+            <ExperienceCardBottom>
+                <ExperienceCardBottomBody>
                     <div className='description'>
                         {experience?.about &&
                             <div>
