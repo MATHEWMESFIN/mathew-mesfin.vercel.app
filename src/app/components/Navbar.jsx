@@ -29,7 +29,7 @@ const NavContainer = styled.nav`
         left: 0;
 
         .nav-main {
-            width: 3rem;
+            width: 2rem;
             height: 12rem;
         }
     }
@@ -45,7 +45,7 @@ const LogoImage = styled.img`
     width: 4rem;
 
     @media (max-width: 640px) {
-        width: 3rem;
+        width: 2rem;
     }
 `
 

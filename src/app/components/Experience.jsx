@@ -89,8 +89,8 @@ const ExperienceCardTop = styled.div`
     display: flex;
     width: 100%;
     height: 10rem;
-    background-color: rgb(var(--background-color), 0.8);
-    border: 1px solid rgba(var(--primary-color));
+    background-color: rgb(var(--background-color), 0.5);
+    border: 0.5px solid rgba(var(--foreground-color), 0.5);
     border-radius: 1rem;
 `
 
@@ -167,8 +167,8 @@ const ExperienceCardBottom = styled.div`
     width: 100%;
     height: 24rem;
     margin-top: 1rem;
-    background-color: rgb(var(--background-color), 0.8);
-    border: 1px solid rgba(var(--primary-color));
+    background-color: rgb(var(--background-color), 0.5);
+    border: 0.5px solid rgba(var(--foreground-color), 0.5);
     border-radius: 1rem;
     padding: 1rem;
 `

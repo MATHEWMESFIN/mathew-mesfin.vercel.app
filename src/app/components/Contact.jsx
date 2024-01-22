@@ -35,8 +35,8 @@ const InfoWrapper = styled.div`
     width: 100%;
     height: 10rem;
     gap: 1rem;
-    background-color: rgb(var(--background-color), 0.8);
-    border: 1px solid rgba(var(--primary-color));
+    background-color: rgb(var(--background-color), 0.5);
+    border: 0.5px solid rgba(var(--foreground-color), 0.5);
     border-radius: 1rem;
     padding: 1rem;
     
@@ -84,8 +84,8 @@ const FormWrapper = styled.form`
     height: 24rem;
     margin-top: 1rem;
     align-items: flex-start;
-    background-color: rgb(var(--background-color), 0.8);
-    border: 1px solid rgba(var(--primary-color));
+    background-color: rgb(var(--background-color), 0.5);
+    border: 0.5px solid rgba(var(--foreground-color), 0.5);
     border-radius: 1rem;
     padding: 1rem;
 

@@ -95,8 +95,8 @@ const ProjectCardTop = styled.div`
     align-items: center;
     width: 100%;
     height: 10rem;
-    background-color: rgb(var(--background-color), 0.8);
-    border: 1px solid rgba(var(--primary-color));
+    background-color: rgb(var(--background-color), 0.5);
+    border: 0.5px solid rgba(var(--foreground-color), 0.5);
     border-radius: 1rem;
 
     @media (max-width: 640px) {
@@ -139,7 +139,7 @@ const ProjectCardTopBody = styled.div`
     }
 
     .duration {
-        font-size: 0.75rem;
+        font-size: 1.25rem;
         font-weight: 400;
         opacity: 0.5;
     }
@@ -152,6 +152,10 @@ const ProjectCardTopBody = styled.div`
         .links {
             font-size: 1.5rem;
         }
+
+        .duration {
+            font-size: 1rem;
+        }
     }
 `
 
@@ -162,8 +166,8 @@ const ProjectCardBottom = styled.div`
     width: 100%;
     height: 24rem;
     margin-top: 1rem;
-    background-color: rgb(var(--background-color), 0.8);
-    border: 1px solid rgba(var(--primary-color));
+    background-color: rgb(var(--background-color), 0.5);
+    border: 0.5px solid rgba(var(--foreground-color), 0.5);
     border-radius: 1rem;
     padding: 1rem;
 `
@@ -177,9 +181,7 @@ const ProjectCardImg = styled.img.attrs(props => ({
     height: 100%;
 
     @media (max-width: 640px) {
-        border-radius: 1rem;
-        position: absolute;
-        opacity: 0.2;
+        display: none;
     }
 `
 

@@ -60,7 +60,7 @@ const CarouselCard = styled.div`
 
 const MAX_VISIBLE = 1;
 
-const Card = ({ title, content }) => {
+const Card = ({ content }) => {
 
     return (
         <CarouselCard>
@@ -93,7 +93,6 @@ export const Carousel = ({ setActive, active, children }) => {
                     style={{
                     "--active": i === active ? 1 : 0,
                     "--right-offset": i <= (active) ? '0' : `calc(${(i - scrollLevel) >= 0 && (i - scrollLevel)}% * 130)`,
-                    opacity: Math.abs(active - i) >= MAX_VISIBLE ? '1' : '1',
                     }}
                 >
                     {child}
@@ -112,19 +111,15 @@ export const App = () => {
             <Navbar active={active} setActive={setActive}/>
             <Carousel setActive={setActive} active={active}>
                 <Card
-                    title=''
                     content={<Hero setActive={setActive} />}
                 />
                 <Card
-                    title='Experience'
                     content={<Experience />}
                 />
                 <Card
-                    title='Projects'
                     content={<Projects />}
                 />
                 <Card
-                    title='Contact'
                     content={<Contact />}
                 />
             </Carousel>
