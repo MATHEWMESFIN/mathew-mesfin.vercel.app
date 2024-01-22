@@ -9,7 +9,9 @@ const experiences = [
         company: "CourseStorm",
         location: "Remote",
         duration: "June 2023 - August 2023",
-        about: "Worked in an agile team to update and streamline the waiting list entry into the registration application process.",
+        about: "Developed a waiting list feature that makes inviting waitlisted students simpler for 100,000+ customers. \
+            Determined and satisfied customer needs for the waiting list feature through customer interviews. \
+            Made multiple project plan documents, integrations, pulls, pushes, merges, and QA tests.",
         skills: [
             {
                 id: 1,
@@ -45,17 +47,18 @@ const experiences = [
         company: "Towson University",
         location: "Towson, MD",
         duration: "August 2023 - Present",
-        about: "Provided technical assistance to students and faculty with technical questions, troubleshooting problems, network service access requests, and software installation."
+        about: "Assisted 1,000+ students and faculty with technical questions, troubleshooting issues, etc. \
+            Oversaw laboratory cleanliness and organization while maintaining an inventory of lab supplies."
     },
     {
         id: 3,
         img: "/images/Towson.png",
-        role: "Student Researcher",
+        role: "Data Scientist",
         company: "Towson University",
         location: "Towson, MD",
         duration: "August 2023 - Present",
-        about: "Researched, analyzed, and organized Baltimore crime data to highlight and bring awareness to criminal activity problems.\n\
-          Used Streamlit and Pandas with Python to clean the data and visualize the cleaned data.",
+        about: "Researched, analyzed, and cleaned Baltimore crime data to bring awareness to criminal activity problems. \
+            Implemented and deployed to production, a visualization of 600,000+ data items.",
         skills: [
             {
                 id: 1,

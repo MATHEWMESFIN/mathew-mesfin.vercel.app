@@ -2,12 +2,13 @@ import { SiTailwindcss, SiNextdotjs, SiReact, SiBootstrap, SiHtml5,
     SiCss3, SiJavascript, SiNodedotjs, SiExpress, SiMongodb, SiMysql, 
     SiPostgresql, SiPython, SiPhp, SiSass, SiStyledcomponents, SiStreamlit,
     SiPandas, SiFolium } from "react-icons/si";
+import { DiJava } from "react-icons/di";
 
 const projects = [
     {
         id: 1,
         title: "My Portfolio",
-        description: "My personal portfolio website to showcase my skills, experience, and projects.",
+        description: "Designed and developed my personal portfolio website that is fully responsive and mobile-friendly using the Next.js 14 framework.",
         duration: "December 2023 - January 2024",
         img: '/images/projects/portfolio-project.png',
         github: "https://github.com/MATHEWMESFIN/mathew-mesfin",
@@ -48,7 +49,8 @@ const projects = [
     {
         id: 2,
         title: "My-Fit",
-        description: "Worked in a team using the Next.js 14 framework to design and develop a personal fitness website that allows users to track their workouts, and progress.",
+        description: "Designed, developed, and deployed a fitness website for users to track their fitness journeys, \
+            run through their workout routines, and share their progress with others on the public feed.",
         duration: "August 2023 - December 2023",
         img: '/images/projects/fitness-project.png',
         github: "https://github.com/MATHEWMESFIN/Fitness-App",
@@ -94,7 +96,8 @@ const projects = [
     {
         id: 3,
         title: "TravelTroveAI",
-        description: "Worked in a team using the Next.js 14 framework to design and develop a flight search booking app that integrates an AI chat feature.",
+        description: "Designed and developed a flight search booking app for users to search and book flights, \
+            ask AI to search for the user, translate text, and convert currencies.",
         duration: "August 2023 - December 2023",
         img: '/images/projects/travel-project.png',
         github: "https://github.com/MATHEWMESFIN/travel-trove-ai",
@@ -138,35 +141,20 @@ const projects = [
     },
     {
         id: 4,
-        title: "Baltimore Crime Data Research",
-        description: "Worked in a team as a student researcher to research, analyze, and organize Baltimore crime data to highlight and bring awareness to criminal activity problems.",
-        duration: "August 2023 - December 2023",
-        img: '/images/projects/Baltimore-crime-data-project.png',
-        github: "https://github.com/MATHEWMESFIN/Crime-Data-Research",
-        link: "https://crime-data-research.streamlit.app/",
+        title: "Virtual Shopping Center",
+        description: "Designed and developed a back-end application for an online store that handles accounts, \
+            orders, membership, transaction history, etc. following my own use case and UML diagrams.",
+        duration: "April 2022 - May 2022",
+        img: '',
+        github: "https://github.com/MATHEWMESFIN/Virtual-Shopping-Center",
         skills: [
             {
                 id: 1,
-                name: "Python",
-                image: [<SiPython />]
-            },
-            {
-                id: 2,
-                name: "Streamlit",
-                image: [<SiStreamlit />]
-            },
-            {
-                id: 3,
-                name: "Pandas",
-                image: [<SiPandas />]
-            },
-            {
-                id: 4,
-                name: "Folium",
-                image: [<SiFolium />]
+                name: "Java",
+                image: [<DiJava />]
             }
         ]
-    }
+    },
 ]
 
 export default projects;

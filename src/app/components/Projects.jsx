@@ -89,12 +89,19 @@ const ProjectCardContainer = styled.div`
 `
 
 const ProjectCardTop = styled.div`
+    position: relative;
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
     height: 10rem;
     background-color: rgb(var(--background-color), 0.8);
     border: 1px solid rgba(var(--primary-color));
     border-radius: 1rem;
+
+    @media (max-width: 640px) {
+        justify-content: center;
+    }
 `
 
 const ProjectCardTopBody = styled.div`
@@ -146,18 +153,6 @@ const ProjectCardTopBody = styled.div`
             font-size: 1.5rem;
         }
     }
-
-    @media (max-width: 640px) {
-        padding: 0.5rem;
-
-        .heading {
-            font-size: 1rem;
-        }
-
-        .links {
-            font-size: 1rem;
-        }
-    }
 `
 
 const ProjectCardBottom = styled.div`
@@ -180,6 +175,12 @@ const ProjectCardImg = styled.img.attrs(props => ({
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
     height: 100%;
+
+    @media (max-width: 640px) {
+        border-radius: 1rem;
+        position: absolute;
+        opacity: 0.2;
+    }
 `
 
 const ProjectCardBottomBody = styled.div`
@@ -281,7 +282,7 @@ const ProjectsCard = ({ project }) => {
         <ProjectCardContainer>
 
             <ProjectCardTop>
-                <ProjectCardImg src={project.img} />
+                {project.img && <ProjectCardImg src={project.img} />}
                 <ProjectCardTopBody>
                     <div className='heading'>
                         {project.title}
