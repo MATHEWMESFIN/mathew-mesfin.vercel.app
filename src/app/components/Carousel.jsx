@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BiSolidBriefcase, BiSolidMessageRounded } from "react-icons/bi";
 import { FaCode, FaUserCircle } from "react-icons/fa";
 import { IoStatsChart } from "react-icons/io5";
@@ -72,12 +72,12 @@ const Card = ({ content }) => {
     )
 }
 
-export const Carousel = ({ active, setActive, handleScroll, scrollLevel, children }) => {
+export const Carousel = ({ active, setActive, handleScroll, scrollLevel, carouselElement, children }) => {
   
     const count = React.Children.count(children);
 
     return (
-        <CarouselContainer id='carousel' onScroll={handleScroll}>
+        <CarouselContainer ref={carouselElement} onScroll={handleScroll}>
             {React.Children.map(children, (child, i) => (
                 <CarouselCardContainer
                     key={i}
@@ -97,13 +97,22 @@ export const App = () => {
     const [active, setActive] = useState(0);
     const count = 4;
 
-    const [scrollLevel, setScrollLevel] = useState(0);
     const [scrollTop, setScrollTop] = useState(0);
     const [scrollHeight, setScrollHeight] = useState(0);
     const [clientHeight, setClientHeight] = useState(0);
+    const [scrollLevel, setScrollLevel] = useState(0);
 
-    const handleScroll = (e) => {
-        const element = e.target;
+    const carouselElement = React.createRef();
+
+    useEffect(() => {
+        const element = carouselElement.current;
+        setScrollTop(element.scrollTop);
+        setScrollHeight(element.scrollHeight);
+        setClientHeight(element.clientHeight);
+    }, []);
+
+    const handleScroll = () => {
+        const element = carouselElement.current;
         setScrollTop(element.scrollTop);
         setScrollHeight(element.scrollHeight);
         setClientHeight(element.clientHeight);
@@ -117,7 +126,7 @@ export const App = () => {
     }
 
     const handleNavClick = (index) => {
-        const element = document.getElementById('carousel');
+        const element = carouselElement.current;
         element.scrollTo({
             top: index * (scrollHeight / count),
             behavior: 'smooth',
@@ -127,7 +136,7 @@ export const App = () => {
     return(
         <div className='app'>
             <Navbar active={active} setActive={setActive} handleNavClick={handleNavClick}/>
-            <Carousel setActive={setActive} active={active} handleScroll={handleScroll} scrollLevel={scrollLevel}>
+            <Carousel setActive={setActive} active={active} handleScroll={handleScroll} scrollLevel={scrollLevel} carouselElement={carouselElement}>
                 <Card
                     content={<Hero />}
                 />

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import experiences from './experienceData';
 import styled from 'styled-components';
 import { GoDot, GoDotFill } from 'react-icons/go';
@@ -244,14 +244,21 @@ const Experience = () => {
     const [scroll, setScroll] = useState(0);
     const [width, setWidth] = useState(0);
     const [scrollLevel, setScrollLevel] = useState(0);
-    const [index, setIndex] = useState(0);
 
-    const handleScroll = (e) => {
-        const element = e.target;
+    const experiencesRef = React.createRef();
+
+    useEffect(() => {
+        const element = experiencesRef.current;
+        setScroll(element.scrollLeft);
+        setWidth(element.offsetWidth);
+    }, []);
+
+    const handleScroll = () => {
+        const element = experiencesRef.current;
         setScroll(element.scrollLeft);
         setWidth(element.offsetWidth);
         setScrollLevel(scroll / width);
-        setIndex(Math.round(scrollLevel));
+        const index = Math.round(scrollLevel);
         setActive(index);
 
         element.onscrollend = () => {
@@ -263,12 +270,7 @@ const Experience = () => {
     }
 
     const handleDotClick = (index) => {
-        const element = document.getElementById('experiences');
-        setScroll(element.scrollLeft);
-        setWidth(element.offsetWidth);
-        setScrollLevel(scroll / width);
-        setIndex(Math.round(scrollLevel));
-        
+        const element = experiencesRef.current;
         element.scrollTo({
             left: index * width,
             behavior: 'smooth',
@@ -280,7 +282,7 @@ const Experience = () => {
             <Title>
                 Experience
             </Title>
-            <ExperiencesWrapper onScroll={handleScroll} id='experiences'>
+            <ExperiencesWrapper onScroll={handleScroll} ref={experiencesRef}>
                 {experiences.map((experience, i) => (
                     <div key={i}
                         className='experience'

@@ -1,8 +1,7 @@
 'use client'
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import TimelineButton from './TimelineButton';
 import projects from './projectData';
 import { FaGithub, FaLink } from "react-icons/fa";
 import { GoDot, GoDotFill } from "react-icons/go";
@@ -256,14 +255,22 @@ const Projects = () => {
     const [scroll, setScroll] = useState(0);
     const [width, setWidth] = useState(0);
     const [scrollLevel, setScrollLevel] = useState(0);
-    const [index, setIndex] = useState(0);
 
-    const handleScroll = (e) => {
-        const element = e.target;
+    const projectsRef = React.createRef();
+
+    useEffect(() => {
+        const element = projectsRef.current;
+        setScroll(element.scrollLeft);
+        setWidth(element.offsetWidth);
+    }, []);
+
+    const handleScroll = () => {
+        const element = projectsRef.current;
         setScroll(element.scrollLeft);
         setWidth(element.offsetWidth);
         setScrollLevel(scroll / width);
-        setIndex(Math.round(scrollLevel));
+        const index = Math.round(scrollLevel);
+        
         setActive(index);
 
         element.onscrollend = () => {
@@ -275,12 +282,7 @@ const Projects = () => {
     }
 
     const handleDotClick = (index) => {
-        const element = document.getElementById('projects');
-        setScroll(element.scrollLeft);
-        setWidth(element.offsetWidth);
-        setScrollLevel(scroll / width);
-        setIndex(Math.round(scrollLevel));
-
+        const element = projectsRef.current;
         element.scrollTo({
             left: index * width,
             behavior: 'smooth',
@@ -292,7 +294,7 @@ const Projects = () => {
             <Title>
                 Projects
             </Title>
-            <ProjectsWrapper onScroll={handleScroll} id='projects'>
+            <ProjectsWrapper onScroll={handleScroll} ref={projectsRef}>
                 {projects.map((project, i) => (
                     <div key={i}
                         className='project'
