@@ -7,6 +7,7 @@ import { GoDot } from "react-icons/go";
 const NavContainer = styled.nav`
     position: absolute;
     display: flex;
+    flex-direction: column;
     left: 2rem;
     top: 0;
     bottom: 0;
@@ -25,7 +26,26 @@ const NavContainer = styled.nav`
     }
 
     @media (max-width: 640px) {
-        display: none;
+        left: 0;
+
+        .nav-main {
+            width: 3rem;
+            height: 12rem;
+        }
+    }
+`
+
+const NavLogo = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
+const LogoImage = styled.img`
+    width: 4rem;
+
+    @media (max-width: 640px) {
+        width: 3rem;
     }
 `
 
@@ -41,6 +61,9 @@ export const Navbar = ({active, setActive}) => {
 
     return (
         <NavContainer>
+            <NavLogo>
+                <LogoImage src='/images/portfolio-pic.png'/>
+            </NavLogo>
             <ul className='nav-main'>
                 {navCards.map((card, index) => (
                     <li key={index}>
