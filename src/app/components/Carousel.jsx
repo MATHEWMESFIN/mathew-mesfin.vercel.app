@@ -13,13 +13,16 @@ import styled from 'styled-components';
 
 const CarouselContainer = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: 40rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding: 5% 0;
+
+    @media (max-width: 880px) {
+        height: 45rem;
+    }
 `
 
 const CarouselCardContainer = styled.div`
@@ -69,24 +72,12 @@ const Card = ({ content }) => {
     )
 }
 
-export const Carousel = ({ setActive, active, children }) => {
+export const Carousel = ({ active, setActive, handleScroll, scrollLevel, children }) => {
   
     const count = React.Children.count(children);
-    const [scrollLevel, setScrollLevel] = useState(0);
-
-    const handleScroll = (e) => {
-        const { scrollTop, scrollHeight, clientHeight } = e.target;
-
-        const scrollFraction = scrollTop / (scrollHeight - clientHeight);
-        const scrollLevel = scrollFraction * (count - 1);
-        setScrollLevel(scrollLevel);
-
-        const active = Math.round(scrollLevel);
-        setActive(active);
-    }
 
     return (
-        <CarouselContainer onScroll={handleScroll}>
+        <CarouselContainer id='carousel' onScroll={handleScroll}>
             {React.Children.map(children, (child, i) => (
                 <CarouselCardContainer
                     key={i}
@@ -104,14 +95,41 @@ export const Carousel = ({ setActive, active, children }) => {
 
 export const App = () => {
     const [active, setActive] = useState(0);
-    const count = 5;
+    const count = 4;
+
+    const [scrollLevel, setScrollLevel] = useState(0);
+    const [scrollTop, setScrollTop] = useState(0);
+    const [scrollHeight, setScrollHeight] = useState(0);
+    const [clientHeight, setClientHeight] = useState(0);
+
+    const handleScroll = (e) => {
+        const element = e.target;
+        setScrollTop(element.scrollTop);
+        setScrollHeight(element.scrollHeight);
+        setClientHeight(element.clientHeight);
+
+        const scrollFraction = scrollTop / (scrollHeight - clientHeight);
+        const scrollLevel = scrollFraction * (count - 1);
+        setScrollLevel(scrollLevel);
+
+        const active = Math.round(scrollLevel);
+        setActive(active);
+    }
+
+    const handleNavClick = (index) => {
+        const element = document.getElementById('carousel');
+        element.scrollTo({
+            top: index * (scrollHeight / count),
+            behavior: 'smooth',
+        });
+    }
 
     return(
         <div className='app'>
-            <Navbar active={active} setActive={setActive}/>
-            <Carousel setActive={setActive} active={active}>
+            <Navbar active={active} setActive={setActive} handleNavClick={handleNavClick}/>
+            <Carousel setActive={setActive} active={active} handleScroll={handleScroll} scrollLevel={scrollLevel}>
                 <Card
-                    content={<Hero setActive={setActive} />}
+                    content={<Hero />}
                 />
                 <Card
                     content={<Experience />}

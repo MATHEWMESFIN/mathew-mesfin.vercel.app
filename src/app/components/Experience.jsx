@@ -1,8 +1,8 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import experiences from './experienceData';
 import styled from 'styled-components';
-import { GoDot } from 'react-icons/go';
+import { GoDot, GoDotFill } from 'react-icons/go';
 
 const ExperiencesSection = styled.div`
     position: relative;
@@ -23,8 +23,13 @@ const ExperiencesSection = styled.div`
         color: rgba(var(--foreground-color));
 
         .dot {
+            cursor: pointer;
             color: var(--color-offset);
-            transition: all 0.3s ease-in-out;
+            transition: all 0.5s ease-in-out;
+
+            &:hover {
+                color: rgb(var(--primary-color));
+            }
         }
     }
 
@@ -53,7 +58,12 @@ const ExperiencesWrapper = styled.div`
     width: 100%;
     height: 30rem;
     overflow-x: scroll;
-    gap: 2rem;
+
+
+    .experience {
+        transform: translateY(var(--top-offset));
+        transition: all 0.5s ease-out;
+    }
 
     @media (max-width: 880px) {
         height: 35rem;
@@ -231,12 +241,38 @@ const Experience = () => {
     const count = experiences.length;
     const [active, setActive] = useState(0);
 
+    const [scroll, setScroll] = useState(0);
+    const [width, setWidth] = useState(0);
+    const [scrollLevel, setScrollLevel] = useState(0);
+    const [index, setIndex] = useState(0);
+
     const handleScroll = (e) => {
         const element = e.target;
-        const scroll = element.scrollLeft;
-        const width = element.offsetWidth;
-        const index = Math.round((scroll / width));
+        setScroll(element.scrollLeft);
+        setWidth(element.offsetWidth);
+        setScrollLevel(scroll / width);
+        setIndex(Math.round(scrollLevel));
         setActive(index);
+
+        element.onscrollend = () => {
+            element.scrollTo({
+                left: index * width,
+                behavior: 'smooth',
+            });
+        }
+    }
+
+    const handleDotClick = (index) => {
+        const element = document.getElementById('experiences');
+        setScroll(element.scrollLeft);
+        setWidth(element.offsetWidth);
+        setScrollLevel(scroll / width);
+        setIndex(Math.round(scrollLevel));
+        
+        element.scrollTo({
+            left: index * width,
+            behavior: 'smooth',
+        });
     }
 
     return (
@@ -244,9 +280,13 @@ const Experience = () => {
             <Title>
                 Experience
             </Title>
-            <ExperiencesWrapper onScroll={handleScroll}>
+            <ExperiencesWrapper onScroll={handleScroll} id='experiences'>
                 {experiences.map((experience, i) => (
-                    <div key={i}>
+                    <div key={i}
+                        className='experience'
+                        style={{
+                            '--top-offset': i <= active ? '0' : `calc(${(i - scrollLevel) >= 0 && (i - scrollLevel)}% * -100)`,
+                        }}>
                         <ExperienceCard experience={experience} />
                     </div>
                 ))}
@@ -254,10 +294,11 @@ const Experience = () => {
             <div className='dots'>
                 {experiences.map((experience, i) => (
                     <div key={i} className='dot'
+                        onClick={() => handleDotClick(i)}
                         style={{
                             '--color-offset': i === active ? 'rgb(var(--primary-color))' : 'rgb(var(--foreground-color))',
                         }}>
-                        <GoDot/>
+                        {i === active ? <GoDotFill /> : <GoDot />}
                     </div>
                 ))}
             </div>

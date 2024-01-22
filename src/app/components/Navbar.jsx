@@ -8,7 +8,7 @@ const NavContainer = styled.nav`
     position: absolute;
     display: flex;
     flex-direction: column;
-    left: 2rem;
+    right: 2rem;
     top: 0;
     bottom: 0;
     align-items: center;
@@ -26,7 +26,7 @@ const NavContainer = styled.nav`
     }
 
     @media (max-width: 640px) {
-        left: 0;
+        right: 0;
 
         .nav-main {
             width: 2rem;
@@ -51,13 +51,17 @@ const LogoImage = styled.img`
 
 const NavDot= styled.div`
     border-radius: 9999px;
-    opacity: var(--opacity-offset);
     font-size: var(--font-size-offset);
     color: var(--color-offset);
     transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        color: rgb(var(--primary-color));
+    }
 `
 
-export const Navbar = ({active, setActive}) => {
+export const Navbar = ({active, setActive, handleNavClick}) => {
 
     return (
         <NavContainer>
@@ -68,12 +72,10 @@ export const Navbar = ({active, setActive}) => {
                 {navCards.map((card, index) => (
                     <li key={index}>
                         <NavDot
+                            onClick={() => handleNavClick(card.to)}
                             style={{
-                                '--active': card.to,
-                                '--offset': Math.abs(active - index) / 5,
-                                '--opacity-offset': active === card.to ? 1 : 0.5,
                                 '--font-size-offset': active === card.to ? '2rem' : '1rem',
-                                '--color-offset': active === card.to ? 'rgb(var(--primary-color))' : 'rgb(var(--foreground-color))'
+                                '--color-offset': active === card.to ? 'rgb(var(--primary-color))' : 'rgb(var(--foreground-color), 0.5)'
                             }}
                         >
                             {card.icon}

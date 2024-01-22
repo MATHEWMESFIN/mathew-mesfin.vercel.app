@@ -95,7 +95,7 @@ const HeroButtons = styled.div`
     }
 `
 
-const Hero = ({ setActive }) => {
+const Hero = () => {
     return (
         <HeroSection>
             <HeroName>
