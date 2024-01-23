@@ -59,12 +59,6 @@ const ExperiencesWrapper = styled.div`
     height: 30rem;
     overflow-x: scroll;
 
-
-    .experience {
-        transform: translateY(var(--top-offset));
-        transition: all 0.5s ease-out;
-    }
-
     @media (max-width: 880px) {
         height: 35rem;
     }
@@ -76,8 +70,10 @@ const ExperienceCardContainer = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 60rem;
-    height: 30rem;
+    margin: 0 1rem;
+    width: 58rem;
+    // safari handles overflow differently so I have to make the height a bit smaller
+    height: 29.9rem;
     border-radius: 1rem;
 
     @media (max-width: 1120px) {
@@ -263,7 +259,7 @@ const Experience = () => {
 
         element.onscrollend = () => {
             element.scrollTo({
-                left: index * width,
+                left: index * (width),
                 behavior: 'smooth',
             });
         }
@@ -272,7 +268,7 @@ const Experience = () => {
     const handleDotClick = (index) => {
         const element = experiencesRef.current;
         element.scrollTo({
-            left: index * width,
+            left: index * (width),
             behavior: 'smooth',
         });
     }
@@ -285,10 +281,7 @@ const Experience = () => {
             <ExperiencesWrapper onScroll={handleScroll} ref={experiencesRef}>
                 {experiences.map((experience, i) => (
                     <div key={i}
-                        className='experience'
-                        style={{
-                            '--top-offset': i <= active ? '0' : `calc(${(i - scrollLevel) >= 0 && (i - scrollLevel)}% * -100)`,
-                        }}>
+                        className='experience'>
                         <ExperienceCard experience={experience} />
                     </div>
                 ))}

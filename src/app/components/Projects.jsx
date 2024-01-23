@@ -60,12 +60,7 @@ const ProjectsWrapper = styled.div`
     width: 100%;
     height: 30rem;
     overflow-x: scroll;
-    overflow-y: hidden;
 
-    .project {
-        transform: translateY(var(--top-offset));
-        transition: all 0.5s ease-out;
-    }
 
     @media (max-width: 880px) {
         height: 35rem;
@@ -78,8 +73,10 @@ const ProjectCardContainer = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 60rem;
-    height: 30rem;
+    margin: 0 1rem;
+    width: 58rem;
+    // safari handles overflow differently so I have to make the height a bit smaller
+    height: 29.9rem;
     border-radius: 1rem;
 
     @media (max-width: 1120px) {
@@ -297,10 +294,7 @@ const Projects = () => {
             <ProjectsWrapper onScroll={handleScroll} ref={projectsRef}>
                 {projects.map((project, i) => (
                     <div key={i}
-                        className='project'
-                        style={{
-                            '--top-offset': i <= active ? '0' : `calc(${(i - scrollLevel) >= 0 && (i - scrollLevel)}% * -100)`,
-                        }}>
+                        className='project'>
                         <ProjectsCard project={project} />
                     </div>
                 ))}
