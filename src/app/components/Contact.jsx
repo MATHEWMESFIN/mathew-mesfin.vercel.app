@@ -156,10 +156,7 @@ const FormWrapper = styled.form`
     }
 
     @media (max-width: 880px) {
-        height: 29rem;
-    }
-
-    @media (max-width: 640px) {
+        height: 26rem;
 
         .email-subject-wrapper {
             flex-direction: column;

@@ -25,6 +25,15 @@ const NavContainer = styled.nav`
         padding: 1rem;
     }
 
+    @media (max-width: 880px) {
+        right: 1rem;
+
+        .nav-main {
+            width: 3rem;
+            height: 15rem;
+        }
+    }
+
     @media (max-width: 640px) {
         right: 0;
 
