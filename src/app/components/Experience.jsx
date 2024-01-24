@@ -77,16 +77,16 @@ const ExperienceCardContainer = styled.div`
     border-radius: 1rem;
 
     @media (max-width: 1120px) {
-        width: 45rem;
+        width: 43rem;
     }
 
     @media (max-width: 880px) {
-        width: 30rem;
-        height: 35rem;
+        width: 28rem;
+        height: 34.9rem;
     }
 
     @media (max-width: 640px) {
-        width: 20rem;
+        width: 18rem;
     }
     
 `
@@ -229,6 +229,15 @@ const SkillItem = styled.div`
 
     .skill-item-img {
         font-size: 1rem;
+    }
+
+    @media (max-width: 880px) {
+        padding: 0.25rem 0.5rem;
+
+        .skill-item-img {
+            font-size: 0.75rem;
+        }
+    
     }
 `
 

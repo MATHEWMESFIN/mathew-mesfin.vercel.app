@@ -81,7 +81,7 @@ const FormWrapper = styled.form`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 24rem;
+    height: 21rem;
     margin-top: 1rem;
     align-items: flex-start;
     background-color: rgb(var(--background-color), 0.5);
@@ -242,6 +242,29 @@ const ContactSuccess = styled.div`
     }
 `
 
+const FooterWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    font-size: 1rem;
+
+    .colored {
+        font-size: 1.5rem;
+        color: rgb(var(--primary-color));
+    }
+
+    @media (max-width: 880px) {
+        font-size: 0.75rem;
+    
+        .colored {
+            font-size: 1rem;
+        }
+    }
+`
+
 const Contact = () => {
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
@@ -322,6 +345,14 @@ const Contact = () => {
                     Send
             </button>
         </FormWrapper>
+
+        <FooterWrapper>
+            Made with
+            <span className='colored'>
+                {"\uFE0F \u2764 \uFE0F "}
+            </span> 
+            by Mathew Mesfin
+        </FooterWrapper>
 
         <ContactSuccess>
             <div 

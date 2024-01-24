@@ -80,16 +80,16 @@ const ProjectCardContainer = styled.div`
     border-radius: 1rem;
 
     @media (max-width: 1120px) {
-        width: 45rem;
+        width: 43rem;
     }
 
     @media (max-width: 880px) {
-        width: 30rem;
-        height: 35rem;
+        width: 28rem;
+        height: 34.9rem;
     }
 
     @media (max-width: 640px) {
-        width: 20rem;
+        width: 18rem;
     }
     
 `
@@ -105,7 +105,7 @@ const ProjectCardTop = styled.div`
     border: 0.5px solid rgba(var(--foreground-color), 0.5);
     border-radius: 1rem;
 
-    @media (max-width: 640px) {
+    @media (max-width: 880px) {
         justify-content: center;
     }
 `
@@ -163,6 +163,22 @@ const ProjectCardTopBody = styled.div`
             font-size: 1rem;
         }
     }
+
+    @media (max-width: 640px) {
+        padding: 0.5rem;
+
+        .heading {
+            font-size: 1rem;
+        }
+
+        .links {
+            font-size: 1rem;
+        }
+
+        .duration {
+            font-size: 0.75rem;
+        }
+    }
 `
 
 const ProjectCardBottom = styled.div`
@@ -186,8 +202,10 @@ const ProjectCardImg = styled.img.attrs(props => ({
     border-bottom-left-radius: 1rem;
     height: 100%;
 
-    @media (max-width: 640px) {
-        display: none;
+    @media (max-width: 880px) {
+        width: 50%;
+        object-fit: cover;
+
     }
 `
 
@@ -242,6 +260,15 @@ const SkillItem = styled.div`
     .skill-item-img {
         font-size: 1rem;
     }
+
+    @media (max-width: 880px) {
+        padding: 0.25rem 0.5rem;
+
+        .skill-item-img {
+            font-size: 0.75rem;
+        }
+    
+    }
 `
 
 const Projects = () => {
@@ -289,7 +316,7 @@ const Projects = () => {
     return (
         <ProjectsSection>
             <Title>
-                Projects
+                Work
             </Title>
             <ProjectsWrapper onScroll={handleScroll} ref={projectsRef}>
                 {projects.map((project, i) => (
