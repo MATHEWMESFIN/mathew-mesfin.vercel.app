@@ -316,7 +316,7 @@ const Projects = () => {
     return (
         <ProjectsSection>
             <Title>
-                Work
+                Projects
             </Title>
             <ProjectsWrapper onScroll={handleScroll} ref={projectsRef}>
                 {projects.map((project, i) => (
