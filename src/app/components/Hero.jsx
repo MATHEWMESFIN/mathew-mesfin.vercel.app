@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -56,7 +56,7 @@ const HeroSection = styled.div`
 `
 
 const HeroName = styled.h1`
-    font-size: 7rem;
+    font-size: 6rem;
     font-weight: 900;
     color: rgb(var(--foreground-color));
 
@@ -64,12 +64,17 @@ const HeroName = styled.h1`
         color: rgb(var(--primary-color));
     }
 
+    .special {
+        cursor: pointer;
+        transition: all 1s;
+    }
+
     @media (max-width: 1120px) {
-        font-size: 5.5rem;
+        font-size: 5rem;
     }
 
     @media (max-width: 880px) {
-        font-size: 5rem;
+        font-size: 3rem;
     }
 `
 
@@ -95,14 +100,24 @@ const HeroButtons = styled.div`
     }
 `
 
-const Hero = () => {
+const Hero = ({ handleSpecialName, specialNameAnimation }) => {
+
     return (
         <HeroSection>
             <HeroName>
                 <span className='colored'>
-                    Mathew {" "}
+                    MA 
+                    <span 
+                        className='special'
+                        onClick={handleSpecialName}
+                        style={{
+                            fontSize: specialNameAnimation ? '1.5em' : '1em',
+                        }}>
+                        T
+                    </span>
+                    HEW {" "}
                 </span>
-                Mesfin
+                MESFIN
             </HeroName>
             <h2 className='type-animation-container'>
                 <TypeAnimation

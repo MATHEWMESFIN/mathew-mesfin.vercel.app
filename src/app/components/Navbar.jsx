@@ -1,8 +1,7 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import navCards from './navCards';
 import styled from 'styled-components';
-import { GoDot } from "react-icons/go";
 
 const NavContainer = styled.nav`
     position: absolute;
@@ -45,17 +44,23 @@ const NavContainer = styled.nav`
 `
 
 const NavLogo = styled.div`
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 4rem;
+    height: 4rem;
 `
 
 const LogoImage = styled.img`
-    width: 4rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
 
-    @media (max-width: 640px) {
-        width: 2rem;
-    }
+    transition: all 0.4s;
 `
 
 const NavDot= styled.div`
@@ -70,12 +75,30 @@ const NavDot= styled.div`
     }
 `
 
-export const Navbar = ({active, setActive, handleNavClick}) => {
+export const Navbar = ({active, setActive, handleNavClick, handleSpecialName}) => {
+
+    const handleLogoClick = () => {
+        handleNavClick(0);
+        handleSpecialName();
+    }
+
+    const [logoHover, setLogoHover] = useState(false);
 
     return (
         <NavContainer>
             <NavLogo>
-                <LogoImage src='/images/portfolio-pic.png'/>
+                <LogoImage 
+                    src='/images/portfolio-pic.png' 
+                    style={{
+                        opacity: logoHover ? 0 : 1,
+                    }} />
+                <LogoImage 
+                    onMouseEnter={() => setLogoHover(true)} onMouseOut={() => setLogoHover(false)}
+                    onClick={() => handleLogoClick()}
+                    src='/images/portfolio-pic-purple.png' 
+                    style={{
+                        opacity: logoHover ? 1 : 0,
+                    }} />
             </NavLogo>
             <ul className='nav-main'>
                 {navCards.map((card, index) => (

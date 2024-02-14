@@ -133,12 +133,25 @@ export const App = () => {
         });
     }
 
+    // Special name animation
+    const [specialNameAnimation, setSpecialNameAnimation] = useState(false);
+
+    const handleSpecialName = () => {
+        setSpecialNameAnimation(true);
+
+        // wait for animation to finish
+        setTimeout(() => {
+            setSpecialNameAnimation(false);
+        }, 1000);
+    }
+    // ____________________________
+
     return(
         <div className='app'>
-            <Navbar active={active} setActive={setActive} handleNavClick={handleNavClick}/>
+            <Navbar active={active} setActive={setActive} handleNavClick={handleNavClick} handleSpecialName={handleSpecialName}/>
             <Carousel setActive={setActive} active={active} handleScroll={handleScroll} scrollLevel={scrollLevel} carouselElement={carouselElement}>
                 <Card
-                    content={<Hero />}
+                    content={<Hero handleSpecialName={handleSpecialName} specialNameAnimation={specialNameAnimation}/>}
                 />
                 <Card
                     content={<Experience />}
