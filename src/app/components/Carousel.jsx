@@ -142,7 +142,7 @@ export const App = () => {
         // wait for animation to finish
         setTimeout(() => {
             setSpecialNameAnimation(false);
-        }, 1000);
+        }, 2000);
     }
     // ____________________________
 

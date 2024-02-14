@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Link from 'next/link';
 import { FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
 
@@ -55,18 +55,33 @@ const HeroSection = styled.div`
     }
 `
 
+const bounce = keyframes`
+    0%   { transform: scale(1,1) translateY(0); }
+        10%  { transform: scale(1.1,.9) translateY(0); }
+        30%  { transform: scale(.9,1.1)   translateY(-55px);}
+        50%  { transform: scale(1.05,.95) translateY(0); }
+        58%  { transform: scale(1,1) translateY(-7px); }
+        65%  { transform: scale(1,1) translateY(0);}
+        100% { transform: scale(1,1) translateY(0);}
+`
+
 const HeroName = styled.h1`
     font-size: 6rem;
     font-weight: 900;
     color: rgb(var(--foreground-color));
 
     .colored {
+        display: inline-block;
         color: rgb(var(--primary-color));
     }
 
     .special {
+        display: inline-block;
         cursor: pointer;
-        transition: all 1s;
+    }
+
+    .animate-special {
+        animation: ${bounce} 1s ease infinite;
     }
 
     @media (max-width: 1120px) {
@@ -105,19 +120,16 @@ const Hero = ({ handleSpecialName, specialNameAnimation }) => {
     return (
         <HeroSection>
             <HeroName>
-                <span className='colored'>
+                <div className='colored'>
                     MA 
-                    <span 
-                        className='special'
-                        onClick={handleSpecialName}
-                        style={{
-                            fontSize: specialNameAnimation ? '1.5em' : '1em',
-                        }}>
+                    <div 
+                        className={specialNameAnimation? 'special animate-special': 'special'} 
+                        onClick={handleSpecialName}>
                         T
-                    </span>
-                    HEW {" "}
-                </span>
-                MESFIN
+                    </div>
+                    HEW
+                </div>
+                {" "}MESFIN
             </HeroName>
             <h2 className='type-animation-container'>
                 <TypeAnimation

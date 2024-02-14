@@ -78,8 +78,14 @@ const NavDot= styled.div`
 export const Navbar = ({active, setActive, handleNavClick, handleSpecialName}) => {
 
     const handleLogoClick = () => {
-        handleNavClick(0);
-        handleSpecialName();
+        if (active !== 0) {
+            handleNavClick(0);
+            setTimeout(() => {
+                handleSpecialName();
+            }, 500);
+        } else {
+            handleSpecialName();
+        }
     }
 
     const [logoHover, setLogoHover] = useState(false);
