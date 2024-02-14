@@ -137,6 +137,7 @@ export const App = () => {
     const [specialNameAnimation, setSpecialNameAnimation] = useState(false);
 
     const handleSpecialName = () => {
+        if (specialNameAnimation) return;
         setSpecialNameAnimation(true);
 
         // wait for animation to finish
