@@ -136,13 +136,19 @@ const Hero = ({ handleSpecialName, specialNameAnimation }) => {
                     sequence={[
                         // Same substring at the start will only be typed out once, initially
                         'Software Engineer',
-                        1000, // wait 1s before replacing "Mice" with "Hamsters"
+                        1000, // wait 1s before replacing the string
                         'Web Developer',
                         1000,
                         'Full Stack Developer',
                         1000,
                         'Problem Solver',
-                        1000
+                        1000,
+                        'Data Scientist',
+                        1000,
+                        'Student',
+                        1000,
+                        'Lab Admin',
+                        1000,
                     ]}
                     wrapper="span"
                     speed={50}
